@@ -48,21 +48,4 @@
     });
   }
 
-  // --- Platzhalter automatisch durch echtes Bild ersetzen, sobald vorhanden ---
-  // Jede .shot-media.empty mit data-src bekommt ein <img>; schlägt das Laden
-  // fehl (Datei noch nicht abgelegt), bleibt der Platzhaltertext stehen.
-  document.querySelectorAll(".shot-media.empty[data-src]").forEach(function (el) {
-    var src = el.getAttribute("data-src");
-    var probe = new Image();
-    probe.onload = function () {
-      el.classList.remove("empty");
-      el.textContent = "";
-      var img = document.createElement("img");
-      img.src = src;
-      img.loading = "lazy";
-      img.alt = el.getAttribute("data-alt") || "Screenshot aus Ru Services";
-      el.appendChild(img);
-    };
-    probe.src = src;
-  });
 })();
