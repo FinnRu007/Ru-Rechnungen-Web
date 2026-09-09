@@ -39,7 +39,7 @@ img/screenshots/     Programm-Screenshots (siehe README dort)
 
 Der Installer wird **nicht** im Repo gespeichert, sondern als Release-Asset.
 Der Button auf der Seite zeigt auf
-`releases/latest/download/Ru-Services-Setup-4.4.8.exe`.
+`releases/latest/download/Ru-Services-Setup-4.4.9.exe`.
 
 ## Deployment
 
