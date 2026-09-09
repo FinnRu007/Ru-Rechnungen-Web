@@ -26,20 +26,23 @@ img/screenshots/     Programm-Screenshots (siehe README dort)
 
 - **Screenshots** → PNGs nach `img/screenshots/` legen (Namen siehe
   `img/screenshots/README.md`). Kein Code-Eingriff nötig.
-- **Erklärvideo** → in `index.html` im Abschnitt `<!-- ERKLÄRVIDEO EINTRAGEN -->`
-  den Platzhalter-`<div>` durch das dort notierte `<iframe>` ersetzen und die
-  YouTube-Video-ID einsetzen.
+- **Erklärvideo** → in `index.html` im `#video`-Abschnitt die YouTube-Video-ID
+  im `<iframe src="…/embed/VIDEO_ID">` austauschen.
 - **Neue Programmversion** → als GitHub-Release in **diesem** Repo
-  veröffentlichen, die `.exe` als Asset `Ru-Services-Setup-<version>.exe`
-  anhängen. Danach in `index.html` die Versionsnummer und den Download-Link
-  (`releases/latest/download/…`) anpassen.
+  veröffentlichen und die `.exe` **zweimal** als Asset anhängen:
+  1. `Ru-Services-Setup-<version>.exe` (zur Nachvollziehbarkeit auf der Releases-Seite)
+  2. `Ru-Services-Setup.exe` (**fester Name ohne Version** – darauf zeigt der Website-Button)
+
+  Release als *Latest* markieren. **Die Website muss dann nicht angefasst werden.**
 - **Preis / Texte** → direkt in `index.html`.
 
 ## Download-Datei
 
 Der Installer wird **nicht** im Repo gespeichert, sondern als Release-Asset.
-Der Button auf der Seite zeigt auf
-`releases/latest/download/Ru-Services-Setup-4.4.9.exe`.
+Der Button auf der Seite zeigt fest auf
+`releases/latest/download/Ru-Services-Setup.exe` – GitHub leitet automatisch
+auf das jeweils neueste Release weiter. Damit der Link immer funktioniert, muss
+jedes neue Release ein Asset mit **genau diesem Namen** enthalten.
 
 ## Deployment
 
