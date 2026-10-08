@@ -1323,3 +1323,41 @@ p.caution, .topic p.caution{ margin: 10px 0 0; font-size: 0.84rem; color: var(--
 @media (max-width: 640px){
   .foerder-notice{ flex-direction: column; align-items: flex-start; }
 }
+.area .path{ overflow-wrap: anywhere; }
+.footer-seat a{ color: inherit; }
+/* Vereine: eigene Navigation, früher ins Menü umschalten */
+.theme-verein .nav a{ white-space: nowrap; }
+@media (max-width: 1080px){
+  .theme-verein .wordmark small{ display: none; }
+  .theme-verein .nav{
+    position: fixed;
+    inset: 60px 12px auto 12px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 10px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+  }
+  .theme-verein .nav a{ padding: 12px 14px; }
+  .theme-verein .nav a.nav-cta{ margin-left: 0; text-align: center; }
+  .theme-verein body.nav-open .nav,
+  body.nav-open .theme-verein .nav{ transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .theme-verein .nav-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px; height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+}

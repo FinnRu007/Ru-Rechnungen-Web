@@ -12,14 +12,14 @@ Abweichung: Die Schriften liegen lokal unter `fonts/` statt über Google Fonts
 ## Struktur
 
 ```
-index.html                         Ru-Services: Unternehmen, Bereiche, Grundsätze,
+index.html                         Ru-Services: Unternehmen, Angebot, Grundsätze,
                                    Nachhaltigkeit, Standort (DE- und EU-Flagge), Kontakt
 rechnungen/index.html              Rechnungsprogramm: E-Rechnung, ZUGFeRD/FeRD, Video,
                                    Screenshot-Rundgang, Funktionen, Free/Pro, FAQ, Download
 rechnungen/pflichtangaben/         Pflichtangaben auf Rechnungen mit Gesetzeslinks
 rechnungen/e-rechnung-lesen/       Werkzeug: ZUGFeRD/XRechnung im Browser lesen (leser.js)
-vereine/index.html                 KI-Wissensportal für Vereine (gefördert, eigene
-                                   grüne Farbe und eigene Navigation, ohne Verkauf)
+vereine/index.html                 KI-Wissensportal für Vereine: eigenständiges,
+                                   gefördertes Projekt (grün, eigene Navigation)
 impressum.html                     Impressum (§ 5 DDG)
 datenschutz.html                   Datenschutzerklärung (DSGVO)
 404.html                           Fehlerseite
@@ -54,8 +54,11 @@ im Repo-Ordner, dann <http://localhost:8000>.
 - **Pflichtangaben-Seite**: Stand Oktober 2026. Bei Gesetzesänderungen
   (UStG, UStDV, BMF-Schreiben) anpassen und das Datum oben ändern.
 - **Vereine**: gefördert durch das Land NRW („2.000 x 1.000 Euro für das
-  Engagement“, bewilligt Oktober 2026). Bewusst getrennt vom Verkauf: keine
-  Preise, kein Download-Knopf, keine Werbung. Förderhinweis steht in
+  Engagement“, bewilligt Oktober 2026). Streng getrennt: Startseite, Rechnungen,
+  Impressum und Datenschutz verlinken nicht auf /vereine/, und die Vereinsseite
+  nennt Ru-Services nur dezent (Fußzeile, E-Rechnung-Leser, „Wer steckt
+  dahinter“). Keine Preise, kein Download-Knopf, keine Werbung auf der
+  geförderten Seite. Förderhinweis steht in
   `#foerderung` und oben im Hero, mit dem Programmlogo
   `img/foerderung/logo-2000x1000-engagement-nrw.png` (unverändert, auf weißem
   Grund, nur proportional skalieren). Vorgaben aus dem

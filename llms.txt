@@ -1,6 +1,6 @@
 # Ru-Services
 
-> Ru-Services ist ein Einzelunternehmen von Finn Rummel mit Sitz in Nordrhein-Westfalen, Deutschland. Es entwickelt das Windows-Rechnungsprogramm „Ru Services“ und betreibt ein kostenloses, vom Land Nordrhein-Westfalen gefördertes KI-Wissensportal für Vereine.
+> Ru-Services ist ein Einzelunternehmen von Finn Rummel mit Sitz in Nordrhein-Westfalen, Deutschland. Es entwickelt das Windows-Rechnungsprogramm „Ru Services“.
 
 ## Rechnungen
 
@@ -8,7 +8,7 @@
 - [E-Rechnung lesen](https://ru-services.de/rechnungen/e-rechnung-lesen/): kostenloses Browser-Werkzeug, zeigt Inhalt und Profil von ZUGFeRD-, Factur-X- und XRechnung-Dateien an. Die Datei bleibt auf dem Gerät. Keine Validierung.
 - [Pflichtangaben auf Rechnungen](https://ru-services.de/rechnungen/pflichtangaben/): Überblick zu § 14 UStG, § 14a UStG, Kleinunternehmer (§ 19 UStG, § 34a UStDV), Kleinbetragsrechnungen (§ 33 UStDV), E-Rechnungspflicht und Aufbewahrung (§ 14b UStG), mit Gesetzeslinks. Keine Steuerberatung.
 
-## Vereine
+## Eigenständiges Projekt auf dieser Domain
 
 - [KI-Wissensportal für Vereine](https://ru-services.de/vereine/): kostenloses, nicht kommerzielles Informationsangebot für Vereine und Ehrenamtliche, gefördert durch das Land Nordrhein-Westfalen (Landesprogramm „2.000 x 1.000 Euro für das Engagement“). Erste Umsetzung: Excel-Export aus der Vereinssoftware mit KI fürs Finanzamt aufbereiten, ohne echte Mitgliederdaten an die KI zu geben. Außerdem Möglichkeiten von KI im Verein, Datenschutzregeln und E-Rechnungen lesen. Keine Steuer- oder Rechtsberatung.
 
