@@ -54,8 +54,9 @@ im Repo-Ordner, dann <http://localhost:8000>.
 - **Pflichtangaben-Seite**: Stand Oktober 2026. Bei Gesetzesänderungen
   (UStG, UStDV, BMF-Schreiben) anpassen und das Datum oben ändern.
 - **Vereine**: gefördert durch das Land NRW („2.000 x 1.000 Euro für das
-  Engagement“, bewilligt Oktober 2026). Streng getrennt: Startseite, Rechnungen,
-  Impressum und Datenschutz verlinken nicht auf /vereine/, und die Vereinsseite
+  Engagement“, bewilligt Oktober 2026). Getrennt: Startseite, Rechnungen, Impressum
+  und Datenschutz zeigen nur den Menüreiter „Vereine“, sonst keine Inhalte
+  zum Projekt, und die Vereinsseite
   nennt Ru-Services nur dezent (Fußzeile, E-Rechnung-Leser, „Wer steckt
   dahinter“). Keine Preise, kein Download-Knopf, keine Werbung auf der
   geförderten Seite. Förderhinweis steht in
