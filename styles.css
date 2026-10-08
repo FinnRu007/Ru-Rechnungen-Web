@@ -1317,3 +1317,9 @@ p.caution, .topic p.caution{ margin: 10px 0 0; font-size: 0.84rem; color: var(--
   .verein-ribbon .wrap{ flex-direction: column; gap: 0; }
   .verein-ribbon span[aria-hidden]{ display: none; }
 }
+.foerder-notice{ display: flex; align-items: center; gap: 18px; }
+.foerder-logo.small{ padding: 8px; flex: 0 0 auto; }
+.foerder-logo.small img{ width: 180px; }
+@media (max-width: 640px){
+  .foerder-notice{ flex-direction: column; align-items: flex-start; }
+}

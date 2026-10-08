@@ -30,6 +30,7 @@ fonts/                             Manrope und Inter (woff2, SIL OFL 1.1)
 vendor/pdfjs/                      pdf.js 4.10.38 legacy build (Apache-2.0), nur fürs Werkzeug
 img/screenshots/                   Programm-Screenshots
 img/flags/                         Flaggen Deutschland und EU (SVG)
+img/foerderung/                    Logo Landesprogramm 2.000 x 1.000 Euro (NRW)
 robots.txt, sitemap.xml, llms.txt  Suchmaschinen und KI-Assistenten
 ```
 
@@ -55,8 +56,9 @@ im Repo-Ordner, dann <http://localhost:8000>.
 - **Vereine**: gefördert durch das Land NRW („2.000 x 1.000 Euro für das
   Engagement“, bewilligt Oktober 2026). Bewusst getrennt vom Verkauf: keine
   Preise, kein Download-Knopf, keine Werbung. Förderhinweis steht in
-  `#foerderung`; das offizielle Logo (membox, Link in Notion) unverändert unter
-  `img/foerderung/` ablegen und dort einbinden. Vorgaben aus dem
+  `#foerderung` und oben im Hero, mit dem Programmlogo
+  `img/foerderung/logo-2000x1000-engagement-nrw.png` (unverändert, auf weißem
+  Grund, nur proportional skalieren). Vorgaben aus dem
   Bewilligungsbescheid haben Vorrang. Vereine nur mit deren Einverständnis
   namentlich nennen.
 
