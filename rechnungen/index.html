@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="de" class="has-subnav">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rechnungsprogramm für Windows mit E-Rechnung (ZUGFeRD) | Ru-Services</title>
+<meta name="description" content="Ru Services ist ein Rechnungsprogramm für Windows: Rechnungen, Lieferscheine, Angebote und E-Rechnung nach ZUGFeRD / Factur-X. Läuft lokal, ohne Cloud, ohne Abo, ohne Konto. Kostenlose Version zum Download.">
+<meta name="theme-color" content="#2A4CE0">
+<link rel="canonical" href="https://ru-services.de/rechnungen/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Ru-Services">
+<meta property="og:title" content="Ru Services: Rechnungsprogramm für Windows mit E-Rechnung">
+<meta property="og:description" content="Rechnungen, Lieferscheine, Angebote und E-Rechnung nach ZUGFeRD. Lokal, ohne Abo. Kostenlose Version zum Download.">
+<meta property="og:url" content="https://ru-services.de/rechnungen/">
+<meta property="og:image" content="https://ru-services.de/img/screenshots/vorschau.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ru Services",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "inLanguage": "de",
+  "url": "https://ru-services.de/rechnungen/",
+  "downloadUrl": "https://github.com/FinnRu007/Ru-Rechnungen-Web/releases/latest/download/Ru-Services-Setup.exe",
+  "description": "Rechnungsprogramm für Windows: Rechnungen, Lieferscheine, Angebote und E-Rechnung nach ZUGFeRD / Factur-X. Läuft lokal ohne Cloud und ohne Abo.",
+  "publisher": { "@type": "Organization", "name": "Ru-Services", "url": "https://ru-services.de/" },
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "Pro", "price": "200", "priceCurrency": "EUR" }
+  ]
+}
+</script>
+</head>
+<body data-page="rechnungen">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="wordmark"><span class="dot"></span>Ru-Services</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Hauptmenü">
+      <a href="/">Ru-Services</a>
+      <a href="/rechnungen/" aria-current="page">Rechnungen</a>
+      <a href="/vereine/">Vereine</a>
+      <a href="/rechnungen/#download" class="nav-cta">Kostenlos herunterladen</a>
+    </nav>
+  </div>
+  <nav class="subnav" aria-label="Rechnungen">
+    <div class="subnav-inner">
+      <span class="sub-label">Rechnungen</span>
+      <a href="/rechnungen/#e-rechnung">E-Rechnung</a>
+      <a href="/rechnungen/#zugferd">ZUGFeRD</a>
+      <a href="/rechnungen/#rundgang">Rundgang</a>
+      <a href="/rechnungen/#funktionen">Funktionen</a>
+      <a href="/rechnungen/#preis">Preise</a>
+      <a href="/rechnungen/#faq">FAQ</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="/rechnungen/e-rechnung-lesen/">E-Rechnung lesen</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Ru-Services</a><span aria-hidden="true">/</span><span>Rechnungen</span></nav>
+        <span class="badge"><span class="dot"></span>Für Windows 10 und 11</span>
+        <h1 class="hero-title">Rechnungen und <span class="accent">E&#8209;Rechnungen</span> schreiben. Einfach, lokal, ohne Abo.</h1>
+        <p class="hero-sub">
+          Ru Services ist ein Rechnungsprogramm für kleine Betriebe:
+          Rechnungen, Lieferscheine und Angebote, dazu E-Rechnungen nach
+          EN&nbsp;16931 (ZUGFeRD&nbsp;/&nbsp;Factur-X). Es läuft komplett auf
+          deinem Rechner, ohne Cloud, ohne Abo und ohne Benutzerkonto.
+        </p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary btn-xl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Kostenlos herunterladen
+          </a>
+          <a href="#preis" class="btn btn-secondary btn-xl">Pro ansehen</a>
+        </div>
+        <p class="hero-note">
+          Kostenlose Version ohne Zeitlimit · <strong>keine Registrierung</strong> ·
+          Installer ca. 41&nbsp;MB · auch ohne Administratorrechte installierbar
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><b>0&nbsp;€</b><span>für die kostenlose Version, dauerhaft</span></div>
+          <div class="stat"><b>Kein Abo</b><span>Pro einmalig 200&nbsp;€</span></div>
+          <div class="stat"><b>Lokal</b><span>keine Cloud, Daten bleiben auf deinem Rechner</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ E-RECHNUNG ============ -->
+  <section id="e-rechnung" class="on-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Warum jetzt</p>
+        <h2 class="section-title">Die E-Rechnung kommt Schritt für Schritt</h2>
+        <p class="lede">
+          Seit dem 1.&nbsp;Januar 2025 muss jedes Unternehmen in Deutschland
+          E-Rechnungen von anderen Unternehmen <strong>empfangen</strong> können.
+          Die Pflicht zum <strong>Ausstellen</strong> kommt gestaffelt. Nach den
+          Übergangsfristen genügt für Rechnungen zwischen Unternehmen im Inland
+          eine einfache PDF grundsätzlich nicht mehr.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item is-now">
+          <p class="year">seit 2025</p>
+          <p>Jedes Unternehmen muss E-Rechnungen <strong>empfangen und lesen</strong> können, auch Kleinunternehmer. Ru&nbsp;Services liest ZUGFeRD&nbsp;/&nbsp;Factur-X und XRechnung, <strong>in jeder Version, auch kostenlos</strong>. Oder direkt im Browser: <a href="/rechnungen/e-rechnung-lesen/">E-Rechnung lesen</a>.</p>
+        </div>
+        <div class="tl-item">
+          <p class="year">ab 2027</p>
+          <p>Unternehmen mit mehr als 800.000&nbsp;€ Gesamtumsatz im Vorjahr müssen E-Rechnungen <strong>ausstellen</strong>. Mit Ru&nbsp;Services&nbsp;Pro erzeugst du sie nach EN&nbsp;16931.</p>
+        </div>
+        <div class="tl-item">
+          <p class="year">ab 2028</p>
+          <p>Die Ausstellungspflicht gilt <strong>für alle</strong> Rechnungen zwischen Unternehmen im Inland. Ausnahmen gibt es unter anderem für Kleinunternehmer und für Kleinbetragsrechnungen bis 250&nbsp;€.</p>
+        </div>
+      </div>
+      <p class="notice">
+        Angaben ohne Gewähr, Stand Oktober 2026. Maßgeblich sind das
+        Umsatzsteuergesetz, die Umsatzsteuer-Durchführungsverordnung und die
+        Schreiben des Bundesfinanzministeriums. Ru&nbsp;Services ersetzt keine
+        Steuerberatung. Mehr dazu unter
+        <a href="/rechnungen/pflichtangaben/">Pflichtangaben auf Rechnungen</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ZUGFeRD / FeRD ============ -->
+  <section id="zugferd">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Standard</p>
+        <h2 class="section-title">E-Rechnung nach ZUGFeRD</h2>
+      </div>
+      <div class="ferd-box">
+        <div>
+          <h3>Eine PDF für das Auge, eine XML für die Software</h3>
+          <p>
+            ZUGFeRD ist ein hybrides Rechnungsformat: Die Rechnung ist eine
+            normale PDF, in die eine XML-Datei mit allen Rechnungsdaten
+            eingebettet ist. Herausgegeben wird der Standard vom Forum
+            elektronische Rechnung Deutschland (FeRD). ZUGFeRD&nbsp;2 ist technisch
+            identisch mit dem französischen Factur-X und setzt die europäische
+            Norm EN&nbsp;16931 um.
+          </p>
+          <ul>
+            <li>Ru&nbsp;Services&nbsp;Pro erzeugt E-Rechnungen im Profil EN&nbsp;16931 (früher COMFORT) als PDF/A-3.</li>
+            <li>Die Profile MINIMUM und BASIC WL gelten laut Bundesfinanzministerium nicht als E-Rechnung. Ru&nbsp;Services nutzt sie deshalb nicht.</li>
+            <li>Bei ZUGFeRD ist grundsätzlich der XML-Teil maßgeblich. Ru&nbsp;Services erzeugt PDF und XML aus denselben Daten.</li>
+          </ul>
+          <div class="ferd-links">
+            <a class="btn btn-secondary" href="https://www.ferd-net.de" target="_blank" rel="noopener">Zur Website des FeRD</a>
+            <a class="btn btn-secondary" href="https://www.ferd-net.de/standards/zugferd" target="_blank" rel="noopener">ZUGFeRD beim FeRD</a>
+          </div>
+          <p style="margin:14px 0 0;font-size:0.84rem;color:var(--ink-faint);">
+            Ru&nbsp;Services ist vom FeRD weder geprüft noch zertifiziert. Der Name
+            ZUGFeRD kennzeichnet nur das unterstützte Rechnungsformat.
+          </p>
+        </div>
+        <!--
+          ZUGFeRD-LOGO: Datei aus dem offiziellen FeRD-Download
+          (ferd-net.de > Publikationen > ZUGFeRD-Logo, Bildschirm-Version als SVG)
+          unter /img/zugferd/zugferd-logo.svg ablegen und diesen Block einkommentieren.
+          FeRD-Vorgaben: nur weißer Hintergrund, Schutzraum einhalten, nur proportional
+          skalieren, nicht verändern, Logo verlinkt auf www.ferd-net.de.
+          Innerhalb einer Woche nach Veröffentlichung die URL an das FeRD melden.
+
+        <a class="ferd-logo" href="https://www.ferd-net.de" target="_blank" rel="noopener">
+          <img src="/img/zugferd/zugferd-logo.svg" alt="ZUGFeRD Logo" width="220">
+        </a>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO ============ -->
+  <section id="video" class="on-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Video-Rundgang</p>
+        <h2 class="section-title">Das Programm im Überblick</h2>
+        <p class="lede">
+          Installation, eine Rechnung in der kostenlosen Version, was Pro
+          zusätzlich kann, eine E-Rechnung mit Pro und die Einstellungen. In
+          gut sechs Minuten.
+        </p>
+      </div>
+      <div class="video-frame is-consent" id="videoFrame" data-video-id="UhQFGFLeNbg" data-video-title="Ru Services Erklärvideo">
+        <div class="video-consent">
+          <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg></div>
+          <h3>Erklärvideo ansehen</h3>
+          <p>
+            Das Video liegt bei YouTube. Erst wenn du auf „Video laden“ klickst,
+            wird eine Verbindung zu YouTube (Google) hergestellt. Dabei werden
+            Daten wie deine IP-Adresse an Google übertragen, auch in die USA.
+            Mehr dazu in der <a href="/datenschutz.html#youtube">Datenschutzerklärung</a>.
+          </p>
+          <button class="btn btn-primary" type="button" id="videoLoad">Video laden</button>
+          <p class="small"><a href="https://www.youtube.com/watch?v=UhQFGFLeNbg" target="_blank" rel="noopener">Oder direkt auf YouTube ansehen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREENSHOT-RUNDGANG ============ -->
+  <section id="rundgang">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Bedienung</p>
+        <h2 class="section-title">So arbeitest du mit Ru Services</h2>
+        <p class="lede">
+          Ein Fenster, sieben Bereiche. Klick auf ein Bild, um es groß zu sehen.
+        </p>
+      </div>
+
+      <div class="shot">
+        <div class="shot-text">
+          <p class="shot-num">SCHRITT 1 · ERSTELLEN</p>
+          <h3>Rechnung, Lieferschein, Angebot oder Auftragsbestätigung</h3>
+          <p>
+            Kunde wählen, Positionen aus der Artikelliste hinzufügen, fertig.
+            Menge, Einzelpreis, USt-Satz und Rabatt je Position; Gesamt-Rabatt
+            und Skonto auf die Summe.
+          </p>
+          <ul>
+            <li>Einmalkunden und Einmalartikel direkt beim Erstellen anlegen</li>
+            <li>Leistungsdatum oder Leistungszeitraum, Bestellnummer</li>
+            <li>Schalter „Ohne USt. verkaufen“ für Kleinunternehmer nach §&nbsp;19 UStG</li>
+            <li>ZUGFeRD (E-Rechnung) pro Rechnung an- oder ausschalten</li>
+            <li>Als Entwurf speichern und später weiterbearbeiten</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/erstellen.png">
+          <img src="/img/screenshots/erstellen.png" loading="lazy" alt="Reiter „Erstellen“ in Ru Services: Kunde auswählen, Positionen mit Menge, Einzelpreis, USt und Rabatt hinzufügen, Skonto, ZUGFeRD-Schalter und Kleinunternehmer-Schalter.">
+        </a>
+      </div>
+
+      <div class="shot flip">
+        <div class="shot-text">
+          <p class="shot-num">SCHRITT 2 · PRÜFEN UND ERSTELLEN</p>
+          <h3>Vorschau mit Zwei-Stufen-Prüfung</h3>
+          <p>
+            Vor dem Erstellen zeigt Ru&nbsp;Services die fertige PDF und prüft in
+            zwei Stufen: gesetzliche Mindestangaben (EN&nbsp;16931 / §&nbsp;14 UStG)
+            und empfohlene Angaben, jeweils mit Ampel.
+          </p>
+          <ul>
+            <li>PDF-Vorschau: blättern, zoomen, Vollbild, extern öffnen</li>
+            <li>Fehlt eine Pflichtangabe, wird die E-Rechnung nicht erzeugt</li>
+            <li>E-Rechnung nach EN&nbsp;16931 (Factur-X&nbsp;/&nbsp;ZUGFeRD, Profil EN&nbsp;16931, PDF/A-3)</li>
+            <li>Automatisch ablegen oder Speicherort selbst wählen</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/vorschau.png">
+          <img src="/img/screenshots/vorschau.png" loading="lazy" alt="Vorschau-Fenster: links die Zwei-Stufen-Prüfung mit grünen Häkchen für die gesetzlichen Mindestangaben nach EN 16931 / § 14 UStG, rechts die fertige PDF-Rechnung.">
+        </a>
+      </div>
+
+      <div class="shot">
+        <div class="shot-text">
+          <p class="shot-num">BEREICH · KUNDEN</p>
+          <h3>Kundenverwaltung</h3>
+          <p>
+            Alle Kunden mit Anschrift, E-Mail und USt-IdNr. an einem Ort.
+            Kennzeichnung, ob ein Kunde eine E-Rechnung erwartet.
+          </p>
+          <ul>
+            <li>Einmalkunden getrennt, zählen nicht ins Limit der kostenlosen Version</li>
+            <li>Alle Daten als lesbare JSON-Dateien in deinem Datenordner</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/kunden.png">
+          <img src="/img/screenshots/kunden.png" loading="lazy" alt="Reiter „Kunden“: Liste mit Firma, Ort, E-Mail, USt-IdNr. und Kennzeichen, ob der Kunde eine E-Rechnung erwartet.">
+        </a>
+      </div>
+
+      <div class="shot flip">
+        <div class="shot-text">
+          <p class="shot-num">BEREICH · ARTIKEL</p>
+          <h3>Artikelverwaltung</h3>
+          <p>
+            Artikel mit Preis, Einheit, USt-Satz, Gewicht, Artikelnummer und
+            GTIN/EAN. Eigene Mengeneinheiten frei anlegen.
+          </p>
+          <ul>
+            <li>Gewicht je Artikel für Lieferscheine mit Gesamtgewicht</li>
+            <li>Einmalartikel für einmalige Positionen</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/artikel.png">
+          <img src="/img/screenshots/artikel.png" loading="lazy" alt="Reiter „Artikel“: Liste mit Bezeichnung, Preis, Einheit, USt-Satz und Artikelnummer; Schaltfläche „Einheiten verwalten“.">
+        </a>
+      </div>
+
+      <div class="shot">
+        <div class="shot-text">
+          <p class="shot-num">BEREICH · VERWALTUNG</p>
+          <h3>Alle Dokumente mit Status im Blick</h3>
+          <p>
+            Jede erstellte Rechnung, jeder Lieferschein, jedes Angebot mit
+            farbigem Status, sortierbar nach jeder Spalte.
+          </p>
+          <ul>
+            <li>Status je Rechnung: Offen · Versendet · Bezahlt · Storniert</li>
+            <li>PDF öffnen, Entwurf fortsetzen, als neue Rechnung duplizieren</li>
+            <li>Löschen entfernt auch die PDF-Datei</li>
+            <li>Lückenlose Nummernkreise mit Platzhalter <code>{JAHR}</code> und Zähler-Reset zum Jahreswechsel</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/verwaltung.png">
+          <img src="/img/screenshots/verwaltung.png" loading="lazy" alt="Reiter „Verwaltung“: Dokumentenübersicht mit farbigem Status (Bezahlt, Offen), Nummer, Kunde, Datum, Betrag und ZUGFeRD-Kennung; Status-Buttons und „Löschen (inkl. PDF)“.">
+        </a>
+      </div>
+
+      <div class="shot flip">
+        <div class="shot-text">
+          <p class="shot-num">BEREICH · E-RECHNUNG EINLESEN</p>
+          <h3>Eingehende E-Rechnungen lesen</h3>
+          <p>
+            PDF mit eingebettetem ZUGFeRD&nbsp;/&nbsp;Factur-X oder reine
+            XRechnung-XML öffnen. Ru&nbsp;Services zeigt Verkäufer, Käufer,
+            Positionen und Summen übersichtlich an.
+          </p>
+          <ul>
+            <li>Format wird automatisch erkannt</li>
+            <li>Eingebettete Roh-XML auf Wunsch anzeigen</li>
+            <li>In jeder Version enthalten, auch kostenlos</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/erechnung-einlesen.png">
+          <img src="/img/screenshots/erechnung-einlesen.png" loading="lazy" alt="Reiter „E-Rechnung einlesen“: erkanntes Format ZUGFeRD / Factur-X, dazu Verkäufer, Käufer, Rechnungsdaten und Summen einer eingelesenen E-Rechnung.">
+        </a>
+      </div>
+
+      <div class="shot">
+        <div class="shot-text">
+          <p class="shot-num">BEREICH · EINSTELLUNGEN</p>
+          <h3>Einmal einrichten, dann läuft es</h3>
+          <p>
+            Firmendaten, Steuernummer, Bankverbindung, Logo, Nummernkreise,
+            Standard-Skonto, PDF-Vorlage und E-Rechnungs-Optionen an einer
+            Stelle.
+          </p>
+          <ul>
+            <li>Datenordner frei wählbar: lokaler Ordner oder Netzlaufwerk</li>
+            <li>Automatische monatliche Datensicherung</li>
+            <li>Eigenes Firmenlogo auf jeder PDF</li>
+          </ul>
+        </div>
+        <a class="shot-media" href="/img/screenshots/einstellungen.png">
+          <img src="/img/screenshots/einstellungen.png" loading="lazy" alt="Reiter „Einstellungen“: frei wählbarer Datenordner und aufklappbare Abschnitte für Steuer und Identität, Firmendaten, Bankverbindung, Nummernkreise, Skonto, PDF-Vorlage, E-Rechnung und Lizenz.">
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ VORTEILE ============ -->
+  <section id="vorteile" class="on-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Warum Ru Services</p>
+        <h2 class="section-title">Gemacht für kleine Betriebe in Deutschland</h2>
+      </div>
+      <div class="cap-grid">
+        <div class="cap">
+          <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2M5 12a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2"/></svg></div>
+          <h3>Läuft offline</h3>
+          <p>Kein Internet nötig, kein Server, kein Konto. Das Programm startet und arbeitet auch ohne Netz: im Büro, auf dem Hof, im Zug.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Deine Daten bleiben bei dir</h3>
+          <p>Alle Rechnungen, Kunden und Artikel liegen als lesbare JSON-Dateien in einem Ordner, den du bestimmst. Rechnungs-, Kunden- und Artikeldaten werden nicht übertragen.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Keine Limits, unbegrenzter Umsatz</h3>
+          <p>Ru&nbsp;Services rechnet keine Belege, keine Umsätze und keine Nutzer ab. In Pro auch unbegrenzt viele Kunden und Artikel.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+          <h3>Für deutsche Rechnungspflichten</h3>
+          <p>Berücksichtigt die <a href="/rechnungen/pflichtangaben/">Pflichtangaben nach §&nbsp;14 UStG</a>, den Kleinunternehmer-Hinweis nach §&nbsp;19 UStG und die Struktur nach EN&nbsp;16931.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><path d="M21 3v6h-6"/></svg></div>
+          <h3>Hilft bei ordentlicher Ablage</h3>
+          <p>Lückenlose Nummernkreise, automatische Monatssicherungen und eine geordnete Belegablage unterstützen dich dabei, die GoBD einzuhalten. Die Verantwortung für die Buchführung bleibt bei dir.</p>
+        </div>
+        <div class="cap">
+          <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.9 4.9l2.8 2.8m8.6 8.6 2.8 2.8M2 12h4m12 0h4M4.9 19.1l2.8-2.8m8.6-8.6 2.8-2.8"/></svg></div>
+          <h3>Einmal zahlen statt Abo</h3>
+          <p>Die kostenlose Version bleibt kostenlos. Pro kostet einmalig 200&nbsp;€. Kein Monatsbeitrag, keine Zwangs-Updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FUNKTIONEN ============ -->
+  <section id="funktionen">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Funktionsübersicht</p>
+        <h2 class="section-title">Was das Programm kann</h2>
+      </div>
+      <div class="feature-cols">
+        <div class="feature-box">
+          <h3>In beiden Versionen <span class="mini-pill free">Free und Pro</span></h3>
+          <p>Alles, was du für Rechnungen und Lieferscheine brauchst.</p>
+          <ul>
+            <li>Rechnungen und Lieferscheine als PDF, mit eigenem Firmenlogo</li>
+            <li>Kunden- und Artikelverwaltung, Einmalkunden und Einmalartikel</li>
+            <li>E-Rechnungen einlesen (ZUGFeRD&nbsp;/&nbsp;Factur-X, XRechnung)</li>
+            <li>PDF-Vorschau mit Zwei-Stufen-Prüfung (EN&nbsp;16931 / §&nbsp;14 UStG)</li>
+            <li>Dokumentenübersicht mit Status, geordnete Ablage, lückenlose Nummernkreise</li>
+            <li>Kleinunternehmer-Modus nach §&nbsp;19 UStG, Skonto und Rabatt</li>
+            <li>Läuft komplett lokal, Daten als JSON, automatische Monatssicherung</li>
+          </ul>
+        </div>
+        <div class="feature-box pro">
+          <h3>Nur in Pro <span class="mini-pill pro">Pro · 200&nbsp;€</span></h3>
+          <p>Alles aus Free, dazu:</p>
+          <ul>
+            <li><strong>Angebote und Auftragsbestätigungen</strong> (mit „gültig bis“, Freibleibend-Hinweis, voraussichtlichem Liefertermin)</li>
+            <li><strong>E-Rechnung erzeugen:</strong> strukturierte XML nach EN&nbsp;16931 in der PDF (ZUGFeRD&nbsp;/&nbsp;Factur-X, Profil EN&nbsp;16931, PDF/A-3)</li>
+            <li><strong>Unbegrenzt viele Kunden und Artikel</strong></li>
+            <li><strong>Alle PDF-Vorlagen:</strong> „Modern“ und „Kompakt“ zusätzlich zu „Klassisch“</li>
+            <li><strong>Feste Steuernummer über den Lizenzschlüssel:</strong> an einen Betrieb gebunden, in den Einstellungen gesperrt</li>
+            <li>E-Mail-Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PREIS / VERGLEICH ============ -->
+  <section id="preis" class="on-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Free und Pro</p>
+        <h2 class="section-title">Kostenlos starten, Pro einmalig 200&nbsp;€</h2>
+        <p class="lede">
+          Die kostenlose Version ist voll nutzbar und ohne Zeitlimit. Pro ist
+          eine einmalige Zahlung, kein Abo.
+        </p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Funktion</th>
+              <th class="col-free">Free</th>
+              <th class="col-pro">Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Rechnungen, Lieferscheine</td><td class="col-free"><span class="yes" aria-label="enthalten">✓</span></td><td class="col-pro"><span class="yes" aria-label="enthalten">✓</span></td></tr>
+            <tr><td>Angebote, Auftragsbestätigungen</td><td class="col-free"><span class="no" aria-label="nicht enthalten">✕</span></td><td class="col-pro"><span class="yes" aria-label="enthalten">✓</span></td></tr>
+            <tr><td>E-Rechnung (ZUGFeRD / Factur-X) einlesen</td><td class="col-free"><span class="yes" aria-label="enthalten">✓</span></td><td class="col-pro"><span class="yes" aria-label="enthalten">✓</span></td></tr>
+            <tr><td>E-Rechnung erzeugen</td><td class="col-free"><span class="no" aria-label="nicht enthalten">✕</span></td><td class="col-pro"><span class="yes" aria-label="enthalten">✓</span></td></tr>
+            <tr><td>Kunden / Artikel</td><td class="col-free">10</td><td class="col-pro">unbegrenzt</td></tr>
+            <tr><td>PDF-Vorlagen</td><td class="col-free">„Klassisch“</td><td class="col-pro">Klassisch, Modern, Kompakt</td></tr>
+            <tr><td>Verwaltung, Backups, Kleinunternehmer-Modus, PDF-Vorschau</td><td class="col-free"><span class="yes" aria-label="enthalten">✓</span></td><td class="col-pro"><span class="yes" aria-label="enthalten">✓</span></td></tr>
+            <tr class="price-row"><td>Preis</td><td class="col-free">dauerhaft kostenlos</td><td class="col-pro">einmalig 200&nbsp;€</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lede" style="font-size:0.9rem;">
+        Einmalkunden und Einmalartikel zählen nicht in das Limit der kostenlosen Version.
+      </p>
+      <div class="feature-box pro" style="margin-top:24px;">
+        <h3>Easy Firma <span class="mini-pill pro">einmalig 300&nbsp;€</span></h3>
+        <p>Pro, fertig eingerichtet. Du schickst mir deine Angaben, ich richte das Programm für dich ein.</p>
+        <ul>
+          <li>Pro-Lizenz mit allen Funktionen</li>
+          <li>Firmendaten, Steuernummer, Bankverbindung und Logo eingetragen</li>
+          <li>Nummernkreise und Standard-Freitexte eingestellt</li>
+          <li>Deine Kunden und Artikel übernommen</li>
+        </ul>
+      </div>
+      <div class="notice">
+        <p><strong>Preisangaben:</strong> Alle Preise sind Endpreise. Als Kleinunternehmer nach §&nbsp;19&nbsp;UStG berechnet Ru-Services keine Umsatzsteuer und weist sie nicht aus.</p>
+        <p><strong>Für wen:</strong> Pro und Easy Firma richten sich an Unternehmer im Sinne von §&nbsp;14&nbsp;BGB, also an Betriebe, Selbstständige und Freiberufler für ihre berufliche Tätigkeit. Die kostenlose Version darf jeder nutzen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SO BEKOMMST DU PRO ============ -->
+  <section id="pro-holen">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">In 4 Schritten</p>
+        <h2 class="section-title">So bekommst du Pro</h2>
+        <p class="lede">
+          Einen Online-Kauf gibt es derzeit noch nicht. Der Lizenzschlüssel wird
+          persönlich per E-Mail ausgestellt und gilt für genau deine Steuernummer.
+        </p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Herunterladen</h3>
+          <p>Kostenlose Version installieren und einrichten.</p>
+        </div>
+        <div class="step">
+          <h3>Pro anfragen</h3>
+          <p>Im Programm den Reiter „Pro“ öffnen oder eine E-Mail mit deiner Steuernummer an <a href="mailto:finn.rummel@gmail.com?subject=Ru%20Services%20Pro%20Lizenzanfrage">finn.rummel@gmail.com</a> schicken.</p>
+        </div>
+        <div class="step">
+          <h3>Schlüssel erhalten</h3>
+          <p>Der signierte Lizenzschlüssel kommt per E-Mail zurück, gültig für diese Steuernummer.</p>
+        </div>
+        <div class="step">
+          <h3>Aktivieren</h3>
+          <p>Schlüssel unter „Pro“ eintragen, Programm neu starten. Pro ist aktiv.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section id="download" class="on-soft">
+    <div class="wrap">
+      <div class="cta-band">
+        <h3>Jetzt kostenlos herunterladen</h3>
+        <p>
+          Ru&nbsp;Services für Windows 10 und 11. Kostenlose Version ohne
+          Zeitlimit, ohne Registrierung. Installer ca. 41&nbsp;MB.
+        </p>
+        <div class="hero-actions" style="justify-content:center;margin:0;">
+          <a href="https://github.com/FinnRu007/Ru-Rechnungen-Web/releases/latest/download/Ru-Services-Setup.exe" class="btn btn-primary btn-xl btn-on-band">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Ru Services herunterladen
+          </a>
+        </div>
+      </div>
+      <p class="lede" style="max-width:760px;margin:20px auto 0;font-size:0.9rem;text-align:center;">
+        Der Download kommt von GitHub, wo die Programmversionen veröffentlicht
+        werden. Beim ersten Start zeigt Windows eventuell eine
+        SmartScreen-Meldung („Der Computer wurde durch Windows geschützt“). Das
+        Programm ist noch nicht mit einem kostenpflichtigen Zertifikat
+        signiert. Klick auf „Weitere Informationen“ und dann auf „Trotzdem
+        ausführen“. Details im FAQ.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2 class="section-title">FAQ</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Welches Betriebssystem brauche ich?</summary>
+          <p>Windows 10 oder 11. Der Installer ist ca. 41&nbsp;MB groß und lässt sich auch ohne Administratorrechte installieren. Für macOS oder Linux gibt es das Programm nicht.</p>
+        </details>
+        <details>
+          <summary>Was bedeutet die Windows-SmartScreen-Warnung beim Start?</summary>
+          <p>Das Programm ist derzeit nicht mit einem kostenpflichtigen Code-Signatur-Zertifikat signiert. Windows zeigt deshalb beim ersten Start „Der Computer wurde durch Windows geschützt“. Klick auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“. Nach dem ersten Start kommt die Meldung nicht wieder.</p>
+        </details>
+        <details>
+          <summary>Werden meine Daten in eine Cloud übertragen?</summary>
+          <p>Nein. Ru&nbsp;Services läuft vollständig auf deinem Rechner. Es gibt keinen Server, kein Benutzerkonto und keine Registrierung. Alle Daten liegen als lesbare JSON-Dateien in einem Ordner, den du selbst festlegst, lokal oder auf einem Netzlaufwerk. Nur wenn du im Programm selbst nach Updates suchst, wird die öffentliche Release-Seite bei GitHub abgerufen.</p>
+        </details>
+        <details>
+          <summary>Muss ich als Kleinunternehmer E-Rechnungen schreiben?</summary>
+          <p>Nein. Kleinunternehmer nach §&nbsp;19 UStG dürfen ihre Rechnungen weiterhin als normale PDF oder auf Papier ausstellen (§&nbsp;34a UStDV). E-Rechnungen <strong>empfangen</strong> können müssen aber auch Kleinunternehmer. Dafür reicht die kostenlose Version.</p>
+        </details>
+        <details>
+          <summary>Welche ZUGFeRD-Profile gelten als E-Rechnung?</summary>
+          <p>Laut Bundesfinanzministerium erfüllen ZUGFeRD ab Version 2.0.1 und XRechnung die Anforderungen. Ausgenommen sind die ZUGFeRD-Profile MINIMUM und BASIC WL. Ru&nbsp;Services&nbsp;Pro erzeugt E-Rechnungen im Profil EN&nbsp;16931. Welches Profil eine empfangene Rechnung hat, zeigt dir das Werkzeug <a href="/rechnungen/e-rechnung-lesen/">E-Rechnung lesen</a>.</p>
+        </details>
+        <details>
+          <summary>Kann ich Daten aus einem alten Programm übernehmen?</summary>
+          <p>Kunden und Artikel lassen sich neu anlegen; einen automatischen Import aus anderen Programmen gibt es aktuell nicht. Da die Daten als offene JSON-Dateien gespeichert werden, ist eine manuelle Übernahme grundsätzlich möglich. Bei Fragen dazu einfach eine E-Mail schreiben. Mit Easy Firma übernehme ich die Einrichtung für dich.</p>
+        </details>
+        <details>
+          <summary>Was ist der Unterschied zwischen E-Rechnung einlesen und erzeugen?</summary>
+          <p>Einlesen (eingehende E-Rechnungen von Lieferanten anzeigen) ist in jeder Version enthalten, auch kostenlos. Das Erzeugen eigener E-Rechnungen nach EN&nbsp;16931 (strukturierte XML in der PDF) ist Teil von Pro.</p>
+        </details>
+        <details>
+          <summary>Fallen nach dem Kauf weitere Kosten an?</summary>
+          <p>Nein. Pro ist eine einmalige Zahlung von 200&nbsp;€. Es gibt kein Abo und keine nutzungsabhängige Abrechnung, egal wie viele Rechnungen oder wie viel Umsatz.</p>
+        </details>
+        <details>
+          <summary>Wie sicher ist der Lizenzschlüssel?</summary>
+          <p>Der Lizenzschlüssel ist mit einem Ed25519-Verfahren signiert und an deine Steuernummer gebunden. Er wird persönlich per E-Mail ausgestellt.</p>
+        </details>
+        <details>
+          <summary>Ist Ru Services rechtssicher oder GoBD-konform?</summary>
+          <p>Ru&nbsp;Services unterstützt dich bei gesetzeskonformen Rechnungen: Pflichtangaben nach §&nbsp;14 UStG, Kleinunternehmer-Hinweis nach §&nbsp;19 UStG, E-Rechnungs-Struktur nach EN&nbsp;16931, lückenlose Nummernkreise, Monatssicherungen und geordnete Belegablage. Ein Programm allein macht eine Buchführung aber nicht GoBD-konform. Die Verantwortung für korrekte Rechnungen und die Einhaltung steuerlicher Pflichten liegt beim Nutzer. Das Programm ersetzt keine Steuerberatung.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Harsewinkel, Deutschland</span>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="mailto:finn.rummel@gmail.com">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><img alt="" id="lightboxImg"></div>
+
+<script src="/script.js"></script>
+</body>
+</html>

@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Impressum – Ru Services</title>
-<meta name="description" content="Impressum von Ru-Services (Finn Rummel).">
-<meta name="robots" content="noindex">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="favicon-180.png">
-<link rel="stylesheet" href="styles.css">
+<title>Impressum | Ru-Services</title>
+<meta name="description" content="Impressum von Ru-Services (Finn Rummel), Harsewinkel.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ru-services.de/impressum.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body data-page="impressum">
 
 <header class="topbar">
   <div class="topbar-inner">
-    <a href="index.html" class="wordmark"><span class="dot"></span>Ru&nbsp;Services <small>· Rechnungen</small></a>
-    <nav class="nav">
-      <a href="index.html">Startseite</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="index.html#download" class="nav-cta">Kostenlos herunterladen</a>
+    <a href="/" class="wordmark"><span class="dot"></span>Ru-Services</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Hauptmenü">
+      <a href="/">Ru-Services</a>
+      <a href="/rechnungen/">Rechnungen</a>
+      <a href="/vereine/">Vereine</a>
+      <a href="/rechnungen/#download" class="nav-cta">Kostenlos herunterladen</a>
     </nav>
   </div>
 </header>
@@ -27,7 +30,7 @@
 <main class="legal">
   <div class="wrap">
     <h1>Impressum</h1>
-    <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG).</p>
+    <p>Angaben gemäß §&nbsp;5 Digitale-Dienste-Gesetz (DDG).</p>
 
     <h2>Diensteanbieter</h2>
     <address>
@@ -46,12 +49,12 @@
 
     <h2>Umsatzsteuer</h2>
     <p>
-      Als Kleinunternehmer im Sinne von § 19 Abs. 1 UStG wird keine
+      Als Kleinunternehmer im Sinne von §&nbsp;19 Abs.&nbsp;1 UStG wird keine
       Umsatzsteuer berechnet und ausgewiesen. Es besteht keine
       Umsatzsteuer-Identifikationsnummer.
     </p>
 
-    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <h2>Verantwortlich für den Inhalt nach §&nbsp;18 Abs.&nbsp;2 MStV</h2>
     <p>Finn Rummel, Anschrift wie oben.</p>
 
     <h2>Verbraucherstreitbeilegung</h2>
@@ -65,9 +68,10 @@
     <p>
       Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die
       Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine
-      Gewähr übernommen werden. Angaben zu gesetzlichen Anforderungen (z. B.
-      zur E-Rechnungs-Pflicht) dienen der allgemeinen Information und ersetzen
-      keine Rechts- oder Steuerberatung.
+      Gewähr übernommen werden. Angaben zu gesetzlichen Anforderungen (zum
+      Beispiel zu Pflichtangaben auf Rechnungen oder zur E-Rechnungs-Pflicht)
+      dienen der allgemeinen Information und ersetzen keine Rechts- oder
+      Steuerberatung.
     </p>
 
     <h2>Haftung für Links</h2>
@@ -77,26 +81,37 @@
       ist stets der jeweilige Anbieter verantwortlich.
     </p>
 
-    <h2>Urheberrecht</h2>
+    <h2>Urheberrecht und Marken</h2>
     <p>
       Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen
-      Seiten unterliegen dem deutschen Urheberrecht.
+      Seiten unterliegen dem deutschen Urheberrecht. Genannte Marken und
+      Produktnamen (zum Beispiel ZUGFeRD, Factur-X, Windows, YouTube, GitHub)
+      gehören ihren jeweiligen Inhabern und dienen nur der Beschreibung.
     </p>
 
-    <p style="margin-top:40px;"><a href="index.html">← Zurück zur Startseite</a></p>
+    <h2>Verwendete Software</h2>
+    <p>
+      Schriftarten Manrope und Inter (SIL Open Font License 1.1, Lizenztexte
+      unter <a href="/fonts/OFL-Manrope.txt">/fonts</a>), pdf.js von Mozilla
+      (Apache License 2.0, <a href="/vendor/pdfjs/LICENSE">Lizenztext</a>).
+    </p>
+
+    <p style="margin-top:40px;"><a href="/">← Zur Startseite</a></p>
   </div>
 </main>
 
 <footer>
   <div class="wrap footer-inner">
-    <span>© 2026 Ru-Services · Finn Rummel</span>
-    <nav>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Harsewinkel, Deutschland</span>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
       <a href="mailto:finn.rummel@gmail.com">Kontakt</a>
     </nav>
   </div>
 </footer>
 
+<script src="/script.js"></script>
 </body>
 </html>

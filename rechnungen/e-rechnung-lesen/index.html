@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de" class="has-subnav">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Rechnung lesen: ZUGFeRD und XRechnung kostenlos im Browser anzeigen | Ru-Services</title>
+<meta name="description" content="ZUGFeRD-, Factur-X- oder XRechnung-Datei auswählen und Rechnungsdaten, Positionen, Summen und Profil ansehen. Kostenlos, ohne Anmeldung, die Datei bleibt auf deinem Gerät.">
+<meta name="theme-color" content="#2A4CE0">
+<link rel="canonical" href="https://ru-services.de/rechnungen/e-rechnung-lesen/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Ru-Services">
+<meta property="og:title" content="E-Rechnung lesen, kostenlos im Browser">
+<meta property="og:description" content="ZUGFeRD, Factur-X und XRechnung ansehen. Die Datei bleibt auf deinem Gerät.">
+<meta property="og:url" content="https://ru-services.de/rechnungen/e-rechnung-lesen/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="e-rechnung-lesen">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="wordmark"><span class="dot"></span>Ru-Services</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Hauptmenü">
+      <a href="/">Ru-Services</a>
+      <a href="/rechnungen/" aria-current="page">Rechnungen</a>
+      <a href="/vereine/">Vereine</a>
+      <a href="/rechnungen/#download" class="nav-cta">Kostenlos herunterladen</a>
+    </nav>
+  </div>
+  <nav class="subnav" aria-label="Rechnungen">
+    <div class="subnav-inner">
+      <span class="sub-label">Rechnungen</span>
+      <a href="/rechnungen/#e-rechnung">E-Rechnung</a>
+      <a href="/rechnungen/#zugferd">ZUGFeRD</a>
+      <a href="/rechnungen/#rundgang">Rundgang</a>
+      <a href="/rechnungen/#funktionen">Funktionen</a>
+      <a href="/rechnungen/#preis">Preise</a>
+      <a href="/rechnungen/#faq">FAQ</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="/rechnungen/e-rechnung-lesen/" aria-current="page">E-Rechnung lesen</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="section-head" style="max-width:780px;">
+        <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Ru-Services</a><span aria-hidden="true">/</span><a href="/rechnungen/">Rechnungen</a><span aria-hidden="true">/</span><span>E-Rechnung lesen</span></nav>
+        <p class="eyebrow">Kostenloses Werkzeug</p>
+        <h1 class="hero-title" style="font-size:clamp(2rem,4.4vw,3rem);">E-Rechnung lesen</h1>
+        <p class="lede">
+          Wähle eine ZUGFeRD- oder Factur-X-PDF oder eine XRechnung-XML aus. Du
+          siehst Rechnungsdaten, Verkäufer, Käufer, Positionen, Summen und das
+          verwendete Profil. Kostenlos und ohne Anmeldung.
+        </p>
+        <div class="notice blue">
+          <p><strong>Deine Datei bleibt auf deinem Gerät.</strong> Das Auslesen
+          passiert vollständig in deinem Browser. Die Datei wird nicht
+          hochgeladen, nicht gespeichert und nicht an Ru-Services oder Dritte
+          übertragen.</p>
+        </div>
+      </div>
+
+      <label class="dropzone" id="dropzone" for="fileInput">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6M12 18v-6m0 0-3 3m3-3 3 3"/></svg>
+        <b>Datei auswählen oder hierher ziehen</b>
+        <span>PDF mit eingebetteter E-Rechnung (ZUGFeRD, Factur-X) oder XML (XRechnung, CII, UBL)</span>
+        <input type="file" id="fileInput" accept=".pdf,.xml,application/pdf,application/xml,text/xml">
+      </label>
+
+      <div id="toolMsg" class="tool-msg" role="status" aria-live="polite"></div>
+
+      <div class="result" id="result" hidden>
+        <div class="result-head">
+          <h2 id="resTitle">Rechnung</h2>
+          <button class="btn btn-secondary" type="button" id="saveXml">XML speichern</button>
+        </div>
+        <div id="resProfile"></div>
+        <div class="card-grid">
+          <div class="card"><h3>Rechnungsdaten</h3><dl class="kv" id="resMeta"></dl></div>
+          <div class="card"><h3>Zahlung</h3><dl class="kv" id="resPay"></dl></div>
+          <div class="card"><h3>Verkäufer</h3><dl class="kv" id="resSeller"></dl></div>
+          <div class="card"><h3>Käufer</h3><dl class="kv" id="resBuyer"></dl></div>
+        </div>
+        <div class="lines-wrap">
+          <table class="lines">
+            <thead>
+              <tr><th>Pos.</th><th>Bezeichnung</th><th class="num">Menge</th><th class="num">Einzelpreis</th><th class="num">USt.</th><th class="num">Netto</th></tr>
+            </thead>
+            <tbody id="resLines"></tbody>
+          </table>
+        </div>
+        <div class="totals"><dl class="kv" id="resTotals"></dl></div>
+        <div id="resNotes"></div>
+        <details class="raw">
+          <summary>Eingebettete XML anzeigen</summary>
+          <pre class="xml" id="resXml"></pre>
+        </details>
+      </div>
+
+      <div class="notice" style="margin-top:32px;">
+        <p><strong>Nur Anzeige, keine Prüfung.</strong> Das Werkzeug zeigt den
+        Inhalt der E-Rechnung an. Es prüft nicht, ob die Rechnung formal gültig
+        ist, ob alle Pflichtangaben vorhanden sind oder ob PDF und XML
+        übereinstimmen (keine Validierung nach EN&nbsp;16931). Die Angabe zum
+        Profil beruht auf der Kennung in der Datei. Angaben ohne Gewähr.</p>
+        <p>Was auf eine Rechnung gehört, steht unter
+        <a href="/rechnungen/pflichtangaben/">Pflichtangaben auf Rechnungen</a>.
+        Im Programm <a href="/rechnungen/">Ru&nbsp;Services</a> kannst du
+        E-Rechnungen auch offline einlesen, in jeder Version kostenlos.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Harsewinkel, Deutschland</span>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="mailto:finn.rummel@gmail.com">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script src="/rechnungen/e-rechnung-lesen/leser.js"></script>
+</body>
+</html>
