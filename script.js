@@ -49,6 +49,35 @@
     });
   }
 
+  // --- Text kopieren (z. B. KI-Vorlage auf der Vereinsseite) ---
+  var selectText = function (el) {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  };
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var label = btn.textContent;
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.getAttribute("data-copy"));
+      if (!el) return;
+      var done = function () {
+        btn.textContent = "Kopiert";
+        btn.classList.add("is-done");
+        setTimeout(function () {
+          btn.textContent = label;
+          btn.classList.remove("is-done");
+        }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(el.textContent).then(done, function () { selectText(el); });
+      } else {
+        selectText(el);
+      }
+    });
+  });
+
   // --- Screenshot-Lightbox ---
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lightboxImg");

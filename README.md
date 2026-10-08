@@ -18,16 +18,19 @@ rechnungen/index.html              Rechnungsprogramm: E-Rechnung, ZUGFeRD/FeRD, 
                                    Screenshot-Rundgang, Funktionen, Free/Pro, FAQ, Download
 rechnungen/pflichtangaben/         Pflichtangaben auf Rechnungen mit Gesetzeslinks
 rechnungen/e-rechnung-lesen/       Werkzeug: ZUGFeRD/XRechnung im Browser lesen (leser.js)
-vereine/index.html                 Vereine: Vorlage (noindex, in Vorbereitung)
+vereine/index.html                 KI-Wissensportal für Vereine (gefördert, eigene
+                                   grüne Farbe und eigene Navigation, ohne Verkauf)
 impressum.html                     Impressum (§ 5 DDG)
 datenschutz.html                   Datenschutzerklärung (DSGVO)
 404.html                           Fehlerseite
 styles.css                         komplettes Design (Tokens aus Ru-Design)
-script.js                          Menü, Video erst nach Klick, Lightbox, alte Anker
+script.js                          Menü, Video erst nach Klick, Lightbox, alte Anker,
+                                   Kopieren-Knopf
 fonts/                             Manrope und Inter (woff2, SIL OFL 1.1)
 vendor/pdfjs/                      pdf.js 4.10.38 legacy build (Apache-2.0), nur fürs Werkzeug
 img/screenshots/                   Programm-Screenshots
 img/flags/                         Flaggen Deutschland und EU (SVG)
+img/foerderung/                    Logo Landesprogramm 2.000 x 1.000 Euro (NRW)
 robots.txt, sitemap.xml, llms.txt  Suchmaschinen und KI-Assistenten
 ```
 
@@ -42,17 +45,22 @@ im Repo-Ordner, dann <http://localhost:8000>.
   Attribut `data-video-id`.
 - **Keine externen Ressourcen** beim Seitenaufruf (keine Google Fonts, kein CDN,
   kein Tracking). Neue Einbindungen immer erst in `datenschutz.html` aufnehmen.
-- **ZUGFeRD-Logo**: nur die offizielle Datei vom FeRD verwenden
-  (ferd-net.de > Publikationen > ZUGFeRD-Logo), nur auf weißem Grund, mit
-  Schutzraum, nur proportional skaliert, verlinkt auf www.ferd-net.de. Platz
-  dafür ist in `rechnungen/index.html` im Abschnitt `#zugferd` vorbereitet
-  (auskommentiert). Nach der Veröffentlichung die URL innerhalb einer Woche
-  an das FeRD melden.
+- **ZUGFeRD-Logo**: `img/zugferd/zugferd-logo.svg` (Datei von ferd-net.de,
+  nur der graue Vorschau-Rahmen entfernt). Eingebunden in `rechnungen/index.html`
+  im Abschnitt `#zugferd`, verlinkt auf www.ferd-net.de. Regeln: nur auf weißem
+  Grund, Freiraum der Datei erhalten, nur proportional skalieren. Jeden neuen
+  Verwendungsort innerhalb einer Woche nach Veröffentlichung an das FeRD melden
+  (wingender@awv-net.de).
 - **Pflichtangaben-Seite**: Stand Oktober 2026. Bei Gesetzesänderungen
   (UStG, UStDV, BMF-Schreiben) anpassen und das Datum oben ändern.
-- **Vereine**: Seite ist `noindex`. Erst wenn die Inhalte stehen, `noindex`
-  entfernen und in `sitemap.xml` aufnehmen. Einen Förderhinweis erst nach der
-  Bewilligung und nur laut Bescheid einfügen.
+- **Vereine**: gefördert durch das Land NRW („2.000 x 1.000 Euro für das
+  Engagement“, bewilligt Oktober 2026). Bewusst getrennt vom Verkauf: keine
+  Preise, kein Download-Knopf, keine Werbung. Förderhinweis steht in
+  `#foerderung` und oben im Hero, mit dem Programmlogo
+  `img/foerderung/logo-2000x1000-engagement-nrw.png` (unverändert, auf weißem
+  Grund, nur proportional skalieren). Vorgaben aus dem
+  Bewilligungsbescheid haben Vorrang. Vereine nur mit deren Einverständnis
+  namentlich nennen.
 
 ## Pflege
 
@@ -66,6 +74,8 @@ im Repo-Ordner, dann <http://localhost:8000>.
   Release als *Latest* markieren. Die Website muss dann nicht angefasst werden.
 - **Preise**: in `rechnungen/index.html` (Text, Tabelle, JSON-LD `offers`)
   und in `llms.txt`.
+- **Ort**: auf der Website steht als Sitz nur „Nordrhein-Westfalen“. Die volle
+  Anschrift steht nur dort, wo sie Pflicht ist (Impressum, Datenschutz).
 
 ## Deployment
 

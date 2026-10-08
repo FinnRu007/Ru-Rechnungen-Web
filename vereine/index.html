@@ -1,33 +1,72 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" class="has-subnav theme-verein">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vereine: KI-Wissensportal für Vereine (in Vorbereitung) | Ru-Services</title>
-<meta name="description" content="KI-Wissensportal für Vereine: Hier entsteht ein Informationsangebot für Vereine und ehrenamtlich Engagierte rund um KI und Digitalisierung im Vereinsalltag.">
-<!-- Vorlage: erst indexieren lassen, wenn die Inhalte fertig sind (dann noindex entfernen und in sitemap.xml aufnehmen) -->
-<meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#2A4CE0">
+<title>KI-Wissensportal für Vereine | gefördert vom Land NRW</title>
+<meta name="description" content="Kostenloses KI-Wissensportal für Vereine und Ehrenamtliche in Nordrhein-Westfalen: Excel-Exporte mit KI fürs Finanzamt aufbereiten, E-Rechnungen lesen, Datenschutz und viele Praxisbeispiele. Gefördert durch das Landesprogramm 2.000 x 1.000 Euro für das Engagement.">
+<meta name="theme-color" content="#0F7A4A">
 <link rel="canonical" href="https://ru-services.de/vereine/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Ru-Services">
+<meta property="og:title" content="KI-Wissensportal für Vereine">
+<meta property="og:description" content="Kostenlos, ohne Werbung, gefördert vom Land Nordrhein-Westfalen: Was KI im Vereinsalltag heute schon kann, Schritt für Schritt erklärt.">
+<meta property="og:url" content="https://ru-services.de/vereine/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/favicon-180.png">
 <link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "KI-Wissensportal für Vereine",
+  "url": "https://ru-services.de/vereine/",
+  "inLanguage": "de",
+  "isAccessibleForFree": true,
+  "audience": { "@type": "Audience", "audienceType": "Vereine und ehrenamtlich Engagierte" },
+  "funder": { "@type": "GovernmentOrganization", "name": "Land Nordrhein-Westfalen" },
+  "author": { "@type": "Person", "name": "Finn Rummel" }
+}
+</script>
 </head>
 <body data-page="vereine">
 
 <header class="topbar">
   <div class="topbar-inner">
-    <a href="/" class="wordmark"><span class="dot"></span>Ru-Services</a>
+    <a href="/vereine/" class="wordmark"><span class="dot"></span>KI-Wissensportal <small>für Vereine</small></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
     <nav class="nav" id="mainNav" aria-label="Hauptmenü">
       <a href="/">Ru-Services</a>
       <a href="/rechnungen/">Rechnungen</a>
       <a href="/vereine/" aria-current="page">Vereine</a>
-      <a href="/rechnungen/#download" class="nav-cta">Kostenlos herunterladen</a>
+      <a href="#kontakt" class="nav-cta">Frage stellen</a>
     </nav>
   </div>
+  <nav class="subnav" aria-label="KI-Wissensportal">
+    <div class="subnav-inner">
+      <span class="sub-label">Vereine</span>
+      <a href="#erste-umsetzung">Erste Umsetzung</a>
+      <a href="#ki-einfach">KI Schritt für Schritt</a>
+      <a href="#moeglichkeiten">Möglichkeiten</a>
+      <a href="#e-rechnung">E-Rechnung lesen</a>
+      <a href="#datenschutz">Datenschutz</a>
+      <a href="#faq">FAQ</a>
+      <a href="#foerderung">Förderung</a>
+    </div>
+  </nav>
 </header>
+
+<div class="verein-ribbon">
+  <div class="wrap">
+    <span>Nicht kommerzielles Projekt</span>
+    <span aria-hidden="true">·</span>
+    <span>gefördert vom Land Nordrhein-Westfalen</span>
+    <span aria-hidden="true">·</span>
+    <span>kostenlos, ohne Anmeldung, ohne Werbung</span>
+  </div>
+</div>
 
 <main>
 
@@ -37,128 +76,524 @@
     <div class="wrap">
       <div class="hero-inner">
         <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Ru-Services</a><span aria-hidden="true">/</span><span>Vereine</span></nav>
-        <span class="pill pill-dev" style="margin-bottom:22px;">In Vorbereitung</span>
+        <span class="pill pill-verein" style="margin-bottom:22px;">Gefördert vom Land Nordrhein-Westfalen</span>
         <h1 class="hero-title">KI-Wissensportal für <span class="accent">Vereine</span></h1>
         <p class="hero-sub">
-          Digital in die Zukunft: Hier entsteht ein Informationsangebot für
-          Vereine und ehrenamtlich Engagierte. Es zeigt praxisnah, was mit
-          Künstlicher Intelligenz und digitalen Werkzeugen im Vereinsalltag
-          heute schon möglich ist.
+          Digital in die Zukunft: Hier erfahren Vereine und Ehrenamtliche,
+          was Künstliche Intelligenz und digitale Werkzeuge im Vereinsalltag
+          heute schon leisten. Praxisnah erklärt, Schritt für Schritt zum
+          Nachmachen und für alle kostenlos.
         </p>
-        <div class="notice amber" style="max-width:640px;">
-          <p><strong>Diese Seite ist noch im Aufbau.</strong> Die Inhalte folgen.
-          Fragen oder Themenwünsche gern per E-Mail an
-          <a href="mailto:finn.rummel@gmail.com?subject=KI-Wissensportal%20f%C3%BCr%20Vereine">finn.rummel@gmail.com</a>.</p>
+        <div class="hero-actions">
+          <a href="#erste-umsetzung" class="btn btn-primary btn-xl">Zur ersten Umsetzung</a>
+          <a href="#e-rechnung" class="btn btn-secondary btn-xl">E-Rechnungen kostenlos lesen</a>
+        </div>
+        <div class="notice blue foerder-notice" style="max-width:760px;">
+          <a class="foerder-logo small" href="#foerderung"><img src="/img/foerderung/logo-2000x1000-engagement-nrw.png" alt="Logo des Landesprogramms 2.000 x 1.000 Euro für das Engagement in NRW" width="681" height="293"></a>
+          <p><strong>Nur durch die Förderung möglich.</strong> Dieses Portal
+          wird mit 1.000&nbsp;Euro aus dem Landesprogramm „2.000&nbsp;x&nbsp;1.000&nbsp;Euro
+          für das Engagement“ des Landes Nordrhein-Westfalen umgesetzt. Ohne
+          diese Förderung gäbe es diese Seite nicht. <a href="#foerderung">Mehr zur Förderung</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WORUM ES GEHT ============ -->
-  <section id="worum" class="on-soft">
+  <!-- ============ PROJEKT ============ -->
+  <section id="projekt" class="on-soft">
     <div class="wrap">
       <div class="two-col">
         <div>
-          <p class="eyebrow">Worum es geht</p>
-          <h2 class="section-title">Praxiswissen statt Fachchinesisch</h2>
+          <p class="eyebrow">Das Projekt</p>
+          <h2 class="section-title">Ein eigenes Angebot, getrennt vom Rechnungsprogramm</h2>
           <p class="lede">
             Viele Vereine wissen, dass KI und Digitalisierung Arbeit abnehmen
-            können, aber nicht, wo sie anfangen sollen. Das Wissensportal sammelt
-            konkrete Beispiele und Anleitungen, die Ehrenamtliche ohne
+            können, aber nicht, wo sie anfangen sollen. Das Wissensportal
+            sammelt konkrete Beispiele und Anleitungen, die Ehrenamtliche ohne
             Vorkenntnisse nachmachen können.
           </p>
+          <p class="lede">
+            Das Portal ist ein nicht kommerzielles Projekt. Hier wird nichts
+            verkauft, es gibt keine Werbung und keine Anmeldung. Es steht neben
+            dem Rechnungsprogramm von Ru-Services, ist aber davon unabhängig:
+            Für die Anleitungen braucht kein Verein eine Software von
+            Ru-Services.
+          </p>
         </div>
-        <div class="placeholder">
-          Platz für Bild, Video oder Erklärung (Inhalt folgt)
+        <dl class="facts" aria-label="Steckbrief des Projekts">
+          <dt>Projekt</dt><dd>KI-Wissensportal für Vereine: digital in die Zukunft</dd>
+          <dt>Verantwortlich</dt><dd>Finn Rummel</dd>
+          <dt>Förderung</dt><dd>Land Nordrhein-Westfalen, Landesprogramm „2.000&nbsp;x&nbsp;1.000&nbsp;Euro für das Engagement“</dd>
+          <dt>Förderzeitraum</dt><dd>bis 31. Dezember 2026</dd>
+          <dt>Für wen</dt><dd>Vereine, Schul- und Fördervereine, Ehrenamtliche</dd>
+          <dt>Kosten für Vereine</dt><dd>keine</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ERSTE UMSETZUNG ============ -->
+  <!-- Der Verein wird bewusst nicht namentlich genannt. Namen erst mit schriftlichem Einverständnis des Vereins eintragen. -->
+  <section id="erste-umsetzung">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Erste Umsetzung</p>
+        <h2 class="section-title">Excel-Export aus der Vereinssoftware fürs Finanzamt aufbereiten</h2>
+        <p class="lede">
+          Durch das Projekt ist bereits die erste Umsetzung entstanden. Ein
+          Skiclub aus Nordrhein-Westfalen hat sich mit einer Frage gemeldet,
+          die viele Kassenwarte kennen.
+        </p>
+      </div>
+      <div class="cap-grid case-grid">
+        <div class="cap">
+          <p class="case-label">Die Frage</p>
+          <h3>Tabelle da, Ordnung fehlt</h3>
+          <p>Die Vereinssoftware gibt alle Buchungen als Excel-Tabelle aus. Für die Unterlagen ans Finanzamt fehlen aber Belegnummern, die Zuordnung zu den steuerlichen Bereichen des Vereins und saubere Summen.</p>
+        </div>
+        <div class="cap">
+          <p class="case-label">Die Lösung</p>
+          <h3>Ein einfacher Weg mit KI</h3>
+          <p>Eine KI baut den Aufbau der Tabelle, die Formeln und die Prüfspalten. Sie bekommt dafür nur die Spaltenüberschriften und zwei erfundene Beispielzeilen, keine echten Vereinsdaten.</p>
+        </div>
+        <div class="cap">
+          <p class="case-label">Das Ergebnis</p>
+          <h3>Eine Anleitung für alle Vereine</h3>
+          <p>Daraus ist die Schritt-für-Schritt-Anleitung unten entstanden. Jeder Verein kann sie selbst nachmachen, mit jedem Export und ohne Zusatzsoftware.</p>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:48px;align-items:start;">
+        <div>
+          <h3 class="sub-title">Was die aufbereitete Tabelle enthalten sollte</h3>
+          <ul class="checklist">
+            <li><strong>Eine Zeile pro Buchung</strong> mit Datum, Buchungstext und Betrag.</li>
+            <li><strong>Fortlaufende Belegnummer</strong>, die auf dem passenden Beleg steht. Zu jeder Buchung gibt es einen Beleg.</li>
+            <li><strong>Einnahmen und Ausgaben</strong> in getrennten Spalten, dazu der Zahlungsweg: Bank oder Kasse.</li>
+            <li><strong>Bereich</strong> jeder Buchung bei steuerbegünstigten Vereinen: ideeller Bereich, Vermögensverwaltung, Zweckbetrieb oder wirtschaftlicher Geschäftsbetrieb. Diese Bereiche werden steuerlich unterschiedlich behandelt.</li>
+            <li><strong>Summen je Bereich und Jahr</strong>, abgeglichen mit Kontoauszug und Kassenbestand.</li>
+            <li><strong>Original bleibt unverändert.</strong> Der ursprüngliche Export wird aufbewahrt, gearbeitet wird in einer Kopie.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="sub-title">Gut zu wissen</h3>
+          <ul class="plain-list">
+            <li>Steuerbegünstigte Vereine müssen über ihre Einnahmen und Ausgaben ordnungsgemäße Aufzeichnungen führen (<a href="https://www.gesetze-im-internet.de/ao_1977/__63.html" target="_blank" rel="noopener">§&nbsp;63 Abs.&nbsp;3 AO</a>).</li>
+            <li>Kasseneinnahmen und Kassenausgaben sind täglich festzuhalten (<a href="https://www.gesetze-im-internet.de/ao_1977/__146.html" target="_blank" rel="noopener">§&nbsp;146 Abs.&nbsp;1 AO</a>).</li>
+            <li>Aufzeichnungen werden zehn Jahre, Buchungsbelege acht Jahre aufbewahrt (<a href="https://www.gesetze-im-internet.de/ao_1977/__147.html" target="_blank" rel="noopener">§&nbsp;147 AO</a>).</li>
+            <li>Welche Unterlagen das zuständige Finanzamt im Einzelfall sehen möchte, kann abweichen. Im Zweifel vorher nachfragen.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notice amber">
+        <p><strong>Keine Steuerberatung.</strong> Das Portal zeigt allgemein,
+        wie man eine Tabelle mit KI-Hilfe übersichtlich aufbaut. Die Zuordnung
+        der Buchungen, die Steuererklärung und die Verantwortung bleiben beim
+        Verein. Verbindliche Auskünfte geben Steuerberatung, Finanzamt oder
+        der eigene Dachverband.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KI SCHRITT FÜR SCHRITT ============ -->
+  <section id="ki-einfach" class="on-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Die einfache Lösung mit KI</p>
+        <h2 class="section-title">In sechs Schritten zur fertigen Tabelle</h2>
+        <p class="lede">
+          Man muss weder programmieren noch Excel-Profi sein. Ein kostenloser
+          KI-Assistent reicht, zum Beispiel ChatGPT, Microsoft Copilot, Google
+          Gemini oder Claude.
+        </p>
+      </div>
+
+      <div class="notice blue key-idea">
+        <p><strong>Der Trick:</strong> Die KI bekommt nicht eure echten
+        Vereinsdaten. Sie bekommt nur die Spaltenüberschriften und zwei
+        erfundene Beispielzeilen. Daraus baut sie die Spalten, die Formeln und
+        die Prüfliste. Die echten Zahlen und Namen bleiben auf dem
+        Vereinsrechner.</p>
+      </div>
+
+      <div class="steps steps-six">
+        <div class="step">
+          <h3>Original sichern</h3>
+          <p>Den Export aus der Vereinssoftware unverändert speichern, etwa als „Export_2026_Original.xlsx“. Gearbeitet wird nur in einer Kopie.</p>
+        </div>
+        <div class="step">
+          <h3>Aufbau herauskopieren</h3>
+          <p>Die Zeile mit den Spaltenüberschriften kopieren. Dazu zwei Beispielzeilen mit erfundenen Werten schreiben, ohne Namen und ohne IBAN.</p>
+        </div>
+        <div class="step">
+          <h3>KI fragen</h3>
+          <p>Die Vorlage unten in den KI-Assistenten einfügen und die Platzhalter durch Überschriften und Beispielzeilen ersetzen.</p>
+        </div>
+        <div class="step">
+          <h3>In Excel umsetzen</h3>
+          <p>Die Antwort Schritt für Schritt in der Kopie umsetzen: neue Spalten, Auswahlliste für den Bereich, Summenformeln, Prüfspalten.</p>
+        </div>
+        <div class="step">
+          <h3>Gegenprüfen</h3>
+          <p>Summen mit Kontoauszug und Kassenbuch vergleichen. Die Kassenprüfer schauen drüber. Unklare Zuordnungen mit der Steuerberatung klären.</p>
+        </div>
+        <div class="step">
+          <h3>Ablegen</h3>
+          <p>Original, aufbereitete Tabelle und Belege zusammen ablegen. Die fertige Fassung zusätzlich als PDF speichern und Fristen beachten.</p>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-head">
+          <h3>Vorlage zum Kopieren</h3>
+          <button type="button" class="btn btn-secondary copy-btn" data-copy="promptKasse">Text kopieren</button>
+        </div>
+        <pre id="promptKasse">Du hilfst bei der Kassenführung eines gemeinnützigen Vereins in Deutschland.
+Unsere Vereinssoftware gibt alle Buchungen als Excel-Tabelle aus.
+
+Die Spaltenüberschriften lauten:
+[HIER DIE SPALTENÜBERSCHRIFTEN EINFÜGEN]
+
+Zwei erfundene Beispielzeilen (keine echten Daten):
+[HIER ZWEI BEISPIELZEILEN EINFÜGEN]
+
+Erstelle mir eine Schritt-für-Schritt-Anleitung für Excel, mit der ich daraus
+eine übersichtliche Einnahmen- und Ausgabenaufstellung mache:
+1. Welche Spalten ich ergänzen soll: fortlaufende Belegnummer,
+   Zahlungsweg (Bank oder Kasse) und Bereich.
+2. Eine Auswahlliste für den Bereich mit den Werten: ideeller Bereich,
+   Vermögensverwaltung, Zweckbetrieb, wirtschaftlicher Geschäftsbetrieb.
+3. Formeln für die Summen der Einnahmen und Ausgaben je Bereich und Jahr.
+4. Prüfformeln, die fehlende oder doppelte Belegnummern und Zeilen ohne
+   Bereich farbig markieren.
+5. Eine kurze Übersicht auf einem eigenen Tabellenblatt mit allen Summen.
+
+Erkläre jeden Schritt so, dass ihn jemand ohne Excel-Erfahrung umsetzen kann.
+Nenne die Formeln für die deutsche Excel-Version.
+Ordne keine Buchungen selbst zu. Wenn die Zuordnung zu einem Bereich unklar
+sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klärt.</pre>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap">
+          <h3>Warum das einfach ist</h3>
+          <p>Die KI erledigt den schwierigen Teil: Formeln finden und erklären. Der Verein muss nur kopieren, einfügen und prüfen. Beim nächsten Export lässt sich dieselbe Tabelle wiederverwenden.</p>
+        </div>
+        <div class="cap">
+          <h3>Warum das sicher ist</h3>
+          <p>Es verlassen keine Mitgliederdaten den Vereinsrechner. Die KI sieht nur den Aufbau der Tabelle. So bleibt der Datenschutz gewahrt, auch mit kostenlosen KI-Diensten.</p>
+        </div>
+        <div class="cap">
+          <h3>Wo die Grenzen sind</h3>
+          <p>KI kann sich irren. Formeln immer an ein paar Zeilen von Hand nachrechnen. Steuerliche Fragen beantwortet sie nicht verbindlich, dafür gibt es Steuerberatung und Finanzamt.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ THEMEN ============ -->
-  <section id="themen">
+  <!-- ============ MÖGLICHKEITEN ============ -->
+  <section id="moeglichkeiten">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Themen</p>
-        <h2 class="section-title">Was das Portal abdecken soll</h2>
-        <p class="lede">Zu jedem Thema entstehen Anleitungen und Praxisbeispiele.</p>
+        <p class="eyebrow">Möglichkeiten</p>
+        <h2 class="section-title">Was KI im Verein heute schon kann</h2>
+        <p class="lede">
+          Zu jedem Thema entstehen im Projekt Anleitungen und Praxisbeispiele.
+          Hier ein Überblick mit Beispielen, die sofort ausprobiert werden
+          können.
+        </p>
       </div>
-      <div class="topic-grid">
-        <div class="topic"><h3>Social Media und Content-Planung</h3><p>Redaktionspläne, Beitragsideen und eine langfristige Strategie für die Kanäle des Vereins.</p></div>
-        <div class="topic"><h3>Formulierungshilfen</h3><p>Anträge, Anschreiben, Einladungen und Pressetexte schneller formulieren.</p></div>
-        <div class="topic"><h3>Organisationsentwicklung</h3><p>Aufgaben, Abläufe und Strukturen im Verein mit KI-Unterstützung weiterentwickeln.</p></div>
-        <div class="topic"><h3>Neue Angebote entwickeln</h3><p>Ideen für Projekte, Kurse und Veranstaltungen finden und planen.</p></div>
-        <div class="topic"><h3>Digitalisierung, auch ohne KI</h3><p>Papierloser Verein, Cloud-Speicher und digitale Abläufe im Vereinsalltag.</p></div>
-        <div class="topic"><h3>Datenschutz</h3><p>Personenbezogene Daten von Mitgliedern richtig behandeln, auch beim Einsatz von KI.</p></div>
-        <div class="topic"><h3>Vereins-Apps</h3><p>Welche Apps es gibt und worauf man bei der Auswahl achten sollte.</p></div>
-        <div class="topic"><h3>Trainings- und Übungspläne</h3><p>Pläne mit KI erstellen, auch nutzbar für Schulvereine.</p></div>
-        <div class="topic"><h3>Öffentlichkeitsarbeit</h3><p>Website, Presse und Auftritt nach außen, inklusive Auffindbarkeit in Suchmaschinen und KI-Assistenten.</p></div>
-        <div class="topic"><h3>KI-Modelle im Praxistest</h3><p>Verschiedene KI-Modelle werden ausprobiert, dokumentiert und als Praxisbeispiele veröffentlicht.</p></div>
+      <div class="topic-grid topic-rich">
+        <article class="topic">
+          <h3>Social Media und Content-Planung</h3>
+          <p>Ein Redaktionsplan sorgt dafür, dass regelmäßig etwas erscheint, auch wenn wenig Zeit ist.</p>
+          <ul>
+            <li>Themenplan für drei Monate mit festen Terminen</li>
+            <li>Beitragsideen zu Saisonstart, Turnier oder Jubiläum</li>
+            <li>Einen Text in kurzen Fassungen für mehrere Kanäle</li>
+          </ul>
+          <p class="try"><span>Beispiel:</span> „Erstelle einen Redaktionsplan für die Instagram-Seite unseres Skiclubs von November bis Januar, zwei Beiträge pro Woche.“</p>
+          <p class="caution">Fotos von Personen nur mit deren Einwilligung veröffentlichen.</p>
+        </article>
+        <article class="topic">
+          <h3>Formulierungshilfen</h3>
+          <p>Vom leeren Blatt zum ersten Entwurf in Sekunden, den man dann anpasst.</p>
+          <ul>
+            <li>Einladung zur Mitgliederversammlung</li>
+            <li>Förderanträge, Spendenaufrufe, Dankesbriefe</li>
+            <li>Pressemitteilungen und Texte für die Website</li>
+          </ul>
+          <p class="try"><span>Beispiel:</span> „Schreibe einen freundlichen Dankesbrief an einen Sponsor, der neue Trikots bezahlt hat.“</p>
+          <p class="caution">Fristen und Formvorgaben stehen in eurer Satzung. Die kennt die KI nicht.</p>
+        </article>
+        <article class="topic">
+          <h3>Organisationsentwicklung</h3>
+          <p>Aufgaben, Abläufe und Zuständigkeiten klarer machen, damit die Arbeit nicht an wenigen hängt.</p>
+          <ul>
+            <li>Aufgabenverteilung im Vorstand übersichtlich darstellen</li>
+            <li>Übergabe-Mappe für den Wechsel in einem Amt</li>
+            <li>Protokolle aus Stichpunkten ausformulieren</li>
+          </ul>
+          <p class="try"><span>Beispiel:</span> „Erstelle eine Checkliste, was ein neuer Kassenwart in den ersten vier Wochen wissen muss.“</p>
+        </article>
+        <article class="topic">
+          <h3>Neue Angebote entwickeln</h3>
+          <p>Ideen finden, bewerten und planen, auch für neue Zielgruppen.</p>
+          <ul>
+            <li>Kurse, Ferienangebote und Veranstaltungen</li>
+            <li>Angebote für Familien, Ältere oder Einsteiger</li>
+            <li>Projektplan mit Aufgaben, Zeitplan und Kosten</li>
+          </ul>
+          <p class="try"><span>Beispiel:</span> „Welche Angebote könnte ein Skiclub im Sommer machen, damit die Mitglieder aktiv bleiben?“</p>
+        </article>
+        <article class="topic">
+          <h3>Digitalisierung, auch ohne KI</h3>
+          <p>Viele Erleichterungen brauchen gar keine KI, nur gute Werkzeuge.</p>
+          <ul>
+            <li>Papierloser Verein: Belege und Protokolle digital ablegen</li>
+            <li>Gemeinsamer Cloud-Speicher für den Vorstand</li>
+            <li>Online-Terminabstimmung und digitale Mitgliederverwaltung</li>
+          </ul>
+          <p class="caution">Bei Cloud-Diensten mit Mitgliederdaten ist ein Vertrag zur Auftragsverarbeitung nötig.</p>
+        </article>
+        <article class="topic">
+          <h3>Datenschutz</h3>
+          <p>Mitgliederdaten richtig behandeln, gerade beim Einsatz von KI.</p>
+          <ul>
+            <li>Was in ein KI-Programm darf und was nicht</li>
+            <li>Daten pseudonymisieren: Nummer statt Name</li>
+            <li>Regeln im Verein festlegen, wer was nutzen darf</li>
+          </ul>
+          <p class="try"><a href="#datenschutz">Die wichtigsten Regeln auf dieser Seite</a></p>
+        </article>
+        <article class="topic">
+          <h3>Vereins-Apps</h3>
+          <p>Welche Arten von Apps es gibt und worauf man bei der Auswahl achtet. Ohne Werbung für einzelne Anbieter.</p>
+          <ul>
+            <li>Serverstandort und Vertrag zur Auftragsverarbeitung</li>
+            <li>Laufende Kosten und Kündigungsfristen</li>
+            <li>Datenexport, falls man wechseln will</li>
+          </ul>
+        </article>
+        <article class="topic">
+          <h3>Trainings- und Übungspläne</h3>
+          <p>Pläne nach Alter, Leistungsstand und verfügbarer Zeit, auch für Schulvereine und AGs.</p>
+          <ul>
+            <li>Aufwärmprogramme und Übungsvarianten</li>
+            <li>Trainingsplan für eine ganze Saison</li>
+            <li>Ideen für Gruppen mit gemischtem Niveau</li>
+          </ul>
+          <p class="try"><span>Beispiel:</span> „Erstelle ein 20-minütiges Aufwärmprogramm für Kinder von 8 bis 10 Jahren vor dem Skitraining.“</p>
+          <p class="caution">KI ersetzt keine Trainerausbildung. Sicherheit geht vor.</p>
+        </article>
+        <article class="topic">
+          <h3>Öffentlichkeitsarbeit</h3>
+          <p>Damit Suchmaschinen und KI-Assistenten den Verein finden und richtig beschreiben (SEO und GEO).</p>
+          <ul>
+            <li>Ort, Angebote, Trainingszeiten und Kontakt klar nennen</li>
+            <li>Häufige Fragen auf der Website beantworten</li>
+            <li>Impressum und Datenschutzerklärung nicht vergessen</li>
+          </ul>
+        </article>
+        <article class="topic">
+          <h3>KI-Modelle im Praxistest</h3>
+          <p>Verschiedene KI-Modelle werden mit typischen Vereinsaufgaben ausprobiert. Die Ergebnisse werden hier dokumentiert und verglichen.</p>
+          <ul>
+            <li>Gleiche Aufgabe, verschiedene Modelle</li>
+            <li>Was gut klappt und wo Fehler passieren</li>
+            <li>Kostenlos oder Bezahlversion: was lohnt sich</li>
+          </ul>
+        </article>
+        <article class="topic topic-link">
+          <h3>E-Rechnungen lesen</h3>
+          <p>Vereine bekommen zunehmend E-Rechnungen. Ein kostenloses Werkzeug zeigt sie lesbar an, direkt im Browser.</p>
+          <p class="try"><a href="/rechnungen/e-rechnung-lesen/">Zum E-Rechnung-Leser</a> · <a href="#e-rechnung">Was er kann</a></p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ FÜR WEN ============ -->
-  <section id="fuer-wen" class="on-soft">
+  <!-- ============ E-RECHNUNG ============ -->
+  <section id="e-rechnung" class="on-soft">
+    <div class="wrap">
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <p class="eyebrow">E-Rechnung im Verein</p>
+          <h2 class="section-title">E-Rechnungen kostenlos lesen</h2>
+          <p class="lede">
+            Seit dem 1. Januar 2025 müssen Unternehmer in Deutschland
+            E-Rechnungen empfangen können. Vereine sind davon betroffen, soweit
+            sie unternehmerisch tätig sind, zum Beispiel mit Bewirtung,
+            Sponsoring oder Kursen gegen Entgelt. Ob und wie weit das für euren
+            Verein gilt, klärt im Zweifel die Steuerberatung.
+          </p>
+          <p class="lede">
+            Für den Empfang reicht nach Auffassung des Bundesfinanzministeriums
+            ein E-Mail-Postfach. Schwierig wird das Lesen: Eine XRechnung ist
+            eine reine XML-Datei, die ohne passendes Programm kaum zu
+            entziffern ist.
+          </p>
+          <div class="hero-actions" style="margin:24px 0 0;">
+            <a href="/rechnungen/e-rechnung-lesen/" class="btn btn-primary btn-xl">Zum E-Rechnung-Leser</a>
+          </div>
+          <p class="lede" style="font-size:0.9rem;margin-top:14px;">
+            Das Werkzeug gehört zum Bereich Rechnungen von Ru-Services, ist
+            aber für alle kostenlos und ohne Kauf oder Anmeldung nutzbar.
+          </p>
+        </div>
+        <div class="cap tool-card">
+          <h3>Was das Werkzeug kann</h3>
+          <ul class="checklist">
+            <li>Liest <strong>ZUGFeRD und Factur-X</strong> (PDF mit eingebetteten Rechnungsdaten) und <strong>XRechnung</strong> (XML).</li>
+            <li>Zeigt Rechnungssteller, Empfänger, Datum, alle Positionen, Steuern und Summen übersichtlich an.</li>
+            <li>Zeigt Zahlungsangaben wie IBAN, Verwendungszweck und Fälligkeit, damit die Überweisung stimmt.</li>
+            <li>Erkennt das <strong>Profil</strong> und zeigt, ob es nach Auffassung des Bundesfinanzministeriums als E-Rechnung gilt. MINIMUM und BASIC WL gelten nicht als E-Rechnung.</li>
+            <li>Speichert die enthaltene XML-Datei auf Wunsch, etwa für Kassenwart oder Steuerberatung.</li>
+            <li><strong>Die Datei bleibt auf deinem Gerät.</strong> Sie wird im Browser gelesen und nicht hochgeladen.</li>
+          </ul>
+          <p class="caution">Das Werkzeug zeigt an, es prüft nicht. Eine Prüfung auf Fehler (Validierung) und die Archivierung ersetzt es nicht.</p>
+        </div>
+      </div>
+      <div class="notice">
+        <p><strong>Tipp zur Aufbewahrung:</strong> Bei einer E-Rechnung gilt
+        die elektronische Fassung als Original. Aufbewahrt wird deshalb die
+        empfangene Datei selbst, also die XML-Datei oder das PDF mit den
+        eingebetteten Daten, nicht nur ein Ausdruck. Mehr dazu unter
+        <a href="/rechnungen/pflichtangaben/#aufbewahrung">Aufbewahrung</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DATENSCHUTZ ============ -->
+  <section id="datenschutz">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Für wen</p>
-        <h2 class="section-title">Für alle, die sich engagieren</h2>
+        <p class="eyebrow">Datenschutz</p>
+        <h2 class="section-title">KI und Mitgliederdaten: die wichtigsten Regeln</h2>
+        <p class="lede">
+          Für die Daten seiner Mitglieder ist der Verein verantwortlich. Diese
+          Grundregeln helfen, KI sicher zu nutzen.
+        </p>
       </div>
       <div class="cap-grid">
-        <div class="cap"><h3>Vereinsvorstände</h3><p>Inhalt folgt.</p></div>
-        <div class="cap"><h3>Ehrenamtliche</h3><p>Inhalt folgt.</p></div>
-        <div class="cap"><h3>Schul- und Fördervereine</h3><p>Inhalt folgt.</p></div>
+        <div class="cap">
+          <h3>Keine Mitgliederdaten in freie KI-Dienste</h3>
+          <p>Namen, Adressen, Bankdaten oder Gesundheitsangaben gehören nicht in kostenlose KI-Programme. Erlaubt ist das nur mit Rechtsgrundlage und einem Vertrag zur Auftragsverarbeitung nach Art.&nbsp;28 DSGVO.</p>
+        </div>
+        <div class="cap">
+          <h3>Pseudonymisieren und erfinden</h3>
+          <p>Mitgliedsnummer statt Name, IBAN weglassen, Beispielzeilen erfinden. Wie bei der Kassentabelle oben reicht der KI fast immer der Aufbau, nicht der Inhalt.</p>
+        </div>
+        <div class="cap">
+          <h3>Einstellungen prüfen</h3>
+          <p>Viele KI-Dienste nutzen Eingaben zum Training. Wo möglich, das in den Einstellungen abschalten und keine vertraulichen Vereinsinterna eingeben.</p>
+        </div>
+        <div class="cap">
+          <h3>Ergebnisse gegenlesen</h3>
+          <p>KI kann Fehler machen und Dinge erfinden. Beträge, Fristen, Namen und rechtliche Aussagen immer prüfen, bevor etwas veröffentlicht oder verschickt wird.</p>
+        </div>
+        <div class="cap">
+          <h3>Bilder und Texte</h3>
+          <p>Fotos von Personen nur mit Einwilligung veröffentlichen. KI-Bilder, die echt wirken, als KI-erzeugt kennzeichnen. Fremde Texte und Bilder nicht ungefragt übernehmen.</p>
+        </div>
+        <div class="cap">
+          <h3>Regeln im Verein festlegen</h3>
+          <p>Kurz schriftlich festhalten, wer welche KI wofür nutzen darf. Das schafft Klarheit im Vorstand und hilft neuen Ehrenamtlichen.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ ABLAUF ============ -->
-  <section id="ablauf">
+  <!-- ============ WIE ES WEITERGEHT ============ -->
+  <section id="ablauf" class="on-soft">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Ablauf</p>
-        <h2 class="section-title">So funktioniert es</h2>
+        <h2 class="section-title">Wie es weitergeht</h2>
       </div>
-      <div class="steps">
-        <div class="step"><h3>Schritt 1</h3><p>Inhalt folgt.</p></div>
-        <div class="step"><h3>Schritt 2</h3><p>Inhalt folgt.</p></div>
-        <div class="step"><h3>Schritt 3</h3><p>Inhalt folgt.</p></div>
-        <div class="step"><h3>Schritt 4</h3><p>Inhalt folgt.</p></div>
+      <div class="timeline">
+        <div class="tl-item is-now">
+          <p class="year">Oktober 2026</p>
+          <p>Förderung bewilligt, Portal gestartet. Die erste Umsetzung steht: der Weg vom Excel-Export zur Tabelle fürs Finanzamt.</p>
+        </div>
+        <div class="tl-item">
+          <p class="year">bis Dezember 2026</p>
+          <p>Anleitungen zu allen Themen und Praxistests verschiedener KI-Modelle mit typischen Vereinsaufgaben.</p>
+        </div>
+        <div class="tl-item">
+          <p class="year">laufend</p>
+          <p>Fragen aus Vereinen aufnehmen. Gute Fragen werden zu neuen Anleitungen, so wie die des Skiclubs.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section id="faq" class="on-soft">
+  <section id="faq">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Häufige Fragen</p>
         <h2 class="section-title">FAQ</h2>
       </div>
       <div class="faq">
-        <details><summary>Was kostet das Angebot?</summary><p>Inhalt folgt.</p></details>
-        <details><summary>Brauche ich Vorkenntnisse?</summary><p>Inhalt folgt.</p></details>
-        <details><summary>Wie gehe ich mit Mitgliederdaten und KI um?</summary><p>Inhalt folgt.</p></details>
+        <details><summary>Was kostet das Angebot?</summary><p>Nichts. Das Wissensportal ist kostenlos, ohne Anmeldung und ohne Werbung. Möglich macht das die Förderung durch das Land Nordrhein-Westfalen.</p></details>
+        <details><summary>Muss ich dafür etwas kaufen?</summary><p>Nein. Für die Anleitungen reicht ein kostenloser KI-Assistent und ein Tabellenprogramm wie Excel. Das Portal ist unabhängig vom Rechnungsprogramm von Ru-Services.</p></details>
+        <details><summary>Brauche ich Vorkenntnisse?</summary><p>Nein. Die Anleitungen sind für Ehrenamtliche ohne Technik- oder Excel-Erfahrung geschrieben.</p></details>
+        <details><summary>Ist das Steuer- oder Rechtsberatung?</summary><p>Nein. Das Portal bietet allgemeine Informationen und Anleitungen zur Selbsthilfe, keine Beratung im Einzelfall. Verbindliche Auskünfte geben Steuerberatung, Rechtsanwälte, das Finanzamt oder der eigene Dachverband.</p></details>
+        <details><summary>Darf ich Mitgliederdaten in eine KI eingeben?</summary><p>In kostenlose KI-Dienste in der Regel nicht. Die Regeln dazu stehen im Abschnitt <a href="#datenschutz">Datenschutz</a>. Die Anleitungen hier sind so gebaut, dass die KI keine echten Mitgliederdaten braucht.</p></details>
+        <details><summary>Wie kann unser Verein eine Frage einreichen?</summary><p>Per E-Mail an finn.rummel@gmail.com. Wird aus der Frage eine Anleitung, erscheint der Verein nur mit seinem Einverständnis namentlich.</p></details>
+        <details><summary>Wer steckt dahinter?</summary><p>Finn Rummel aus Nordrhein-Westfalen. Das Portal ist ein nicht kommerzielles Projekt und wird im Rahmen des Landesprogramms „2.000 x 1.000 Euro für das Engagement“ gefördert.</p></details>
       </div>
     </div>
   </section>
 
-  <!--
-    FÖRDERHINWEIS: Erst einfügen, wenn das Projekt bewilligt ist, und nur mit Text und
-    Logo laut Bewilligungsbescheid (Förderprogramm „2.000 x 1.000 Euro für das Engagement“
-    des Landes NRW). Vorher keinen Förderhinweis zeigen.
-  -->
+  <!-- ============ FÖRDERUNG ============ -->
+  <section id="foerderung" class="on-soft">
+    <div class="wrap">
+      <div class="foerder-box">
+        <div>
+          <p class="eyebrow">Förderung</p>
+          <h2 class="section-title">Gefördert vom Land Nordrhein&#8209;Westfalen</h2>
+          <p>
+            Dieses Projekt wird gefördert durch das Land Nordrhein-Westfalen im
+            Rahmen des Landesprogramms „2.000&nbsp;x&nbsp;1.000&nbsp;Euro für das
+            Engagement“. Das Programm unterstützt landesweit Projekte des
+            bürgerschaftlichen Engagements mit je 1.000&nbsp;Euro. Der
+            Schwerpunkt 2026 lautet „Digital in die Zukunft: engagiert mit KI
+            und Co.“.
+          </p>
+          <p>
+            <strong>Ohne diese Förderung wäre das KI-Wissensportal nicht
+            möglich.</strong> Sie finanziert den Aufbau dieser Seite und die
+            Praxistests mit verschiedenen KI-Modellen.
+          </p>
+          <p class="small-print">
+            Für die Inhalte dieser Seite ist allein Finn Rummel verantwortlich.
+            Sie geben nicht die Auffassung des Landes Nordrhein-Westfalen wieder.
+          </p>
+          <div class="ferd-links">
+            <a class="btn btn-secondary" href="https://www.engagiert-in-nrw.de/foerderprogramm-2000-x-1000-euro-fuer-das-engagement" target="_blank" rel="noopener">Zum Förderprogramm ↗</a>
+          </div>
+        </div>
+        <!-- Förderlogo: unveränderte Datei, auf weißem Grund, nur proportional skaliert -->
+        <a class="foerder-logo" href="https://www.engagiert-in-nrw.de/foerderprogramm-2000-x-1000-euro-fuer-das-engagement" target="_blank" rel="noopener" title="Landesprogramm 2.000 x 1.000 Euro für das Engagement in NRW">
+          <img src="/img/foerderung/logo-2000x1000-engagement-nrw.png" alt="Logo des Landesprogramms 2.000 x 1.000 Euro für das Engagement in NRW" width="681" height="293">
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ KONTAKT ============ -->
   <section id="kontakt">
     <div class="wrap">
       <div class="cta-band">
-        <h3>Themenwunsch oder Frage?</h3>
-        <p>Schreib eine E-Mail. Anregungen aus Vereinen helfen, das Portal passend aufzubauen.</p>
+        <h3>Euer Verein hat eine Frage?</h3>
+        <p>Wie der Skiclub: Schreibt, wo es im Vereinsalltag hakt. Aus guten Fragen werden neue Anleitungen für alle.</p>
         <div class="hero-actions" style="justify-content:center;margin:0;">
           <a href="mailto:finn.rummel@gmail.com?subject=KI-Wissensportal%20f%C3%BCr%20Vereine" class="btn btn-primary btn-xl btn-on-band">E-Mail schreiben</a>
         </div>
+        <p style="margin:18px auto 0;font-size:0.92rem;">finn.rummel@gmail.com</p>
       </div>
     </div>
   </section>
@@ -167,11 +602,11 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Harsewinkel, Deutschland</span>
+    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Nordrhein-Westfalen, Deutschland</span>
     <nav aria-label="Rechtliches">
       <a href="/impressum.html">Impressum</a>
       <a href="/datenschutz.html">Datenschutz</a>
-      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="#foerderung">Förderhinweis</a>
       <a href="mailto:finn.rummel@gmail.com">Kontakt</a>
     </nav>
   </div>
