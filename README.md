@@ -18,12 +18,14 @@ rechnungen/index.html              Rechnungsprogramm: E-Rechnung, ZUGFeRD/FeRD, 
                                    Screenshot-Rundgang, Funktionen, Free/Pro, FAQ, Download
 rechnungen/pflichtangaben/         Pflichtangaben auf Rechnungen mit Gesetzeslinks
 rechnungen/e-rechnung-lesen/       Werkzeug: ZUGFeRD/XRechnung im Browser lesen (leser.js)
-vereine/index.html                 Vereine: Vorlage (noindex, in Vorbereitung)
+vereine/index.html                 KI-Wissensportal für Vereine (gefördert, eigene
+                                   grüne Farbe und eigene Navigation, ohne Verkauf)
 impressum.html                     Impressum (§ 5 DDG)
 datenschutz.html                   Datenschutzerklärung (DSGVO)
 404.html                           Fehlerseite
 styles.css                         komplettes Design (Tokens aus Ru-Design)
-script.js                          Menü, Video erst nach Klick, Lightbox, alte Anker
+script.js                          Menü, Video erst nach Klick, Lightbox, alte Anker,
+                                   Kopieren-Knopf
 fonts/                             Manrope und Inter (woff2, SIL OFL 1.1)
 vendor/pdfjs/                      pdf.js 4.10.38 legacy build (Apache-2.0), nur fürs Werkzeug
 img/screenshots/                   Programm-Screenshots
@@ -50,9 +52,13 @@ im Repo-Ordner, dann <http://localhost:8000>.
   (wingender@awv-net.de).
 - **Pflichtangaben-Seite**: Stand Oktober 2026. Bei Gesetzesänderungen
   (UStG, UStDV, BMF-Schreiben) anpassen und das Datum oben ändern.
-- **Vereine**: Seite ist `noindex`. Erst wenn die Inhalte stehen, `noindex`
-  entfernen und in `sitemap.xml` aufnehmen. Einen Förderhinweis erst nach der
-  Bewilligung und nur laut Bescheid einfügen.
+- **Vereine**: gefördert durch das Land NRW („2.000 x 1.000 Euro für das
+  Engagement“, bewilligt Oktober 2026). Bewusst getrennt vom Verkauf: keine
+  Preise, kein Download-Knopf, keine Werbung. Förderhinweis steht in
+  `#foerderung`; das offizielle Logo (membox, Link in Notion) unverändert unter
+  `img/foerderung/` ablegen und dort einbinden. Vorgaben aus dem
+  Bewilligungsbescheid haben Vorrang. Vereine nur mit deren Einverständnis
+  namentlich nennen.
 
 ## Pflege
 
@@ -66,6 +72,8 @@ im Repo-Ordner, dann <http://localhost:8000>.
   Release als *Latest* markieren. Die Website muss dann nicht angefasst werden.
 - **Preise**: in `rechnungen/index.html` (Text, Tabelle, JSON-LD `offers`)
   und in `llms.txt`.
+- **Ort**: auf der Website steht als Sitz nur „Nordrhein-Westfalen“. Die volle
+  Anschrift steht nur dort, wo sie Pflicht ist (Impressum, Datenschutz).
 
 ## Deployment
 

@@ -1,16 +1,16 @@
 # Ru-Services
 
-> Ru-Services ist ein Einzelunternehmen von Finn Rummel mit Sitz in Harsewinkel (Nordrhein-Westfalen, Deutschland). Es entwickelt das Windows-Rechnungsprogramm „Ru Services“ und bereitet ein Informationsangebot für Vereine vor.
+> Ru-Services ist ein Einzelunternehmen von Finn Rummel mit Sitz in Nordrhein-Westfalen, Deutschland. Es entwickelt das Windows-Rechnungsprogramm „Ru Services“ und betreibt ein kostenloses, vom Land Nordrhein-Westfalen gefördertes KI-Wissensportal für Vereine.
 
 ## Rechnungen
 
-- [Rechnungsprogramm Ru Services](https://ru-services.de/rechnungen/): Windows 10 und 11. Rechnungen, Lieferscheine, Angebote und E-Rechnungen nach EN 16931 (ZUGFeRD / Factur-X, Profil EN 16931, PDF/A-3). Läuft lokal ohne Cloud, ohne Abo, ohne Benutzerkonto. Kostenlose Version ohne Zeitlimit; Pro einmalig 200 Euro; „Easy Firma“ (Pro mit Einrichtung) einmalig 300 Euro. Preise ohne Umsatzsteuer, da Kleinunternehmer nach § 19 UStG.
+- [Rechnungsprogramm Ru Services](https://ru-services.de/rechnungen/): Windows 10 und 11. Rechnungen, Lieferscheine, Angebote und E-Rechnungen nach EN 16931 (ZUGFeRD / Factur-X, Profil EN 16931, PDF/A-3). Läuft lokal ohne Cloud, ohne Abo, ohne Benutzerkonto. Kostenlose Version ohne Zeitlimit; Pro einmalig 200 Euro. Preise ohne Umsatzsteuer, da Kleinunternehmer nach § 19 UStG.
 - [E-Rechnung lesen](https://ru-services.de/rechnungen/e-rechnung-lesen/): kostenloses Browser-Werkzeug, zeigt Inhalt und Profil von ZUGFeRD-, Factur-X- und XRechnung-Dateien an. Die Datei bleibt auf dem Gerät. Keine Validierung.
 - [Pflichtangaben auf Rechnungen](https://ru-services.de/rechnungen/pflichtangaben/): Überblick zu § 14 UStG, § 14a UStG, Kleinunternehmer (§ 19 UStG, § 34a UStDV), Kleinbetragsrechnungen (§ 33 UStDV), E-Rechnungspflicht und Aufbewahrung (§ 14b UStG), mit Gesetzeslinks. Keine Steuerberatung.
 
 ## Vereine
 
-- [Vereine](https://ru-services.de/vereine/): KI-Wissensportal für Vereine, in Vorbereitung.
+- [KI-Wissensportal für Vereine](https://ru-services.de/vereine/): kostenloses, nicht kommerzielles Informationsangebot für Vereine und Ehrenamtliche, gefördert durch das Land Nordrhein-Westfalen (Landesprogramm „2.000 x 1.000 Euro für das Engagement“). Erste Umsetzung: Excel-Export aus der Vereinssoftware mit KI fürs Finanzamt aufbereiten, ohne echte Mitgliederdaten an die KI zu geben. Außerdem Möglichkeiten von KI im Verein, Datenschutzregeln und E-Rechnungen lesen. Keine Steuer- oder Rechtsberatung.
 
 ## Unternehmen
 
