@@ -934,9 +934,10 @@ footer nav{ display: flex; gap: 18px; flex-wrap: wrap; }
   background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 24px;
+  overflow: hidden;
+  justify-self: center;
 }
-.ferd-logo img{ width: 220px; height: auto; }
+.ferd-logo img{ width: 240px; height: auto; }
 
 /* ---------- Pflichtangaben / Textseiten ---------- */
 .prose{ max-width: 780px; }

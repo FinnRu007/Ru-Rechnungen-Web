@@ -42,12 +42,12 @@ im Repo-Ordner, dann <http://localhost:8000>.
   Attribut `data-video-id`.
 - **Keine externen Ressourcen** beim Seitenaufruf (keine Google Fonts, kein CDN,
   kein Tracking). Neue Einbindungen immer erst in `datenschutz.html` aufnehmen.
-- **ZUGFeRD-Logo**: nur die offizielle Datei vom FeRD verwenden
-  (ferd-net.de > Publikationen > ZUGFeRD-Logo), nur auf weißem Grund, mit
-  Schutzraum, nur proportional skaliert, verlinkt auf www.ferd-net.de. Platz
-  dafür ist in `rechnungen/index.html` im Abschnitt `#zugferd` vorbereitet
-  (auskommentiert). Nach der Veröffentlichung die URL innerhalb einer Woche
-  an das FeRD melden.
+- **ZUGFeRD-Logo**: `img/zugferd/zugferd-logo.svg` (Datei von ferd-net.de,
+  nur der graue Vorschau-Rahmen entfernt). Eingebunden in `rechnungen/index.html`
+  im Abschnitt `#zugferd`, verlinkt auf www.ferd-net.de. Regeln: nur auf weißem
+  Grund, Freiraum der Datei erhalten, nur proportional skalieren. Jeden neuen
+  Verwendungsort innerhalb einer Woche nach Veröffentlichung an das FeRD melden
+  (wingender@awv-net.de).
 - **Pflichtangaben-Seite**: Stand Oktober 2026. Bei Gesetzesänderungen
   (UStG, UStDV, BMF-Schreiben) anpassen und das Datum oben ändern.
 - **Vereine**: Seite ist `noindex`. Erst wenn die Inhalte stehen, `noindex`
