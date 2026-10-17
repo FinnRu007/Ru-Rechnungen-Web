@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Platin</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #10141c; color: #e8ecf3; font: 16px/1.5 system-ui, sans-serif; }
+  #game { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: none; }
+  #info { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; }
+  #info p { margin: 0 0 8px; }
+  #info .klein { opacity: .7; font-size: 14px; }
+  button { margin-top: 12px; padding: 8px 18px; border: 0; border-radius: 6px; background: #3b6fd8; color: #fff; font: inherit; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="info"><div><p id="text">Verbinde ...</p><p id="sub" class="klein"></p></div></div>
+<iframe id="game" title="Platin" allow="autoplay; fullscreen; gamepad; clipboard-write"></iframe>
+<script>
+(() => {
+  const KEY = 'platin.session';
+  const $ = (id) => document.getElementById(id);
+  const frame = $('game');
+  let origin = null;
+
+  function zeige(text, sub, retry) {
+    $('text').textContent = text; $('sub').textContent = sub || '';
+    if (retry) { const b = document.createElement('button'); b.textContent = 'Nochmal versuchen'; b.onclick = () => location.reload(); $('sub').after(b); }
+  }
+  function get() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch { return null; } }
+  function set(v) { try { v ? localStorage.setItem(KEY, JSON.stringify(v)) : localStorage.removeItem(KEY); } catch { /* privat */ } }
+
+  // Das Spiel im Rahmen fragt nach dem gemerkten Spielstand und meldet neue
+  window.addEventListener('message', (e) => {
+    if (!origin || e.origin !== origin || e.source !== frame.contentWindow || !e.data) return;
+    const m = e.data;
+    if (m.t === 'platin:getSession') frame.contentWindow.postMessage({ t: 'platin:session', session: get() }, origin);
+    else if (m.t === 'platin:setSession' && m.session && typeof m.session.token === 'string') set({ token: m.session.token, name: String(m.session.name || '') });
+    else if (m.t === 'platin:clearSession') set(null);
+  });
+
+  async function start() {
+    let url = null;
+    try { url = (await (await fetch('https://finnru007.github.io/Ru-Services/r5ec5sacle6b/adresse.json?t=' + Date.now(), { cache: 'no-store' })).json()).url; } catch { /* */ }
+    if (!url || !/^https:\/\/[a-z0-9-]+\.trycloudflare\.com\/?$/.test(url)) return zeige('Der Server ist gerade aus.', 'Sobald er läuft, hier einfach neu laden.', true);
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 8000);
+    try { await fetch(url.replace(/\/$/, '') + '/api/version?t=' + Date.now(), { mode: 'no-cors', cache: 'no-store', signal: ctl.signal }); }
+    catch { return zeige('Der Server ist gerade aus.', 'Sobald er läuft, hier einfach neu laden.', true); }
+    finally { clearTimeout(t); }
+    origin = new URL(url).origin;
+    frame.src = url;
+    frame.onload = () => { $('info').style.display = 'none'; frame.style.display = 'block'; frame.focus(); };
+    document.addEventListener('click', () => frame.focus());
+  }
+  start();
+})();
+</script>
+</body>
+</html>
