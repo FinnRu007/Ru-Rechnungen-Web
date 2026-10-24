@@ -16,6 +16,7 @@
 
   var zeilen = [];
   var ergebnis = null;      // { rechnung, xml, pdf }
+  var logo = null;          // { daten: Data-URL, typ: "png" | "jpg" }
   var leistungGeaendert = false;
 
   /* ---------- Hilfen ---------- */
@@ -32,7 +33,15 @@
     try {
       if (daten) window.localStorage.setItem(SPEICHER, JSON.stringify(daten));
       else window.localStorage.removeItem(SPEICHER);
-    } catch (e) { /* privater Modus: dann eben nicht */ }
+    } catch (e) {
+      // Speicher voll (großes Logo) oder privater Modus: ohne Logo versuchen
+      if (daten && daten.logo) {
+        var ohne = Object.assign({}, daten);
+        delete ohne.logo;
+        speicherSchreiben(ohne);
+        $("logoHinweis").textContent = "Das Logo ist zu groß zum Merken. Es wird für diese Rechnung verwendet, beim nächsten Besuch aber nicht mehr eingesetzt.";
+      }
+    }
   }
   function leistungsart() {
     var r = form.querySelector('input[name="leistungsart"]:checked');
@@ -210,11 +219,79 @@
   function setzeFirma(d) {
     FIRMA_FELDER.forEach(function (id) { if (d[id] != null) $(id).value = d[id]; });
     $("kleinunternehmer").checked = !!d.kleinunternehmer;
+    if (d.logo && d.logo.daten) setzeLogo(d.logo);
   }
   function firmaDaten() {
     var d = { kleinunternehmer: klein() };
     FIRMA_FELDER.forEach(function (id) { d[id] = wert(id); });
+    if (logo) d.logo = logo;
     return d;
+  }
+
+  /* ---------- Logo ---------- */
+
+  var LOGO_HINWEIS = "PNG, JPG oder SVG. Das Logo steht oben rechts auf der Rechnung. Die Datei bleibt auf Ihrem Gerät.";
+
+  function setzeLogo(l) {
+    logo = l;
+    $("logoVorschau").hidden = !l;
+    $("logoWeg").hidden = !l;
+    $("logoWaehlen").textContent = l ? "Anderes Logo auswählen" : "Logo auswählen";
+    if (l) $("logoBild").src = l.daten;
+    else $("logoBild").removeAttribute("src");
+  }
+
+  // Bild über ein Canvas neu zeichnen: ergibt immer ein einfaches RGB-Bild
+  // (PNG mit Transparenz oder JPG), wie es eine PDF/A-Datei verlangt.
+  function leseLogo(datei) {
+    return new Promise(function (ok, fehler) {
+      var typ = datei.type || ({ png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", svg: "image/svg+xml", webp: "image/webp", gif: "image/gif" })[(datei.name.split(".").pop() || "").toLowerCase()] || "";
+      if (!/^image\//.test(typ)) return fehler(new Error("Bitte eine Bilddatei wählen (PNG, JPG oder SVG)."));
+      if (datei.size > 15 * 1024 * 1024) return fehler(new Error("Die Datei ist zu groß (mehr als 15 MB)."));
+      var url = URL.createObjectURL(datei.type ? datei : new Blob([datei], { type: typ }));
+      var img = new Image();
+      img.onload = function () {
+        try {
+          var svg = typ === "image/svg+xml";
+          var w = img.naturalWidth || 1200, h = img.naturalHeight || 600;
+          var MAX = 1200, f = Math.min(svg ? Infinity : 1, MAX / Math.max(w, h));
+          var c = document.createElement("canvas");
+          c.width = Math.max(1, Math.round(w * f));
+          c.height = Math.max(1, Math.round(h * f));
+          var ctx = c.getContext("2d");
+          var jpg = typ === "image/jpeg";
+          if (jpg) { ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, c.width, c.height); }
+          ctx.drawImage(img, 0, 0, c.width, c.height);
+          var daten = jpg ? c.toDataURL("image/jpeg", 0.92) : c.toDataURL("image/png");
+          URL.revokeObjectURL(url);
+          ok({ daten: daten, typ: jpg ? "jpg" : "png" });
+        } catch (e) {
+          URL.revokeObjectURL(url);
+          fehler(new Error("Dieses Bild kann der Browser nicht verarbeiten. Bitte speichern Sie das Logo als PNG oder JPG."));
+        }
+      };
+      img.onerror = function () {
+        URL.revokeObjectURL(url);
+        fehler(new Error("Die Datei konnte nicht als Bild gelesen werden. Bitte speichern Sie das Logo als PNG oder JPG."));
+      };
+      img.src = url;
+    });
+  }
+
+  function logoGewaehlt() {
+    var datei = $("logoDatei").files && $("logoDatei").files[0];
+    $("logoDatei").value = "";
+    if (!datei) return;
+    var hinweis = $("logoHinweis");
+    hinweis.textContent = "Das Logo wird geladen …";
+    leseLogo(datei).then(function (l) {
+      hinweis.textContent = LOGO_HINWEIS;
+      setzeLogo(l);
+      if ($("merken").checked) speicherSchreiben(firmaDaten());
+      geaendert();
+    }, function (e) {
+      hinweis.textContent = e.message;
+    });
   }
 
   function zeigeLeistungsart() {
@@ -237,8 +314,7 @@
     zeigeSummen();
     if (ergebnis) {
       ergebnis = null;
-      $("pdfLaden").disabled = true;
-      $("xmlLaden").disabled = true;
+      ["pdfLaden", "zipLaden", "xmlLaden", "grossOeffnen"].forEach(function (id) { $(id).disabled = true; });
       var st = $("vorschauStatus");
       st.textContent = "";
       var p = document.createElement("div");
@@ -336,32 +412,67 @@
 
   /* ---------- Vorschau ---------- */
 
-  async function zeichneVorschau(bytes) {
-    var ziel = $("seiten");
-    ziel.textContent = "";
-    var lib = await ladePdfJs();
-    var doc = await lib.getDocument({ data: bytes.slice(), isEvalSupported: false }).promise;
-    var breite = Math.min(ziel.clientWidth || 800, 900);
+  var vorschauDoc = null, vorschauMass = "", vorschauLauf = 0;
+
+  // Breite, die im grauen Rahmen wirklich zur Verfügung steht
+  function vorschauBreite() {
+    var ziel = $("seiten"), st = window.getComputedStyle(ziel);
+    var innen = ziel.clientWidth - parseFloat(st.paddingLeft) - parseFloat(st.paddingRight);
+    return Math.floor(Math.min(innen || 800, 900));
+  }
+
+  // Jede Seite in der echten Pixeldichte des Bildschirms zeichnen, damit die
+  // Vorschau nicht vom Browser hoch- oder heruntergerechnet (unscharf) wird.
+  async function zeichneSeiten() {
+    if (!vorschauDoc) return;
+    var lauf = ++vorschauLauf;
+    var doc = vorschauDoc, ziel = $("seiten");
+    var breite = vorschauBreite(), dpr = window.devicePixelRatio || 1;
+    vorschauMass = breite + "@" + dpr;
+    var blaetter = [];
     for (var n = 1; n <= doc.numPages; n++) {
       var seite = await doc.getPage(n);
+      if (lauf !== vorschauLauf) return;
       var basis = seite.getViewport({ scale: 1 });
       var faktor = breite / basis.width;
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var vp = seite.getViewport({ scale: faktor * dpr });
+      var hoehe = basis.height * faktor;
+      var dichte = Math.min(dpr, 3, Math.sqrt(20e6 / (breite * hoehe)));
+      var vp = seite.getViewport({ scale: faktor * dichte });
       var canvas = document.createElement("canvas");
-      canvas.width = Math.floor(vp.width);
-      canvas.height = Math.floor(vp.height);
-      canvas.style.width = Math.floor(vp.width / dpr) + "px";
+      canvas.width = Math.round(breite * dichte);
+      canvas.height = Math.round(hoehe * dichte);
+      canvas.style.width = breite + "px";
       canvas.setAttribute("role", "img");
       canvas.setAttribute("aria-label", "Rechnung, Seite " + n + " von " + doc.numPages);
+      await seite.render({ canvasContext: canvas.getContext("2d"), viewport: vp }).promise;
+      if (lauf !== vorschauLauf) return;
       var blatt = document.createElement("div");
       blatt.className = "paper";
       blatt.appendChild(canvas);
-      ziel.appendChild(blatt);
-      await seite.render({ canvasContext: canvas.getContext("2d"), viewport: vp }).promise;
+      blaetter.push(blatt);
     }
-    return doc.numPages;
+    ziel.textContent = "";
+    blaetter.forEach(function (b) { ziel.appendChild(b); });
   }
+
+  async function zeichneVorschau(bytes) {
+    $("seiten").textContent = "";
+    var lib = await ladePdfJs();
+    vorschauDoc = await lib.getDocument({ data: bytes.slice(), isEvalSupported: false }).promise;
+    await zeichneSeiten();
+    return vorschauDoc.numPages;
+  }
+
+  // Nach Zoom im Browser, Drehen des Handys oder Fensterwechsel neu zeichnen
+  var neuZeichnen = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(neuZeichnen);
+    neuZeichnen = setTimeout(function () {
+      if (vorschauDoc && !$("vorschau").hidden && vorschauBreite() + "@" + (window.devicePixelRatio || 1) !== vorschauMass) {
+        zeichneSeiten().catch(function () {});
+      }
+    }, 250);
+  });
 
   async function erstellen(ev) {
     ev.preventDefault();
@@ -380,21 +491,21 @@
       var r = b.rechnung;
       var xml = E.erstelleXml(r);
       var m = await ladeBibliotheken();
-      var pdf = await E.erstellePdf(r, xml, m);
+      var pdf = await E.erstellePdf(r, xml, logo ? Object.assign({}, m, { logo: { bytes: logo.daten, typ: logo.typ } }) : m);
       ergebnis = { rechnung: r, xml: xml, pdf: pdf };
+      if (pdfUrl) { URL.revokeObjectURL(pdfUrl); pdfUrl = null; }
 
       $("vorschau").hidden = false;
       $("vorschauTitel").textContent = "Vorschau: Rechnung " + r.nummer + " über " + E.euro(r.brutto);
       $("xmlAnzeige").textContent = xml;
-      $("pdfLaden").disabled = false;
-      $("xmlLaden").disabled = false;
+      ["pdfLaden", "zipLaden", "xmlLaden", "grossOeffnen"].forEach(function (id) { $(id).disabled = false; });
       var st = $("vorschauStatus");
       st.textContent = "";
       var ok = document.createElement("div");
       ok.className = "profile ok";
       ok.innerHTML = "<b>Die E-Rechnung ist fertig.</b>";
       var p = document.createElement("p");
-      p.textContent = "Format ZUGFeRD, Profil EN 16931, als PDF/A-3 mit eingebetteter XML-Datei. Bitte prüfen Sie alle Angaben in der Vorschau, bevor Sie die Rechnung versenden.";
+      p.textContent = "Format ZUGFeRD, Profil EN 16931, als PDF/A-3. Die XML-Datei mit den Rechnungsdaten steckt schon in der PDF. Bitte prüfen Sie alle Angaben in der Vorschau, bevor Sie die Rechnung versenden.";
       ok.appendChild(p);
       if (b.zeichenErsetzt) {
         var w = document.createElement("p");
@@ -417,6 +528,14 @@
     } finally {
       knopf.disabled = false;
     }
+  }
+
+  var pdfUrl = null;
+  function grossOeffnen() {
+    if (!ergebnis) return;
+    if (!pdfUrl) pdfUrl = URL.createObjectURL(new Blob([ergebnis.pdf], { type: "application/pdf" }));
+    var fenster = window.open(pdfUrl, "_blank");
+    if (!fenster) herunterladen(ergebnis.pdf, E.dateiname(ergebnis.rechnung) + ".pdf", "application/pdf");
   }
 
   function herunterladen(inhalt, name, typ) {
@@ -466,6 +585,9 @@
     zeigeFehler([]);
     $("vorschau").hidden = true;
     ergebnis = null;
+    vorschauDoc = null;
+    setzeLogo(null);
+    $("logoHinweis").textContent = LOGO_HINWEIS;
     zeigeKlein();
   }
 
@@ -511,6 +633,15 @@
     $("merken").checked = false;
     $("gemerktHinweis").hidden = true;
   });
+  $("logoWaehlen").addEventListener("click", function () { $("logoDatei").click(); });
+  $("logoDatei").addEventListener("change", logoGewaehlt);
+  $("logoWeg").addEventListener("click", function () {
+    setzeLogo(null);
+    $("logoHinweis").textContent = LOGO_HINWEIS;
+    if ($("merken").checked) speicherSchreiben(firmaDaten());
+    geaendert();
+    $("logoWaehlen").focus();
+  });
   $("beispiel").addEventListener("click", beispiel);
   $("leeren").addEventListener("click", leeren);
   $("aendern").addEventListener("click", function () {
@@ -522,4 +653,14 @@
   $("xmlLaden").addEventListener("click", function () {
     if (ergebnis) herunterladen(ergebnis.xml, E.dateiname(ergebnis.rechnung) + ".xml", "application/xml");
   });
+  $("zipLaden").addEventListener("click", function () {
+    if (!ergebnis) return;
+    var name = E.dateiname(ergebnis.rechnung);
+    var z = E.zip([
+      { name: name + ".pdf", bytes: ergebnis.pdf },
+      { name: name + ".xml", bytes: E.utf8(ergebnis.xml) }
+    ]);
+    herunterladen(z, name + ".zip", "application/zip");
+  });
+  $("grossOeffnen").addEventListener("click", grossOeffnen);
 })();

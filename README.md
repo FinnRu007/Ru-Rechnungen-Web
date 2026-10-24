@@ -104,5 +104,12 @@ Beispiel Mustang (`java -jar Mustang-CLI.jar --action validate --source
 Rechnung.pdf`, prüft PDF/A-3 mit veraPDF und die XML mit den
 EN-16931-Regeln) oder mit den Prüfdateien aus dem FeRD-Paket ZUGFeRD 2.5.2.
 Stand 24.10.2026: Beispiele mit 19 %, 7 %, Kleinunternehmer, Leistungszeitraum
-und mehrseitiger Rechnung sind gültig (PDF/A-3B konform, 0 Regelverstöße).
+und mehrseitiger Rechnung sind gültig (PDF/A-3B konform, 0 Regelverstöße),
+ebenso mit Logo (PNG mit Transparenz, JPG, SVG). Ein hochgeladenes Logo wird
+im Browser über ein Canvas neu gezeichnet (höchstens 1200 Pixel, PNG oder
+JPG in RGB), damit die PDF/A-Datei gültig bleibt. Der Knopf „PDF und XML
+zusammen“ packt beide Dateien ohne Kompression in eine ZIP-Datei
+(Funktion `zip` in `erzeugen.js`). Die Vorschau zeichnet pdf.js in der
+echten Pixeldichte des Bildschirms und zeichnet nach Zoom oder
+Größenänderung neu.
 Das ZUGFeRD-Logo wird auf dieser Seite bewusst nicht verwendet.

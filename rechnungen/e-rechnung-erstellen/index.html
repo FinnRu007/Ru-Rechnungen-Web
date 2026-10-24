@@ -58,8 +58,9 @@
           Geben Sie Ihre Rechnung in vier Schritten ein. Daraus entsteht eine
           E-Rechnung im Format ZUGFeRD (Profil EN&nbsp;16931): eine PDF-Datei
           zum Lesen, in der die Rechnungsdaten zusätzlich als XML für die
-          Buchhaltung stecken. Sie sehen die Rechnung zuerst in der Vorschau und
-          laden sie dann herunter. Kostenlos und ohne Anmeldung.
+          Buchhaltung stecken. Auf Wunsch mit Ihrem eigenen Logo. Sie sehen die
+          Rechnung zuerst in der Vorschau und laden sie dann herunter.
+          Kostenlos und ohne Anmeldung.
         </p>
         <div class="notice blue">
           <p><strong>Ihre Daten bleiben auf Ihrem Gerät.</strong> Die Rechnung
@@ -99,9 +100,21 @@
             <div class="field w4"><label for="v_iban">IBAN</label><input id="v_iban" name="v_iban" autocomplete="off" placeholder="DE00 0000 0000 0000 0000 00"></div>
             <div class="field w2"><label for="v_bic">BIC</label><input id="v_bic" name="v_bic" autocomplete="off"></div>
           </div>
+          <h3 class="form-sub">Logo <span class="opt">freiwillig</span></h3>
+          <div class="logo-feld">
+            <div class="logo-bild" id="logoVorschau" hidden><img id="logoBild" alt="Ihr Logo"></div>
+            <div class="logo-text">
+              <p class="logo-knoepfe">
+                <button type="button" class="btn btn-secondary" id="logoWaehlen">Logo auswählen</button>
+                <button type="button" class="link-btn" id="logoWeg" hidden>Logo entfernen</button>
+              </p>
+              <input type="file" id="logoDatei" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden>
+              <p class="field-note" id="logoHinweis">PNG, JPG oder SVG. Das Logo steht oben rechts auf der Rechnung. Die Datei bleibt auf Ihrem Gerät.</p>
+            </div>
+          </div>
           <div class="field check remember">
             <input type="checkbox" id="merken">
-            <label for="merken">Meine Firmendaten auf diesem Gerät merken (nur in diesem Browser gespeichert, nicht bei Ru-Services)</label>
+            <label for="merken">Meine Firmendaten und mein Logo auf diesem Gerät merken (nur in diesem Browser gespeichert, nicht bei Ru-Services)</label>
           </div>
           <p class="field-note" id="gemerktHinweis" hidden>Ihre gespeicherten Firmendaten wurden eingesetzt. <button type="button" class="link-btn" id="vergessen">Gespeicherte Firmendaten löschen</button></p>
         </fieldset>
@@ -169,12 +182,14 @@
         <div class="result-head">
           <h2 id="vorschauTitel">Vorschau</h2>
           <div class="preview-actions">
-            <button type="button" class="btn btn-primary" id="pdfLaden">PDF herunterladen</button>
-            <button type="button" class="btn btn-secondary" id="xmlLaden">Nur XML herunterladen</button>
+            <button type="button" class="btn btn-primary" id="pdfLaden">E-Rechnung herunterladen (PDF)</button>
+            <button type="button" class="btn btn-secondary" id="zipLaden">PDF und XML zusammen (ZIP)</button>
+            <button type="button" class="btn btn-secondary" id="xmlLaden">Nur XML</button>
             <button type="button" class="btn btn-secondary" id="aendern">Eingaben ändern</button>
           </div>
         </div>
         <div id="vorschauStatus"></div>
+        <p class="preview-bar"><button type="button" class="link-btn" id="grossOeffnen">Rechnung in voller Größe öffnen</button> <span class="opt">(neuer Tab, dort lässt sich die Rechnung vergrößern)</span></p>
         <div class="paper-stack" id="seiten" aria-label="Vorschau der Rechnung"></div>
         <details class="raw">
           <summary>Rechnungsdaten (XML) anzeigen</summary>
@@ -182,7 +197,9 @@
         </details>
         <div class="notice">
           <p><strong>So geht es weiter:</strong> Senden Sie die PDF-Datei per
-          E-Mail an Ihren Kunden. Bitte nicht ausdrucken und wieder einscannen,
+          E-Mail an Ihren Kunden. Die PDF enthält die Rechnungsdaten (XML)
+          bereits, sie ist die vollständige E-Rechnung. Die XML-Datei einzeln
+          brauchen Sie nur, wenn Ihr Kunde sie ausdrücklich verlangt. Bitte nicht ausdrucken und wieder einscannen,
           sonst gehen die eingebetteten Rechnungsdaten verloren. Bewahren Sie die
           Datei elektronisch auf, mehr dazu unter
           <a href="/rechnungen/pflichtangaben/#aufbewahrung">Aufbewahrung</a>.</p>

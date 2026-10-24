@@ -583,16 +583,49 @@ var ERechnung = (function () {
     var kopf = [v.strasse, v.plz + " " + v.ort];
     if (v.telefon) kopf.push("Telefon " + v.telefon);
     if (v.email) kopf.push(v.email);
-    var kopfBreite = 0;
-    kopf.forEach(function (z, i) {
-      kopfBreite = Math.max(kopfBreite, schreibe(seite, z, RECHTS, 17 + i * 4, 8.5, normal, GRAU, "rechts"));
-    });
-    var platz = RECHTS - LINKS - kopfBreite - mm(8), groesse = 15;
-    while (groesse > 11 && fett.widthOfTextAtSize(sauber(fett, v.name), groesse) > platz) groesse -= 0.5;
-    var namensZeilen = umbrechen(v.name, fett, groesse, platz).slice(0, 2);
-    namensZeilen.forEach(function (t, i) {
-      schreibe(seite, t, LINKS, (namensZeilen.length > 1 ? 19 : 22) + i * groesse * 0.45, groesse, fett);
-    });
+    var kopfBreite = 0, platz, groesse = 15, namensZeilen;
+    if (m.logo && m.logo.bytes) {
+      // Mit Logo: Logo oben rechts, Name und Anschrift links darunter
+      var bild = m.logo.typ === "jpg" ? await doc.embedJpg(m.logo.bytes) : await doc.embedPng(m.logo.bytes);
+      var f = Math.min(mm(70) / bild.width, mm(24) / bild.height, 72 / 150);
+      var bw = bild.width * f, bh = bild.height * f;
+      seite.drawImage(bild, { x: RECHTS - bw, y: H - mm(12) - bh, width: bw, height: bh });
+      platz = RECHTS - LINKS - bw - mm(8);
+      while (groesse > 11 && fett.widthOfTextAtSize(sauber(fett, v.name), groesse) > platz) groesse -= 0.5;
+      namensZeilen = umbrechen(v.name, fett, groesse, platz).slice(0, 2);
+      var yK = 20;
+      namensZeilen.forEach(function (t, i) {
+        schreibe(seite, t, LINKS, yK + i * groesse * 0.45, groesse, fett);
+      });
+      yK += (namensZeilen.length - 1) * groesse * 0.45 + 6;
+      // Angaben mit " · " verbinden, solange die Zeile passt
+      var zeilenK = [], aktuell = "";
+      kopf.forEach(function (teil) {
+        teil = sauber(normal, teil);
+        var probe = aktuell ? aktuell + " · " + teil : teil;
+        if (!aktuell || normal.widthOfTextAtSize(probe, 8.5) <= platz) aktuell = probe;
+        else { zeilenK.push(aktuell); aktuell = teil; }
+      });
+      if (aktuell) zeilenK.push(aktuell);
+      zeilenK.forEach(function (t) {
+        if (yK > 44) return;
+        umbrechen(t, normal, 8.5, platz).forEach(function (u) {
+          if (yK > 44) return;
+          schreibe(seite, u, LINKS, yK, 8.5, normal, GRAU);
+          yK += 4;
+        });
+      });
+    } else {
+      kopf.forEach(function (z, i) {
+        kopfBreite = Math.max(kopfBreite, schreibe(seite, z, RECHTS, 17 + i * 4, 8.5, normal, GRAU, "rechts"));
+      });
+      platz = RECHTS - LINKS - kopfBreite - mm(8);
+      while (groesse > 11 && fett.widthOfTextAtSize(sauber(fett, v.name), groesse) > platz) groesse -= 0.5;
+      namensZeilen = umbrechen(v.name, fett, groesse, platz).slice(0, 2);
+      namensZeilen.forEach(function (t, i) {
+        schreibe(seite, t, LINKS, (namensZeilen.length > 1 ? 19 : 22) + i * groesse * 0.45, groesse, fett);
+      });
+    }
 
     // Anschriftfeld (DIN 5008, Form B)
     var ruecksende = sauber(normal, v.name + " · " + v.strasse + " · " + v.plz + " " + v.ort), rGroesse = 7;
@@ -769,6 +802,54 @@ var ERechnung = (function () {
     return doc.save({ useObjectStreams: false });
   }
 
+  /* ---------- ZIP (ohne Kompression) für PDF und XML zusammen ---------- */
+
+  var CRC_TABELLE = (function () {
+    var t = [];
+    for (var n = 0; n < 256; n++) {
+      var c = n;
+      for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+      t.push(c >>> 0);
+    }
+    return t;
+  })();
+  function crc32(b) {
+    var c = 0xFFFFFFFF;
+    for (var i = 0; i < b.length; i++) c = CRC_TABELLE[(c ^ b[i]) & 255] ^ (c >>> 8);
+    return (c ^ 0xFFFFFFFF) >>> 0;
+  }
+  // dateien: [{ name, bytes (Uint8Array) }], Ergebnis: Uint8Array
+  function zip(dateien, jetzt) {
+    var d = jetzt || new Date();
+    var zeit = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+    var tag = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+    var lokal = [], zentral = [], versatz = 0;
+    dateien.forEach(function (f) {
+      var name = utf8(f.name), daten = f.bytes, crc = crc32(daten);
+      var k = new DataView(new ArrayBuffer(30));
+      k.setUint32(0, 0x04034b50, true); k.setUint16(4, 20, true); k.setUint16(6, 0x0800, true);
+      k.setUint16(8, 0, true); k.setUint16(10, zeit, true); k.setUint16(12, tag, true);
+      k.setUint32(14, crc, true); k.setUint32(18, daten.length, true); k.setUint32(22, daten.length, true);
+      k.setUint16(26, name.length, true); k.setUint16(28, 0, true);
+      lokal.push(new Uint8Array(k.buffer), name, daten);
+      var z = new DataView(new ArrayBuffer(46));
+      z.setUint32(0, 0x02014b50, true); z.setUint16(4, 20, true); z.setUint16(6, 20, true); z.setUint16(8, 0x0800, true);
+      z.setUint16(10, 0, true); z.setUint16(12, zeit, true); z.setUint16(14, tag, true);
+      z.setUint32(16, crc, true); z.setUint32(20, daten.length, true); z.setUint32(24, daten.length, true);
+      z.setUint16(28, name.length, true); z.setUint32(42, versatz, true);
+      zentral.push(new Uint8Array(z.buffer), name);
+      versatz += 30 + name.length + daten.length;
+    });
+    var groesse = zentral.reduce(function (s, t) { return s + t.length; }, 0);
+    var e = new DataView(new ArrayBuffer(22));
+    e.setUint32(0, 0x06054b50, true); e.setUint16(8, dateien.length, true); e.setUint16(10, dateien.length, true);
+    e.setUint32(12, groesse, true); e.setUint32(16, versatz, true);
+    var teile = lokal.concat(zentral, [new Uint8Array(e.buffer)]);
+    var aus = new Uint8Array(versatz + groesse + 22), pos = 0;
+    teile.forEach(function (t) { aus.set(t, pos); pos += t.length; });
+    return aus;
+  }
+
   function dateiname(r) {
     return "Rechnung_" + r.nummer.replace(/[^A-Za-z0-9._-]+/g, "_").replace(/^_+|_+$/g, "") || "Rechnung";
   }
@@ -784,6 +865,8 @@ var ERechnung = (function () {
     datumDe: datumDe,
     plusTage: plusTage,
     ibanGueltig: ibanGueltig,
+    zip: zip,
+    utf8: utf8,
     dateiname: dateiname
   };
 })();
