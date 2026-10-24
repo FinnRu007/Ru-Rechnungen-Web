@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="de" class="has-subnav">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Rechnung erstellen: ZUGFeRD-Rechnung kostenlos im Browser | Ru-Services</title>
+<meta name="description" content="Rechnung eingeben, als E-Rechnung im Format ZUGFeRD (Profil EN 16931) ansehen und als PDF herunterladen. Kostenlos, ohne Anmeldung, die Daten bleiben auf Ihrem Gerät.">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="canonical" href="https://ru-services.de/rechnungen/e-rechnung-erstellen/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Ru-Services">
+<meta property="og:title" content="E-Rechnung erstellen, kostenlos im Browser">
+<meta property="og:description" content="ZUGFeRD-Rechnung (EN 16931) eingeben, ansehen und herunterladen. Die Daten bleiben auf Ihrem Gerät.">
+<meta property="og:url" content="https://ru-services.de/rechnungen/e-rechnung-erstellen/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="e-rechnung-erstellen">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="wordmark"><span class="dot"></span>Ru-Services</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Hauptmenü">
+      <a href="/">Ru-Services</a>
+      <a href="/rechnungen/" aria-current="page">Rechnungen</a>
+      <a href="/vereine/">Vereine</a>
+      <a href="/rechnungen/#download" class="nav-cta">Kostenlos herunterladen</a>
+    </nav>
+  </div>
+  <nav class="subnav" aria-label="Rechnungen">
+    <div class="subnav-inner">
+      <span class="sub-label">Rechnungen</span>
+      <a href="/rechnungen/#e-rechnung">E-Rechnung</a>
+      <a href="/rechnungen/#zugferd">ZUGFeRD</a>
+      <a href="/rechnungen/#rundgang">Rundgang</a>
+      <a href="/rechnungen/#funktionen">Funktionen</a>
+      <a href="/rechnungen/#preis">Preise</a>
+      <a href="/rechnungen/#faq">FAQ</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="/rechnungen/e-rechnung-erstellen/" aria-current="page">E-Rechnung erstellen</a>
+      <a href="/rechnungen/e-rechnung-lesen/">E-Rechnung lesen</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="section-head" style="max-width:780px;">
+        <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Ru-Services</a><span aria-hidden="true">/</span><a href="/rechnungen/">Rechnungen</a><span aria-hidden="true">/</span><span>E-Rechnung erstellen</span></nav>
+        <p class="eyebrow">Kostenloses Werkzeug</p>
+        <h1 class="hero-title page-title">E-Rechnung erstellen</h1>
+        <p class="lede">
+          Geben Sie Ihre Rechnung in vier Schritten ein. Daraus entsteht eine
+          E-Rechnung im Format ZUGFeRD (Profil EN&nbsp;16931): eine PDF-Datei
+          zum Lesen, in der die Rechnungsdaten zusätzlich als XML für die
+          Buchhaltung stecken. Sie sehen die Rechnung zuerst in der Vorschau und
+          laden sie dann herunter. Kostenlos und ohne Anmeldung.
+        </p>
+        <div class="notice blue">
+          <p><strong>Ihre Daten bleiben auf Ihrem Gerät.</strong> Die Rechnung
+          wird vollständig in Ihrem Browser erstellt. Es wird nichts hochgeladen,
+          nichts bei Ru-Services gespeichert und nichts an Dritte übertragen.</p>
+        </div>
+        <p class="tool-top-actions">
+          <button type="button" class="btn btn-secondary" id="beispiel">Mit Beispieldaten ausfüllen</button>
+          <button type="button" class="btn btn-secondary" id="leeren">Alle Eingaben leeren</button>
+        </p>
+      </div>
+
+      <form id="rechnungForm" class="invoice-form" novalidate>
+
+        <fieldset class="form-step">
+          <legend><span class="step-no">1</span>Ihre Firma</legend>
+          <p class="step-hint">Diese Angaben stehen als Absender auf der Rechnung.</p>
+          <div class="form-grid">
+            <div class="field w6"><label for="v_name">Firmenname <span class="req">Pflicht</span></label><input id="v_name" name="v_name" autocomplete="organization"></div>
+            <div class="field w6"><label for="v_kontakt">Inhaber oder Ansprechpartner</label><input id="v_kontakt" name="v_kontakt" autocomplete="name"></div>
+            <div class="field w6"><label for="v_strasse">Straße und Hausnummer <span class="req">Pflicht</span></label><input id="v_strasse" name="v_strasse" autocomplete="address-line1"></div>
+            <div class="field w2"><label for="v_plz">PLZ <span class="req">Pflicht</span></label><input id="v_plz" name="v_plz" inputmode="numeric" maxlength="5" autocomplete="postal-code"></div>
+            <div class="field w4"><label for="v_ort">Ort <span class="req">Pflicht</span></label><input id="v_ort" name="v_ort" autocomplete="address-level2"></div>
+            <div class="field w3"><label for="v_telefon">Telefon</label><input id="v_telefon" name="v_telefon" type="tel" autocomplete="tel"></div>
+            <div class="field w3"><label for="v_email">E-Mail</label><input id="v_email" name="v_email" type="email" autocomplete="email"></div>
+            <div class="field w3"><label for="v_steuernummer">Steuernummer</label><input id="v_steuernummer" name="v_steuernummer" placeholder="z. B. 347/5123/4567"></div>
+            <div class="field w3"><label for="v_ustid">USt-IdNr.</label><input id="v_ustid" name="v_ustid" placeholder="z. B. DE123456789"></div>
+            <p class="field-note w6">Steuernummer oder USt-IdNr.: eine von beiden ist Pflicht.</p>
+            <div class="field w6 check">
+              <input type="checkbox" id="kleinunternehmer" name="kleinunternehmer">
+              <label for="kleinunternehmer">Ich bin Kleinunternehmer nach §&nbsp;19 UStG und weise keine Umsatzsteuer aus</label>
+            </div>
+          </div>
+          <h3 class="form-sub">Bankverbindung <span class="opt">für die Überweisung, empfohlen</span></h3>
+          <div class="form-grid">
+            <div class="field w6"><label for="v_bank">Name der Bank</label><input id="v_bank" name="v_bank" placeholder="z. B. Sparkasse Gütersloh-Rietberg-Versmold"></div>
+            <div class="field w4"><label for="v_iban">IBAN</label><input id="v_iban" name="v_iban" autocomplete="off" placeholder="DE00 0000 0000 0000 0000 00"></div>
+            <div class="field w2"><label for="v_bic">BIC</label><input id="v_bic" name="v_bic" autocomplete="off"></div>
+          </div>
+          <div class="field check remember">
+            <input type="checkbox" id="merken">
+            <label for="merken">Meine Firmendaten auf diesem Gerät merken (nur in diesem Browser gespeichert, nicht bei Ru-Services)</label>
+          </div>
+          <p class="field-note" id="gemerktHinweis" hidden>Ihre gespeicherten Firmendaten wurden eingesetzt. <button type="button" class="link-btn" id="vergessen">Gespeicherte Firmendaten löschen</button></p>
+        </fieldset>
+
+        <fieldset class="form-step">
+          <legend><span class="step-no">2</span>Ihr Kunde</legend>
+          <p class="step-hint">An wen geht die Rechnung? Das Werkzeug ist für Kunden in Deutschland gedacht.</p>
+          <div class="form-grid">
+            <div class="field w6"><label for="k_name">Name oder Firma <span class="req">Pflicht</span></label><input id="k_name" name="k_name"></div>
+            <div class="field w6"><label for="k_kontakt">Ansprechpartner</label><input id="k_kontakt" name="k_kontakt" placeholder="z. B. Herr Peter Meier"></div>
+            <div class="field w6"><label for="k_strasse">Straße und Hausnummer <span class="req">Pflicht</span></label><input id="k_strasse" name="k_strasse"></div>
+            <div class="field w2"><label for="k_plz">PLZ <span class="req">Pflicht</span></label><input id="k_plz" name="k_plz" inputmode="numeric" maxlength="5"></div>
+            <div class="field w4"><label for="k_ort">Ort <span class="req">Pflicht</span></label><input id="k_ort" name="k_ort"></div>
+            <div class="field w3"><label for="k_kundennummer">Kundennummer</label><input id="k_kundennummer" name="k_kundennummer"></div>
+            <div class="field w3"><label for="k_email">E-Mail des Kunden</label><input id="k_email" name="k_email" type="email"></div>
+            <div class="field w3"><label for="k_ustid">USt-IdNr. des Kunden</label><input id="k_ustid" name="k_ustid"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step">
+          <legend><span class="step-no">3</span>Rechnungsdaten</legend>
+          <div class="form-grid">
+            <div class="field w3"><label for="r_nummer">Rechnungsnummer <span class="req">Pflicht</span></label><input id="r_nummer" name="r_nummer" placeholder="z. B. 2026-001"></div>
+            <div class="field w3"><label for="r_datum">Rechnungsdatum <span class="req">Pflicht</span></label><input id="r_datum" name="r_datum" type="date"></div>
+            <div class="field w6 radio-row" role="radiogroup" aria-label="Art der Leistungsangabe">
+              <span class="radio-label">Wann wurde geliefert oder geleistet?</span>
+              <label><input type="radio" name="leistungsart" value="datum" checked> An einem Tag</label>
+              <label><input type="radio" name="leistungsart" value="zeitraum"> Über einen Zeitraum</label>
+            </div>
+            <div class="field w3" id="feldLeistung"><label for="r_leistung">Leistungsdatum <span class="req">Pflicht</span></label><input id="r_leistung" name="r_leistung" type="date"></div>
+            <div class="field w3" id="feldVon" hidden><label for="r_von">Leistung vom</label><input id="r_von" name="r_von" type="date"></div>
+            <div class="field w3" id="feldBis" hidden><label for="r_bis">bis</label><input id="r_bis" name="r_bis" type="date"></div>
+            <div class="field w3"><label for="r_ziel">Zahlungsziel</label>
+              <select id="r_ziel" name="r_ziel">
+                <option value="0">sofort</option>
+                <option value="7">7 Tage</option>
+                <option value="10">10 Tage</option>
+                <option value="14" selected>14 Tage</option>
+                <option value="30">30 Tage</option>
+              </select>
+            </div>
+            <div class="field w3"><label for="r_bestellung">Bestellnummer des Kunden</label><input id="r_bestellung" name="r_bestellung"></div>
+            <div class="field w3"><label for="r_referenz">Referenz des Kunden</label><input id="r_referenz" name="r_referenz" placeholder="falls der Kunde eine vorgibt"></div>
+            <div class="field w6"><label for="r_notiz">Text über den Positionen</label><textarea id="r_notiz" name="r_notiz" rows="2" placeholder="z. B. Vielen Dank für Ihren Auftrag. Wir berechnen Ihnen folgende Leistungen:"></textarea></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step">
+          <legend><span class="step-no">4</span>Positionen</legend>
+          <p class="step-hint" id="preisHinweis">Preise bitte netto eingeben, also ohne Umsatzsteuer. Für einen Nachlass einen negativen Preis eintragen.</p>
+          <div id="positionen" class="positions"></div>
+          <p><button type="button" class="btn btn-secondary" id="neuePosition">+ Weitere Position</button></p>
+          <div class="sum-box" id="summen" aria-live="polite"></div>
+        </fieldset>
+
+        <fieldset class="form-step final-step">
+          <legend><span class="step-no">5</span>Prüfen und herunterladen</legend>
+          <div id="fehlerBox" class="error-box" role="alert" hidden></div>
+          <p><button type="submit" class="btn btn-primary btn-xl" id="erstellen">Rechnung prüfen und Vorschau anzeigen</button></p>
+          <div id="toolMsg" class="tool-msg" role="status" aria-live="polite"></div>
+        </fieldset>
+      </form>
+
+      <div class="preview" id="vorschau" hidden>
+        <div class="result-head">
+          <h2 id="vorschauTitel">Vorschau</h2>
+          <div class="preview-actions">
+            <button type="button" class="btn btn-primary" id="pdfLaden">PDF herunterladen</button>
+            <button type="button" class="btn btn-secondary" id="xmlLaden">Nur XML herunterladen</button>
+            <button type="button" class="btn btn-secondary" id="aendern">Eingaben ändern</button>
+          </div>
+        </div>
+        <div id="vorschauStatus"></div>
+        <div class="paper-stack" id="seiten" aria-label="Vorschau der Rechnung"></div>
+        <details class="raw">
+          <summary>Rechnungsdaten (XML) anzeigen</summary>
+          <pre class="xml" id="xmlAnzeige"></pre>
+        </details>
+        <div class="notice">
+          <p><strong>So geht es weiter:</strong> Senden Sie die PDF-Datei per
+          E-Mail an Ihren Kunden. Bitte nicht ausdrucken und wieder einscannen,
+          sonst gehen die eingebetteten Rechnungsdaten verloren. Bewahren Sie die
+          Datei elektronisch auf, mehr dazu unter
+          <a href="/rechnungen/pflichtangaben/#aufbewahrung">Aufbewahrung</a>.</p>
+        </div>
+      </div>
+
+      <div class="notice amber" style="margin-top:40px;">
+        <p><strong>Kostenloses Werkzeug, ohne Gewähr.</strong> Prüfen Sie jede
+        Rechnung vor dem Versand. Das Werkzeug ist keine Steuerberatung. Ob eine
+        Leistung mit 19&nbsp;% oder 7&nbsp;% besteuert wird oder ob Sie
+        Kleinunternehmer sind, klären Sie bitte mit Ihrem Steuerberater oder
+        Finanzamt.</p>
+        <p>Geeignet für Rechnungen innerhalb Deutschlands mit 19&nbsp;% oder
+        7&nbsp;% Umsatzsteuer oder ohne Umsatzsteuer als Kleinunternehmer.
+        Nicht abgedeckt sind zum Beispiel Kunden im Ausland, Reverse Charge,
+        Anzahlungs- und Schlussrechnungen, Gutschriften und Rechnungen an
+        Behörden, die meist eine XRechnung verlangen.</p>
+        <p>Das Werkzeug wurde mit den offiziellen Prüfregeln für ZUGFeRD&nbsp;2.5.2
+        (EN&nbsp;16931) und einer PDF/A-Prüfung getestet. Vom Forum elektronische
+        Rechnung Deutschland (FeRD) ist es weder geprüft noch zertifiziert. Was auf eine Rechnung
+        gehört, steht unter <a href="/rechnungen/pflichtangaben/">Pflichtangaben
+        auf Rechnungen</a>. Eine erhaltene E-Rechnung können Sie mit
+        <a href="/rechnungen/e-rechnung-lesen/">E-Rechnung lesen</a> ansehen.</p>
+      </div>
+
+      <div class="notice" style="margin-top:16px;">
+        <p><strong>Sie schreiben regelmäßig Rechnungen?</strong> Das Werkzeug
+        hier merkt sich keine Kunden und keine Rechnungsnummern. Dafür gibt es
+        das Rechnungsprogramm <a href="/rechnungen/">Ru&nbsp;Services</a> für
+        Windows, mit Kundenverwaltung, lückenlosen Nummernkreisen und geordneter
+        Ablage. Es läuft auf Ihrem eigenen Rechner.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Nordrhein-Westfalen, Deutschland</span>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/rechnungen/pflichtangaben/">Pflichtangaben</a>
+      <a href="mailto:finn.rummel@gmail.com">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script src="/rechnungen/e-rechnung-erstellen/erzeugen.js"></script>
+<script src="/rechnungen/e-rechnung-erstellen/ersteller.js"></script>
+</body>
+</html>
