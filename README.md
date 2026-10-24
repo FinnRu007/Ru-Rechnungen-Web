@@ -5,9 +5,12 @@ HTML/CSS/JS, kein Build-Schritt, läuft über GitHub Pages mit eigener Domain
 (`CNAME`).
 
 Design nach dem gemeinsamen Regelwerk in
-[`Ru-Design/DESIGN.md`](https://github.com/FinnRu007/Ru-Design). Einzige
-Abweichung: Die Schriften liegen lokal unter `fonts/` statt über Google Fonts
-(Datenschutz, keine Verbindung zu Google beim Seitenaufruf).
+[`Ru-Design/DESIGN.md`](https://github.com/FinnRu007/Ru-Design). Abweichungen:
+Die Schriften liegen lokal unter `fonts/` statt über Google Fonts
+(Datenschutz, keine Verbindung zu Google beim Seitenaufruf). Seit Oktober 2026
+ist die Website bewusst konservativer gestaltet (Zielgruppe kleine Betriebe
+und Handwerk): dunkleres Blau `#1E3A8A`, kleine Ecken, größere Schrift, keine
+verspielten Effekte, Ansprache mit „Sie“.
 
 ## Struktur
 
@@ -17,6 +20,9 @@ index.html                         Ru-Services: Unternehmen, Angebot, Grundsätz
 rechnungen/index.html              Rechnungsprogramm: E-Rechnung, ZUGFeRD/FeRD, Video,
                                    Screenshot-Rundgang, Funktionen, Free/Pro, FAQ, Download
 rechnungen/pflichtangaben/         Pflichtangaben auf Rechnungen mit Gesetzeslinks
+rechnungen/e-rechnung-erstellen/   Werkzeug: E-Rechnung (ZUGFeRD, Profil EN 16931, PDF/A-3)
+                                   im Browser erstellen. erzeugen.js = Berechnung, XML, PDF;
+                                   ersteller.js = Formular, Vorschau, Download; srgb.icc
 rechnungen/e-rechnung-lesen/       Werkzeug: ZUGFeRD/XRechnung im Browser lesen (leser.js)
 vereine/index.html                 KI-Wissensportal für Vereine: eigenständiges,
                                    gefördertes Projekt (grün, eigene Navigation)
@@ -26,8 +32,11 @@ datenschutz.html                   Datenschutzerklärung (DSGVO)
 styles.css                         komplettes Design (Tokens aus Ru-Design)
 script.js                          Menü, Video erst nach Klick, Lightbox, alte Anker,
                                    Kopieren-Knopf
-fonts/                             Manrope und Inter (woff2, SIL OFL 1.1)
-vendor/pdfjs/                      pdf.js 4.10.38 legacy build (Apache-2.0), nur fürs Werkzeug
+fonts/                             Manrope und Inter (woff2, SIL OFL 1.1), Liberation Sans
+                                   (ttf, unverändert, SIL OFL 1.1) für die Rechnungs-PDF
+vendor/pdfjs/                      pdf.js 4.10.38 legacy build (Apache-2.0), für beide Werkzeuge
+vendor/pdf-lib/                    pdf-lib 1.17.1 und @pdf-lib/fontkit 1.1.1 (MIT), nur für
+                                   „E-Rechnung erstellen“, wird erst beim Erstellen geladen
 img/screenshots/                   Programm-Screenshots
 img/flags/                         Flaggen Deutschland und EU (SVG)
 img/foerderung/                    Logo Landesprogramm 2.000 x 1.000 Euro (NRW)
@@ -86,3 +95,14 @@ im Repo-Ordner, dann <http://localhost:8000>.
 GitHub Pages: *Settings → Pages*, Branch `main`, Ordner `/` (root), Custom
 Domain `ru-services.de`, *Enforce HTTPS* an. Jeder Push auf `main`
 veröffentlicht neu.
+
+## Werkzeug „E-Rechnung erstellen“ prüfen
+
+Nach Änderungen an `rechnungen/e-rechnung-erstellen/erzeugen.js` eine
+Beispielrechnung erzeugen und mit einem Prüfwerkzeug prüfen, zum
+Beispiel Mustang (`java -jar Mustang-CLI.jar --action validate --source
+Rechnung.pdf`, prüft PDF/A-3 mit veraPDF und die XML mit den
+EN-16931-Regeln) oder mit den Prüfdateien aus dem FeRD-Paket ZUGFeRD 2.5.2.
+Stand 24.10.2026: Beispiele mit 19 %, 7 %, Kleinunternehmer, Leistungszeitraum
+und mehrseitiger Rechnung sind gültig (PDF/A-3B konform, 0 Regelverstöße).
+Das ZUGFeRD-Logo wird auf dieser Seite bewusst nicht verwendet.
