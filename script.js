@@ -31,22 +31,12 @@
     });
   }
 
-  // --- Erklärvideo erst nach Klick laden (Zwei-Klick-Lösung, § 25 TDDDG) ---
-  var frame = document.getElementById("videoFrame");
-  var loadBtn = document.getElementById("videoLoad");
-  if (frame && loadBtn) {
-    loadBtn.addEventListener("click", function () {
-      var id = frame.getAttribute("data-video-id");
-      var iframe = document.createElement("iframe");
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?rel=0&autoplay=1";
-      iframe.title = frame.getAttribute("data-video-title") || "Video";
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
-      iframe.allowFullscreen = true;
-      frame.textContent = "";
-      frame.classList.remove("is-consent");
-      frame.appendChild(iframe);
-    });
+  // --- Entfallene Abschnitte der Produktseite (Preise, Download, Video) ---
+  if (document.body.getAttribute("data-page") === "rechnungen") {
+    var ersatz = { "#preis": "#anfrage", "#pro-holen": "#anfrage", "#download": "#anfrage", "#video": "#rundgang" };
+    var umleiten = function () { if (ersatz[location.hash]) location.replace(ersatz[location.hash]); };
+    umleiten();
+    window.addEventListener("hashchange", umleiten);
   }
 
   // --- Text kopieren (z. B. KI-Vorlage auf der Vereinsseite) ---

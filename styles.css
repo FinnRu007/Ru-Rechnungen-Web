@@ -276,6 +276,7 @@ h1.hero-title .accent{ color: var(--primary); }
   padding-top: 30px;
   border-top: 1px solid var(--line);
 }
+.hero-stats .stat{ flex: 1 1 0; min-width: 150px; }
 .hero-stats .stat b{
   display: block;
   font-family: var(--font-display);

@@ -17,8 +17,8 @@ verspielten Effekte, Ansprache mit „Sie“.
 ```
 index.html                         Ru-Services: Unternehmen, Angebot, Grundsätze,
                                    Nachhaltigkeit, Standort (DE- und EU-Flagge), Kontakt
-rechnungen/index.html              Rechnungsprogramm: E-Rechnung, ZUGFeRD/FeRD, Video,
-                                   Screenshot-Rundgang, Funktionen, Free/Pro, FAQ, Download
+rechnungen/index.html              Rechnungsprogramm: Vorteile, E-Rechnung, ZUGFeRD/FeRD,
+                                   Screenshot-Rundgang, Funktionen, Anfrage, FAQ
 rechnungen/pflichtangaben/         Pflichtangaben auf Rechnungen mit Gesetzeslinks
 rechnungen/e-rechnung-erstellen/   Werkzeug: E-Rechnung (ZUGFeRD, Profil EN 16931, PDF/A-3)
                                    im Browser erstellen. erzeugen.js = Berechnung, XML, PDF;
@@ -30,8 +30,8 @@ impressum.html                     Impressum (§ 5 DDG)
 datenschutz.html                   Datenschutzerklärung (DSGVO)
 404.html                           Fehlerseite
 styles.css                         komplettes Design (Tokens aus Ru-Design)
-script.js                          Menü, Video erst nach Klick, Lightbox, alte Anker,
-                                   Kopieren-Knopf
+script.js                          Menü, Lightbox, alte Anker (auch #preis, #download,
+                                   #video auf /rechnungen/), Kopieren-Knopf
 fonts/                             Manrope und Inter (woff2, SIL OFL 1.1), Liberation Sans
                                    (ttf, unverändert, SIL OFL 1.1) für die Rechnungs-PDF
 vendor/pdfjs/                      pdf.js 4.10.38 legacy build (Apache-2.0), für beide Werkzeuge
@@ -49,9 +49,12 @@ im Repo-Ordner, dann <http://localhost:8000>.
 
 ## Rechtliches, bitte beachten
 
-- **Erklärvideo**: wird erst nach Klick auf „Video laden“ von YouTube geladen
-  (Zwei-Klick-Lösung). Die Video-ID steht in `rechnungen/index.html` im
-  Attribut `data-video-id`.
+- **Keine Preise, keine Free-Version** (Wunsch des Inhabers, 26.10.2026): Die
+  Produktseite zeigt nur die Vorteile des Programms. Statt Download gibt es den
+  Knopf „Jetzt anfragen“ (E-Mail). Das Erklärvideo ist entfernt, weil es die
+  kostenlose Version zeigt; der YouTube-Abschnitt in `datenschutz.html` ist
+  deshalb ebenfalls gestrichen. Kommt ein Video zurück, Zwei-Klick-Lösung und
+  Datenschutz-Abschnitt wieder einbauen (Git-Historie).
 - **Keine externen Ressourcen** beim Seitenaufruf (keine Google Fonts, kein CDN,
   kein Tracking). Neue Einbindungen immer erst in `datenschutz.html` aufnehmen.
 - **ZUGFeRD-Logo**: `img/zugferd/zugferd-logo.svg` (Datei von ferd-net.de,
@@ -80,13 +83,10 @@ im Repo-Ordner, dann <http://localhost:8000>.
 - **Screenshots**: PNGs nach `img/screenshots/` legen (Namen siehe
   `img/screenshots/README.md`).
 - **Neue Programmversion**: als GitHub-Release in **diesem** Repo
-  veröffentlichen und die `.exe` **zweimal** als Asset anhängen:
-  1. `Ru-Services-Setup-<version>.exe` (zur Nachvollziehbarkeit)
-  2. `Ru-Services-Setup.exe` (**fester Name ohne Version**, darauf zeigt der Download-Button)
-
-  Release als *Latest* markieren. Die Website muss dann nicht angefasst werden.
-- **Preise**: in `rechnungen/index.html` (Text, Tabelle, JSON-LD `offers`)
-  und in `llms.txt`.
+  veröffentlichen (die Update-Suche im Programm liest die Release-Seite).
+  Die Website verlinkt derzeit keinen Download.
+- **Preise**: stehen derzeit nirgends. Falls sie zurückkommen: Text in
+  `rechnungen/index.html`, JSON-LD `offers` und `llms.txt`.
 - **Ort**: auf der Website steht als Sitz nur „Nordrhein-Westfalen“. Die volle
   Anschrift steht nur dort, wo sie Pflicht ist (Impressum, Datenschutz).
 
