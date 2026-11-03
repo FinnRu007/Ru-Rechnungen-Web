@@ -1487,3 +1487,7 @@ h1.page-title{ font-size: clamp(2rem, 4.4vw, 2.8rem); }
 h1, h2, h3{ line-height: 1.25; }
 .area-grid.three .area-top{ flex-direction: column-reverse; align-items: flex-start; gap: 12px; }
 .area-grid.three .path{ display: none; }
+/* Referenzen: lange Domains und Wörter auf schmalen Bildschirmen umbrechen */
+.area-grid > *{ min-width: 0; }
+.area .path{ overflow-wrap: anywhere; }
+.area p, .area h3{ hyphens: auto; overflow-wrap: break-word; }
