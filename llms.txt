@@ -14,6 +14,10 @@
 - [Webseiten erstellen](https://ru-services.de/webseiten/): Ru-Services erstellt Webseiten für kleine Betriebe, schnell, zuverlässig und in engem Austausch. Anfragen per E-Mail an finn.rummel@gmail.com.
 - [Referenzen](https://ru-services.de/webseiten/referenzen/): Beispiele für Webseiten, die bereits online sind.
 
+## IT-Beratung
+
+- [IT-Beratung für kleine Unternehmen](https://ru-services.de/it-beratung/): E-Rechnung und Rechnungswesen, Webauftritt, Rechner und Büro, Datensicherung, IT-Sicherheit Grundschutz, Microsoft 365 oder Google Workspace, digitale Abläufe, KI im Betrieb, Schulung. Keine Rechts- oder Steuerberatung.
+
 ## Eigenständiges Projekt auf dieser Domain
 
 - [KI-Wissensportal für Vereine](https://ru-services.de/vereine/): kostenloses, nicht kommerzielles Informationsangebot für Vereine und Ehrenamtliche, gefördert durch das Land Nordrhein-Westfalen (Landesprogramm „2.000 x 1.000 Euro für das Engagement“). Erste Umsetzung: Excel-Export aus der Vereinssoftware mit KI fürs Finanzamt aufbereiten, ohne echte Mitgliederdaten an die KI zu geben. Außerdem Möglichkeiten von KI im Verein, Datenschutzregeln sowie E-Rechnungen lesen und erstellen. Keine Steuer- oder Rechtsberatung.
