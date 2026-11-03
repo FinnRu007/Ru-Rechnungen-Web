@@ -1491,3 +1491,127 @@ h1, h2, h3{ line-height: 1.25; }
 .area-grid > *{ min-width: 0; }
 .area .path{ overflow-wrap: anywhere; }
 .area p, .area h3{ hyphens: auto; overflow-wrap: break-word; }
+
+/* ============================================================
+   Auffrischung November 2026: etwas mehr Tiefe und Bilder,
+   weiterhin ruhig und seriös. Gilt nicht für die Vereinsseite.
+   ============================================================ */
+html:not(.theme-verein) .hero.hero-plus{
+  background: linear-gradient(180deg, #EAF0FA 0%, #F5F8FD 55%, #FFFFFF 100%);
+  border-bottom: 1px solid var(--line);
+}
+html:not(.theme-verein) .hero.hero-plus::before{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(30,58,138,0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 35%, #000 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, transparent 35%, #000 100%);
+  pointer-events: none;
+}
+.hero-split{
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.hero-split .hero-inner{ max-width: none; }
+.hero-media{ position: relative; }
+@media (max-width: 960px){
+  .hero-split{ grid-template-columns: 1fr; }
+  .hero-media{ max-width: 640px; }
+}
+
+/* Fensterrahmen für Bildschirmfotos */
+.frame{
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 22px 48px rgba(18,28,60,0.16), 0 2px 6px rgba(18,28,60,0.06);
+}
+.frame-bar{
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 12px;
+  background: #F1F3F7;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.74rem; color: var(--ink-faint);
+}
+.frame-bar i{ width: 9px; height: 9px; border-radius: 50%; background: #CBD1DB; display: inline-block; }
+.frame-bar span{
+  margin-left: 8px; flex: 1; max-width: 300px;
+  background: #fff; border: 1px solid var(--line); border-radius: 4px;
+  padding: 1px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.frame img{ width: 100%; height: auto; display: block; }
+.phone{
+  position: absolute; right: -14px; bottom: -34px;
+  width: 26%; min-width: 92px;
+  border: 5px solid #1B2130; border-radius: 20px;
+  overflow: hidden; background: #1B2130;
+  box-shadow: 0 18px 36px rgba(18,28,60,0.28);
+}
+.phone img{ width: 100%; height: auto; display: block; }
+@media (max-width: 560px){ .phone{ right: -6px; bottom: -22px; } }
+
+/* Überschriften */
+h2.section-title{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+html:not(.theme-verein) .eyebrow{
+  display: inline-flex; align-items: center; gap: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem;
+}
+html:not(.theme-verein) .eyebrow::before{ content: ""; width: 22px; height: 2px; background: currentColor; }
+
+/* Karten */
+html:not(.theme-verein) .cap-icon{ background: var(--primary); color: #fff; }
+html:not(.theme-verein) .cap:hover{ border-color: #B4C0DC; }
+html:not(.theme-verein) .area{ border-top: 3px solid var(--primary); }
+
+/* Dunkler Abschnitt */
+section.on-dark{ background: #14244E; color: #fff; }
+.on-dark h2.section-title{ color: #fff; }
+.on-dark .eyebrow{ color: #AFC1EC; }
+.on-dark .lede{ color: rgba(255,255,255,0.82); }
+.on-dark .lede a{ color: #fff; }
+.on-dark .cap, .on-dark .step{ background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); }
+.on-dark .cap:hover{ border-color: rgba(255,255,255,0.4); box-shadow: none; }
+.on-dark .cap h3, .on-dark .step h3{ color: #fff; }
+.on-dark .cap p, .on-dark .step p{ color: rgba(255,255,255,0.78); }
+.on-dark .cap-icon{ background: rgba(255,255,255,0.12) !important; color: #fff !important; }
+.on-dark .step::before{ background: #fff; color: #14244E; }
+
+/* Kennzahlenleiste */
+.proof{
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0;
+  margin-top: 36px; border-top: 1px solid var(--line);
+}
+.proof div{ padding: 18px 18px 0 0; }
+.proof b{ display: block; font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); }
+.proof span{ font-size: 0.88rem; color: var(--ink-soft); }
+@media (max-width: 640px){ .proof{ grid-template-columns: 1fr; } }
+
+/* Hervorgehobene Referenz */
+.ref-feature{
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px); align-items: center;
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: clamp(20px, 3vw, 32px); text-decoration: none; color: inherit;
+  margin-bottom: 20px;
+}
+.ref-feature:hover{ border-color: var(--primary); box-shadow: var(--shadow-md); }
+.ref-feature h3{ font-family: var(--font-display); font-size: 1.4rem; margin: 6px 0 10px; }
+.ref-feature p{ color: var(--ink-soft); margin: 0 0 16px; }
+.ref-feature .path{ font-size: 0.82rem; color: var(--ink-faint); margin: 0; overflow-wrap: anywhere; }
+.ref-feature .more{ color: var(--primary); font-weight: 600; }
+@media (max-width: 860px){ .ref-feature{ grid-template-columns: 1fr; } }
+.ref-tags{ display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; list-style: none; }
+.ref-tags li{ font-size: 0.8rem; background: var(--primary-tint); color: var(--primary); border-radius: 4px; padding: 3px 9px; }
+
+/* Fußzeile */
+html:not(.theme-verein) footer{ background: #0F1B3D; border-top: 0; color: rgba(255,255,255,0.72); }
+html:not(.theme-verein) footer a{ color: rgba(255,255,255,0.72); }
+html:not(.theme-verein) footer a:hover{ color: #fff; }
+.cap-grid.four{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1000px){ .cap-grid.four{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px){ .cap-grid.four{ grid-template-columns: 1fr; } }
