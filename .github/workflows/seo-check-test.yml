@@ -1,33 +1,32 @@
 name: SEO-GEO-Check Test
+# Prüft das Werkzeug /webseiten/seo-geo-check/ mit echten Webseiten.
+# Läuft nur von Hand (Actions, "Run workflow") und bei Änderungen am Werkzeug.
 on:
-  push:
-    branches: [claude/project-thread-da0xu1]
   workflow_dispatch:
+  push:
+    paths:
+      - 'webseiten/seo-geo-check/**'
+      - 'tests/seo-geo-check.e2e.js'
+      - '.github/workflows/seo-check-test.yml'
 jobs:
-  probe:
+  test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Jina prüfen
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Playwright installieren
         run: |
-          set +e
-          O="Origin: https://ru-services.de"
-          echo "== Preflight"
-          curl -s -m 20 -X OPTIONS -D - -o /dev/null -H "$O" -H "Access-Control-Request-Method: GET" -H "Access-Control-Request-Headers: x-return-format,x-engine,x-no-cache" https://r.jina.ai/https://www.example.com/ | grep -i "^access\|^HTTP"
-          for U in https://www.handwerk.de/ https://ru-services.de/robots.txt https://ru-services.de/sitemap.xml https://ru-services.de/llms.txt https://ru-services.de/gibtsnicht.txt https://www.handwerk.de/robots.txt https://www.tischler.de/ https://www.wix.com/ https://www.zdf.de/ https://www.otto.de/; do
-            for E in "" "direct"; do
-              C=$(curl -s -m 30 -o o -D h -w "%{http_code}" -H "$O" -H "X-Return-Format: html" ${E:+-H "X-Engine: $E"} "https://r.jina.ai/$U")
-              R=$(curl -s -m 20 -A "Mozilla/5.0" -o r -w "%{http_code}" "$U")
-              echo "jina[$E] $C $(wc -c <o)B | direkt $R $(wc -c <r)B :: $U :: $(head -c 140 o | tr '\n\r' '  ')"
-            done
-          done
-          echo "== Text-Format"
-          for U in https://ru-services.de/robots.txt https://www.handwerk.de/robots.txt; do
-            curl -s -m 30 -H "$O" -H "X-Return-Format: text" "https://r.jina.ai/$U" | head -c 300; echo; echo ---
-          done
-          echo "== cors.lol und allorigins, 2. Runde"
-          for U in https://www.handwerk.de/ https://www.otto.de/ https://ru-services.de/robots.txt; do
-            E=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1],safe=''))" "$U")
-            for P in "https://api.cors.lol/?url=$E" "https://api.allorigins.win/get?url=$E" "https://api.codetabs.com/v1/proxy/?quest=$E"; do
-              C=$(curl -s -m 15 -o o -w "%{http_code} %{time_total}s" -H "$O" "$P"); echo "$C $(wc -c <o)B :: ${P:0:50} :: $(head -c 80 o | tr '\n\r' '  ')"; sleep 2
-            done
-          done
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Werkzeug mit echten Seiten testen
+        run: node tests/seo-geo-check.e2e.js test-ergebnisse
+      - name: Screenshots sichern
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-geo-check-test
+          path: test-ergebnisse
+          retention-days: 1
