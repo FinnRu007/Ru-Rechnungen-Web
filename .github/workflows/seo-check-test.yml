@@ -1,0 +1,23 @@
+name: SEO-GEO-Check Test
+on:
+  push:
+    branches: [claude/project-thread-da0xu1]
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Proxies prüfen
+        run: |
+          enc(){ python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1],safe=''))" "$1"; }
+          for U in https://ru-services.de/ https://www.example.com/ https://www.handwerk.de/ https://www.baeckerei-mueller.de/ https://www.spiegel.de/ https://www.tischlerei.de/ https://www.otto.de/; do
+            E=$(enc "$U")
+            for P in "https://api.allorigins.win/raw?url=$E" "https://api.allorigins.win/get?url=$E" "https://api.codetabs.com/v1/proxy/?quest=$E" "https://corsproxy.io/?url=$E" "https://cors.lol/?url=$E" "https://api.cors.lol/?url=$E" "https://whateverorigin.org/get?url=$E" "https://r.jina.ai/$U" "https://everyorigin.jwvbremen.nl/api/get?url=$E" "https://cors-proxy.htmldriven.com/?url=$E" "https://proxy.corsfix.com/?$U" "https://cors.eu.org/$U" "https://test.cors.workers.dev/?$U"; do
+              H=""; [[ $P == *jina* ]] && H="X-Return-Format: html"
+              S=$(date +%s.%N)
+              C=$(curl -s -m 25 -o o -D h -w "%{http_code}" -H "Origin: https://ru-services.de" ${H:+-H "$H"} "$P")
+              T=$(echo "$(date +%s.%N) - $S" | bc)
+              A=$(grep -i '^access-control-allow-origin' h | tr -d '\r' | cut -c1-60)
+              echo "$C $(wc -c <o)B ${T:0:5}s [$A] $(head -c 80 o | tr '\n\r' '  ') :: ${P:0:60} <- $U"
+            done
+          done
