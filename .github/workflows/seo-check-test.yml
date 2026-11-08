@@ -12,6 +12,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,3 +32,11 @@ jobs:
           name: seo-geo-check-test
           path: test-ergebnisse
           retention-days: 1
+      - name: Screenshots für die Abnahme auf eigenen Zweig legen
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          cd test-ergebnisse
+          git init -q && git checkout -q -b seo-geo-check-bilder
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -qm "Screenshots"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" seo-geo-check-bilder

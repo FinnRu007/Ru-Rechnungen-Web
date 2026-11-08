@@ -71,7 +71,7 @@
 
   // Liefert { text, status, url, weg } oder wirft einen Fehler.
   // pruefen(text) entscheidet, ob die Antwort brauchbar ist.
-  function abrufen(url, pruefen, ms) {
+  function abrufen(url, pruefen, ms, fortschritt) {
     ms = ms || ZEITLIMIT;
     var wege = [];
     var gleicheHerkunft = false;
@@ -89,6 +89,7 @@
         return Promise.reject(err);
       }
       var w = wege[i++];
+      if (fortschritt && i > 2) fortschritt(i - 1);
       var p = w.direkt
         ? mitZeitlimit(url, w === wege[0] && !gleicheHerkunft ? 6000 : ms).then(roh)
         : mitZeitlimit(w.adresse(url), ms, w.kopf ? { headers: w.kopf } : null).then(function (r) {
@@ -165,7 +166,9 @@
     laden(true);
     meldung('<p>Die Seite wird abgerufen. Das dauert meist wenige Sekunden.</p>');
 
-    abrufen(url, istHtml).then(function (seite) {
+    abrufen(url, istHtml, null, function (n) {
+      meldung('<p>Der Abruf dauert länger als gewöhnlich. Ausweichweg ' + n + ' wird versucht …</p>');
+    }).then(function (seite) {
       if (seite.fehlt) {
         meldung('<p><strong>Die Seite wurde nicht gefunden (Fehler ' + seite.status + ').</strong> Bitte prüfen Sie die Adresse.</p>', 'amber');
         laden(false);

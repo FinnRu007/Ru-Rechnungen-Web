@@ -48,6 +48,7 @@ const SEITEN = (process.env.SEITEN || [
     await page.goto('https://ru-services.de/webseiten/seo-geo-check/');
     for (const seite of SEITEN) {
       const t0 = Date.now();
+      await page.evaluate(() => { window.__letzterWeg = null; window.__nebendateien = null; });
       await page.fill('#urlInput', seite);
       await page.click('#checkBtn');
       let status = 'ok';
@@ -55,7 +56,7 @@ const SEITEN = (process.env.SEITEN || [
         await page.waitForFunction(() => !document.querySelector('#checkBtn').disabled, null, { timeout: 120000 });
       } catch (e) { status = 'zeitueberschreitung'; }
       const r = await page.evaluate(() => {
-        const sichtbar = !document.querySelector('#result').hidden;
+        const sichtbar = !document.querySelector('#result').hidden && !!window.__letzterWeg;
         return {
           ergebnis: sichtbar,
           seo: sichtbar ? document.querySelector('#score-seo .score-num').textContent : null,
@@ -91,7 +92,7 @@ const SEITEN = (process.env.SEITEN || [
     });
     const page = await ctx.newPage();
     await page.goto('https://ru-services.de/webseiten/seo-geo-check/');
-    await page.screenshot({ path: path.join(OUT, `start-${v.n}.png`), fullPage: false });
+    await page.screenshot({ path: path.join(OUT, `start-${v.n}.png`), fullPage: v.n === 'handy' });
     await page.fill('#urlInput', 'https://www.handwerk.de/');
     await page.click('#checkBtn');
     await page.waitForFunction(() => !document.querySelector('#checkBtn').disabled, null, { timeout: 120000 }).catch(() => {});
