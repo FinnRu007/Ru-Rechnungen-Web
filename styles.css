@@ -1769,6 +1769,9 @@ html:not(.theme-verein) footer a:hover{ color: #fff; }
   .result-head .btn{ width: 100%; justify-content: center; }
 }
 @media print{
+  :root{ --bg: #FFFFFF; --bg-soft: #F4F5F7; --bg-soft-2: #E9ECF1; --ink: #161A22; --ink-soft: #3F4652; --ink-faint: #6B7280; --line: #D8DCE3; --primary: #1E3A8A; --primary-tint: #E8EDF7; }
+  body{ background: #fff; color: #161A22; }
+  .check-icon, .score-bar i, .area-tag{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .topbar, footer, .check-form, .check-alt, .tool-msg, #erklaerung, #faq, .check-cta, #printBtn, .check-hero .notice, .check-hero .section-head{ display: none !important; }
   .check-result{ margin-top: 0; }
   details.raw{ display: block; }
