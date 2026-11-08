@@ -1,0 +1,303 @@
+[
+  {
+    "seite": "ru-services.de",
+    "status": "ok",
+    "sekunden": 0.1,
+    "ergebnis": true,
+    "seo": "91",
+    "geo": "77",
+    "weg": "direkt",
+    "nebendateien": [
+      "ok (direkt)",
+      "ok (direkt)",
+      "ok (direkt)"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Seitentitel",
+      "Beschreibung für Suchergebnisse",
+      "Unternehmensdaten maschinenlesbar",
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": []
+  },
+  {
+    "seite": "https://www.handwerk.de/",
+    "status": "ok",
+    "sekunden": 2.4,
+    "ergebnis": true,
+    "seo": "97",
+    "geo": "58",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "ok (r.jina.ai)",
+      "fehlt"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Strukturierte Daten (Schema.org)",
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Aussagekräftige Linktexte",
+      "Vorschau beim Teilen (Open Graph)",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  },
+  {
+    "seite": "www.zdf.de",
+    "status": "ok",
+    "sekunden": 3.9,
+    "ergebnis": true,
+    "seo": "98",
+    "geo": "68",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "fehlt",
+      "fehlt"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Kontaktdaten auf der Seite",
+      "Strukturierte Daten (Schema.org)",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Aussagekräftige Linktexte",
+      "Übersichtlich aufbereitete Fakten"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  },
+  {
+    "seite": "https://www.otto.de/",
+    "status": "ok",
+    "sekunden": 7.9,
+    "ergebnis": true,
+    "seo": "88",
+    "geo": "77",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "fehlt",
+      "ok (r.jina.ai)"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Bildbeschreibungen (Alt-Texte)",
+      "Hauptüberschrift (H1)",
+      "Unternehmensdaten maschinenlesbar",
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Vorschau beim Teilen (Open Graph)",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": []
+  },
+  {
+    "seite": "https://www.tischler.de/",
+    "status": "ok",
+    "sekunden": 4.4,
+    "ergebnis": true,
+    "seo": "68",
+    "geo": "66",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "fehlt",
+      "fehlt",
+      "fehlt"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Beschreibung für Suchergebnisse",
+      "Hauptüberschrift (H1)",
+      "Kontaktdaten auf der Seite",
+      "Seitentitel",
+      "Strukturierte Daten (Schema.org)",
+      "Textumfang",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Vorschau beim Teilen (Open Graph)",
+      "robots.txt",
+      "Sitemap",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  },
+  {
+    "seite": "https://www.bundesregierung.de/",
+    "status": "ok",
+    "sekunden": 3.4,
+    "ergebnis": true,
+    "seo": "95",
+    "geo": "74",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "fehlt",
+      "fehlt"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Hauptüberschrift (H1)",
+      "Strukturierte Daten (Schema.org)",
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Erkennbar aktuell"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  },
+  {
+    "seite": "https://www.wikipedia.org/",
+    "status": "ok",
+    "sekunden": 1.2,
+    "ergebnis": true,
+    "seo": "82",
+    "geo": "53",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "fehlt",
+      "fehlt"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Für Smartphones eingerichtet",
+      "Strukturierte Daten (Schema.org)",
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Interne Verlinkung",
+      "Seitentitel",
+      "Antworten auf typische Fragen",
+      "Eindeutige Adresse (Canonical)",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  },
+  {
+    "seite": "https://www.github.com/",
+    "status": "ok",
+    "sekunden": 27,
+    "ergebnis": true,
+    "seo": "91",
+    "geo": "59",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "unbekannt",
+      "ok (r.jina.ai)"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Strukturierte Daten (Schema.org)",
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Seitentitel",
+      "Beschreibung für Suchergebnisse",
+      "Antworten auf typische Fragen"
+    ],
+    "info": []
+  },
+  {
+    "seite": "https://www.wix.com/",
+    "status": "ok",
+    "sekunden": 8.6,
+    "ergebnis": true,
+    "seo": "98",
+    "geo": "74",
+    "weg": "r.jina.ai",
+    "nebendateien": [
+      "ok (r.jina.ai)",
+      "ok (r.jina.ai)",
+      "ok (r.jina.ai)"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Kontaktdaten auf der Seite",
+      "Klar erkennbarer Anbieter",
+      "Unternehmensdaten maschinenlesbar",
+      "Größe des Quelltexts",
+      "Erkennbar aktuell"
+    ],
+    "info": []
+  },
+  {
+    "seite": "https://www.ihk.de/",
+    "status": "ok",
+    "sekunden": 1.2,
+    "ergebnis": true,
+    "seo": "80",
+    "geo": "52",
+    "weg": "direkt",
+    "nebendateien": [
+      "ok (direkt)",
+      "fehlt",
+      "fehlt"
+    ],
+    "meldung": "",
+    "schlecht": [
+      "Inhalt ohne JavaScript lesbar",
+      "Beschreibung für Suchergebnisse",
+      "Textumfang",
+      "Kontaktdaten auf der Seite",
+      "Gliederung mit Zwischenüberschriften",
+      "Unternehmensdaten maschinenlesbar",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Vorschau beim Teilen (Open Graph)",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  },
+  {
+    "seite": "https://www.gibt-es-sicher-nicht-12345.de/",
+    "status": "ok",
+    "sekunden": 36.8,
+    "ergebnis": false,
+    "seo": null,
+    "geo": null,
+    "weg": null,
+    "nebendateien": null,
+    "meldung": "Die Seite konnte nicht abgerufen werden. Mögliche Gründe: Die Adresse ist falsch, die Seite ist gerade nicht erreichbar oder sie blockiert automatische Abrufe.\n",
+    "schlecht": [
+      "Inhalt ohne JavaScript lesbar",
+      "Beschreibung für Suchergebnisse",
+      "Textumfang",
+      "Kontaktdaten auf der Seite",
+      "Gliederung mit Zwischenüberschriften",
+      "Unternehmensdaten maschinenlesbar",
+      "Klar erkennbarer Anbieter",
+      "Antworten auf typische Fragen",
+      "Vorschau beim Teilen (Open Graph)",
+      "Übersichtlich aufbereitete Fakten",
+      "Erkennbar aktuell"
+    ],
+    "info": [
+      "llms.txt"
+    ]
+  }
+]
