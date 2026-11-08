@@ -13,6 +13,7 @@
 
 - [Webseiten erstellen](https://ru-services.de/webseiten/): Ru-Services erstellt Webseiten für kleine Betriebe, schnell, zuverlässig und in engem Austausch. Anfragen per E-Mail an finn.rummel@gmail.com.
 - [Referenzen](https://ru-services.de/webseiten/referenzen/): Beispiele für Webseiten, die bereits online sind.
+- [SEO- und GEO-Check](https://ru-services.de/webseiten/seo-geo-check/): kostenloses Werkzeug, das eine Webseite auf Suchmaschinenoptimierung (SEO) und Sichtbarkeit in KI-Antworten (GEO) prüft, mit Stärken, Schwächen und Tipps.
 
 ## IT-Beratung
 

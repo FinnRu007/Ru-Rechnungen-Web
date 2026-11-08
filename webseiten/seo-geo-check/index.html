@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="de" class="has-subnav">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO- und GEO-Check: Webseite kostenlos prüfen | Ru-Services</title>
+<meta name="description" content="Prüfen Sie kostenlos, wie gut Ihre Webseite bei Google (SEO) und in KI-Antworten wie ChatGPT (GEO) gefunden wird. Mit Stärken, Schwächen und konkreten Tipps.">
+<meta name="theme-color" content="#1E3A8A">
+<link rel="canonical" href="https://ru-services.de/webseiten/seo-geo-check/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Ru-Services">
+<meta property="og:title" content="SEO- und GEO-Check für Ihre Webseite">
+<meta property="og:description" content="Kostenlos prüfen, wie gut Ihre Webseite bei Google und in KI-Antworten gefunden wird.">
+<meta property="og:url" content="https://ru-services.de/webseiten/seo-geo-check/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<link rel="stylesheet" href="/styles.css?v=3">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "SEO- und GEO-Check",
+      "url": "https://ru-services.de/webseiten/seo-geo-check/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Browser",
+      "inLanguage": "de",
+      "isAccessibleForFree": true,
+      "provider": { "@type": "Organization", "name": "Ru-Services", "url": "https://ru-services.de/" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Was ist SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO (Search Engine Optimization, Suchmaschinenoptimierung) umfasst alle Maßnahmen, mit denen eine Webseite in Suchmaschinen wie Google weiter oben erscheint." } },
+        { "@type": "Question", "name": "Was ist GEO?", "acceptedAnswer": { "@type": "Answer", "text": "GEO (Generative Engine Optimization) bedeutet, eine Webseite so aufzubereiten, dass KI-Assistenten wie ChatGPT, Google mit KI-Übersicht, Perplexity oder Claude sie verstehen, als Quelle nutzen und das Unternehmen in ihren Antworten nennen." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="seo-geo-check">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="wordmark"><span class="dot"></span>Ru-Services</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Hauptmenü">
+      <a href="/">Ru-Services</a>
+      <a href="/rechnungen/">Rechnungen</a>
+      <a href="/webseiten/" aria-current="page">Webseiten</a>
+      <a href="/it-beratung/">IT-Beratung</a>
+      <a href="/vereine/">Vereine</a>
+      <a href="/webseiten/#anfrage" class="nav-cta">Jetzt anfragen</a>
+    </nav>
+  </div>
+  <nav class="subnav" aria-label="Webseiten">
+    <div class="subnav-inner">
+      <span class="sub-label">Webseiten</span>
+      <a href="/webseiten/#vorteile">Vorteile</a>
+      <a href="/webseiten/#ablauf">Ablauf</a>
+      <a href="/webseiten/#leistungen">Leistungen</a>
+      <a href="/webseiten/#faq">FAQ</a>
+      <a href="/webseiten/referenzen/">Referenzen</a>
+      <a href="/webseiten/seo-geo-check/" aria-current="page">SEO- und GEO-Check</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ WERKZEUG ============ -->
+  <section class="check-hero">
+    <div class="wrap">
+      <div class="section-head" style="max-width:800px;">
+        <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Ru-Services</a><span aria-hidden="true">/</span><a href="/webseiten/">Webseiten</a><span aria-hidden="true">/</span><span>SEO- und GEO-Check</span></nav>
+        <p class="eyebrow">Kostenloses Werkzeug</p>
+        <h1 class="hero-title page-title">SEO- und GEO-Check für Ihre Webseite</h1>
+        <p class="lede">
+          Geben Sie die Adresse Ihrer Webseite ein. Sie sehen in wenigen
+          Sekunden, was bei Google (SEO) und in den Antworten von
+          KI-Assistenten wie ChatGPT (GEO) schon gut ist und was Sie verbessern
+          können. Kostenlos und ohne Anmeldung.
+        </p>
+      </div>
+
+      <form class="check-form" id="checkForm" novalidate>
+        <label for="urlInput" class="check-label">Adresse Ihrer Webseite</label>
+        <div class="check-row">
+          <input type="url" id="urlInput" name="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="www.ihre-firma.de" required>
+          <button type="submit" class="btn btn-primary btn-xl" id="checkBtn">Jetzt prüfen</button>
+        </div>
+        <p class="check-hint">Geprüft wird die eingegebene Seite, meist Ihre Startseite. Unterseiten können Sie einzeln prüfen.</p>
+      </form>
+
+      <div id="toolMsg" class="tool-msg" role="status" aria-live="polite"></div>
+
+      <details class="check-alt" id="quelltext">
+        <summary>Seite lässt sich nicht abrufen? Quelltext einfügen</summary>
+        <form id="htmlForm" class="check-alt-body" novalidate>
+          <p>Manche Seiten sperren automatische Abrufe. Dann fügen Sie den
+          Quelltext selbst ein: Seite im Browser öffnen, <b>Strg&nbsp;+&nbsp;U</b>
+          drücken (Mac: <b>Wahltaste&nbsp;+&nbsp;Cmd&nbsp;+&nbsp;U</b>), alles
+          markieren, kopieren und hier einfügen. Der Quelltext wird nur in
+          Ihrem Browser ausgewertet.</p>
+          <div class="field">
+            <label for="htmlInput">HTML-Quelltext</label>
+            <textarea id="htmlInput" rows="8" spellcheck="false" placeholder="&lt;!doctype html&gt; …"></textarea>
+          </div>
+          <div class="field">
+            <label for="htmlUrl">Adresse der Seite <span class="req">optional</span></label>
+            <input type="url" id="htmlUrl" inputmode="url" spellcheck="false" placeholder="www.ihre-firma.de">
+          </div>
+          <p class="field-note">Mit Adresse werden zusätzlich robots.txt, Sitemap und llms.txt geprüft.</p>
+          <button type="submit" class="btn btn-secondary">Quelltext prüfen</button>
+        </form>
+      </details>
+
+      <!-- ============ ERGEBNIS ============ -->
+      <div class="result check-result" id="result" hidden>
+        <div class="result-head">
+          <h2 id="resHeading" tabindex="-1">Ergebnis für <span id="resUrl"></span></h2>
+          <button type="button" class="btn btn-secondary" id="printBtn">Bericht drucken</button>
+        </div>
+
+        <div class="score-grid">
+          <div class="score-box" id="score-seo">
+            <p class="score-label">SEO <span>Gefunden werden bei Google und Co.</span></p>
+            <p class="score-value"><b class="score-num">0</b> <span>von 100</span></p>
+            <div class="score-bar" aria-hidden="true"><i></i></div>
+            <p class="score-verdict"></p>
+          </div>
+          <div class="score-box" id="score-geo">
+            <p class="score-label">GEO <span>Genannt werden in KI-Antworten</span></p>
+            <p class="score-value"><b class="score-num">0</b> <span>von 100</span></p>
+            <div class="score-bar" aria-hidden="true"><i></i></div>
+            <p class="score-verdict"></p>
+          </div>
+        </div>
+
+        <div class="check-cols">
+          <div class="check-col">
+            <h3 class="check-col-title bad"><span id="resBadCount">0</span> Punkte zum Verbessern</h3>
+            <ul class="check-list" id="resBad"></ul>
+          </div>
+          <div class="check-col">
+            <h3 class="check-col-title good"><span id="resGoodCount">0</span> Punkte, die schon gut sind</h3>
+            <ul class="check-list" id="resGood"></ul>
+          </div>
+        </div>
+
+        <div id="resInfoWrap" hidden>
+          <h3 class="check-col-title">Hinweise</h3>
+          <ul class="check-list" id="resInfo"></ul>
+        </div>
+
+        <details class="raw">
+          <summary>Gefundene Angaben anzeigen</summary>
+          <dl class="kv facts-kv" id="resFacts"></dl>
+        </details>
+
+        <div class="cta-band check-cta">
+          <h3>Unterstützung bei den Verbesserungen?</h3>
+          <p>Ru-Services setzt die Punkte für Sie um oder baut Ihnen eine neue
+          Webseite, die von Anfang an für Google und KI-Assistenten
+          eingerichtet ist.</p>
+          <div class="hero-actions" style="justify-content:center;margin:0;">
+            <a href="mailto:finn.rummel@gmail.com?subject=Anfrage%20SEO%20und%20GEO" id="resMail" class="btn btn-primary btn-xl btn-on-band">Jetzt anfragen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:32px;max-width:900px;">
+        <p><strong>So funktioniert der Abruf.</strong> Webseiten anderer
+        Anbieter darf ein Browser aus Sicherheitsgründen meist nicht direkt
+        auslesen. Der Check fragt Ihre Seite deshalb über einen öffentlichen
+        Abrufdienst ab (Jina AI Reader, ersatzweise cors.lol, allorigins.win
+        oder codetabs.com). Übermittelt wird dabei nur die eingegebene Adresse.
+        Die Auswertung findet vollständig in Ihrem Browser statt, nichts wird
+        bei Ru-Services gespeichert. Details in der
+        <a href="/datenschutz.html#seo-geo-check">Datenschutzerklärung</a>.</p>
+        <p>Der Check ist eine automatische Ersteinschätzung des Quelltexts und
+        ersetzt keine vollständige Analyse. Er sagt nichts über Ihre
+        tatsächliche Platzierung bei Google oder in KI-Antworten aus. Angaben
+        ohne Gewähr.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ERKLÄRUNG ============ -->
+  <section id="erklaerung" class="on-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Kurz erklärt</p>
+        <h2 class="section-title">Was sind SEO und GEO?</h2>
+      </div>
+      <div class="explain-grid">
+        <div class="explain-card">
+          <p class="explain-tag">SEO</p>
+          <h3>Gefunden werden bei Google</h3>
+          <p><strong>SEO</strong> steht für Search Engine Optimization, auf
+          Deutsch Suchmaschinenoptimierung. Gemeint ist alles, was dafür sorgt,
+          dass Ihre Webseite bei Google, Bing und Co. möglichst weit oben
+          erscheint, wenn jemand nach Ihrer Leistung in Ihrer Region sucht.</p>
+          <p>Wichtig sind zum Beispiel ein passender Seitentitel, eine gute
+          Beschreibung, klare Überschriften, genug Text, eine schnelle und
+          handytaugliche Seite und eine saubere Technik im Hintergrund.</p>
+        </div>
+        <div class="explain-card">
+          <p class="explain-tag">GEO</p>
+          <h3>Genannt werden von KI-Assistenten</h3>
+          <p><strong>GEO</strong> steht für Generative Engine Optimization.
+          Immer mehr Menschen fragen nicht mehr Google, sondern ChatGPT,
+          Perplexity, Claude, Microsoft Copilot oder lesen die KI-Übersicht
+          bei Google. Diese Systeme antworten in ganzen Sätzen und nennen
+          dabei einige wenige Betriebe.</p>
+          <p>GEO sorgt dafür, dass Ihr Betrieb dazugehört: Die KI-Dienste
+          müssen Ihre Seite lesen dürfen, die Inhalte müssen als Text
+          vorliegen, und Angaben wie Leistungen, Ort, Kontakt und Antworten
+          auf typische Fragen müssen klar und eindeutig sein.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title" style="margin-top:44px;">Was der Check prüft</h3>
+      <div class="explain-grid three">
+        <div class="explain-card small">
+          <h4>Inhalt und Aufbau</h4>
+          <ul class="plain-list">
+            <li>Seitentitel und Beschreibung</li>
+            <li>Hauptüberschrift und Gliederung</li>
+            <li>Textumfang, Alt-Texte der Bilder</li>
+            <li>Linktexte und interne Links</li>
+          </ul>
+        </div>
+        <div class="explain-card small">
+          <h4>Technik</h4>
+          <ul class="plain-list">
+            <li>HTTPS und Handy-Darstellung</li>
+            <li>robots.txt, Sitemap, Canonical</li>
+            <li>Sperren für Suchmaschinen</li>
+            <li>Vorschau beim Teilen, Favicon</li>
+          </ul>
+        </div>
+        <div class="explain-card small">
+          <h4>KI-Sichtbarkeit</h4>
+          <ul class="plain-list">
+            <li>Zugang für ChatGPT, Claude, Perplexity und Google-KI</li>
+            <li>Inhalt ohne JavaScript lesbar</li>
+            <li>Strukturierte Daten zum Unternehmen</li>
+            <li>Kontaktdaten, Impressum, FAQ, Aktualität</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2 class="section-title">Fragen zum Check</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Wie wird die Punktzahl berechnet?</summary>
+          <p>Jeder Prüfpunkt hat ein Gewicht, je nachdem wie wichtig er ist. Ein erfüllter Punkt zählt voll, ein verbesserbarer Punkt halb, ein fehlender gar nicht. Daraus ergibt sich je eine Zahl von 0 bis 100 für SEO und für GEO. Reine Hinweise fließen nicht ein.</p>
+        </details>
+        <details>
+          <summary>Heißt eine hohe Punktzahl, dass ich bei Google oben stehe?</summary>
+          <p>Nein. Der Check prüft, ob die Grundlagen stimmen. Wie weit oben Sie stehen, hängt zusätzlich von der Konkurrenz, von Links anderer Seiten, Bewertungen, Ihrem Google-Unternehmensprofil und vielem mehr ab. Gute Grundlagen sind aber die Voraussetzung.</p>
+        </details>
+        <details>
+          <summary>Warum ist GEO für kleine Betriebe wichtig?</summary>
+          <p>KI-Assistenten nennen auf eine Frage wie „Guter Dachdecker in meiner Nähe?“ meist nur zwei oder drei Betriebe. Wer dort nicht vorkommt, wird gar nicht wahrgenommen. Da diese Systeme vor allem lesen, was klar und maschinenlesbar auf Webseiten steht, haben auch kleine Betriebe mit einer gut aufbereiteten Seite gute Chancen.</p>
+        </details>
+        <details>
+          <summary>Meine Seite wurde mit einem Baukasten erstellt. Funktioniert der Check trotzdem?</summary>
+          <p>Ja. Der Check liest den Quelltext, den auch Suchmaschinen sehen, egal womit die Seite gebaut ist. Lädt ein Baukasten die Inhalte erst per JavaScript nach, zeigt der Check das an, denn genau das ist für viele KI-Dienste ein Problem.</p>
+        </details>
+        <details>
+          <summary>Werden meine Daten gespeichert?</summary>
+          <p>Ru-Services speichert nichts. Die Adresse geht nur an den öffentlichen Abrufdienst, der die Seite für Ihren Browser lädt. Die Auswertung läuft vollständig in Ihrem Browser. Wenn Sie den Quelltext von Hand einfügen, verlässt er Ihr Gerät nicht.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-seat">© 2026 Ru-Services · Finn Rummel · Nordrhein-Westfalen, Deutschland</span>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/webseiten/referenzen/">Referenzen</a>
+      <a href="mailto:finn.rummel@gmail.com">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script src="/webseiten/seo-geo-check/analyse.js?v=1"></script>
+<script src="/webseiten/seo-geo-check/pruefer.js?v=1"></script>
+</body>
+</html>

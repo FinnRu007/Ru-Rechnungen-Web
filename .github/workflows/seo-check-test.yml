@@ -1,0 +1,32 @@
+name: SEO-GEO-Check Test
+# Prüft das Werkzeug /webseiten/seo-geo-check/ mit echten Webseiten.
+# Läuft nur von Hand (Actions, "Run workflow") und bei Änderungen am Werkzeug.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'webseiten/seo-geo-check/**'
+      - 'tests/seo-geo-check.e2e.js'
+      - '.github/workflows/seo-check-test.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Playwright installieren
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Werkzeug mit echten Seiten testen
+        run: node tests/seo-geo-check.e2e.js test-ergebnisse
+      - name: Screenshots sichern
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-geo-check-test
+          path: test-ergebnisse
+          retention-days: 1

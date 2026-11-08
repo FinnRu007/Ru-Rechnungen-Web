@@ -24,6 +24,9 @@ rechnungen/e-rechnung-erstellen/   Werkzeug: E-Rechnung (ZUGFeRD, Profil EN 1693
                                    im Browser erstellen. erzeugen.js = Berechnung, XML, PDF;
                                    ersteller.js = Formular, Vorschau, Download; srgb.icc
 rechnungen/e-rechnung-lesen/       Werkzeug: ZUGFeRD/XRechnung im Browser lesen (leser.js)
+webseiten/seo-geo-check/           Werkzeug: SEO- und GEO-Check einer Webseite. analyse.js =
+                                   Prüfpunkte und Noten, pruefer.js = Abruf und Anzeige
+tests/seo-geo-check.e2e.js         Test des Checks mit echten Webseiten (GitHub Actions)
 vereine/index.html                 KI-Wissensportal für Vereine: eigenständiges,
                                    gefördertes Projekt (grün, eigene Navigation)
 impressum.html                     Impressum (§ 5 DDG)
@@ -113,3 +116,27 @@ zusammen“ packt beide Dateien ohne Kompression in eine ZIP-Datei
 echten Pixeldichte des Bildschirms und zeichnet nach Zoom oder
 Größenänderung neu.
 Das ZUGFeRD-Logo wird auf dieser Seite bewusst nicht verwendet.
+
+## Werkzeug „SEO- und GEO-Check“
+
+`/webseiten/seo-geo-check/` prüft eine eingegebene Webseite auf SEO
+(Suchmaschinen) und GEO (Sichtbarkeit in KI-Antworten) und zeigt Stärken,
+Schwächen und Tipps. Die Noten (0 bis 100) ergeben sich aus gewichteten
+Prüfpunkten in `analyse.js` (gut = voll, verbesserbar = halb, fehlt = 0,
+Hinweise zählen nicht).
+
+**Abruf:** Eine statische Seite kann fremde Webseiten wegen CORS nicht direkt
+lesen. `pruefer.js` versucht deshalb nacheinander: direkt, Jina AI Reader
+(`r.jina.ai`, Quelltext ohne JavaScript, danach mit Browser), `api.cors.lol`,
+`api.allorigins.win`, `api.codetabs.com`. Klappt nichts, kann der Quelltext
+von Hand eingefügt werden. Stand 08.11.2026 (Test von GitHub aus): Jina
+antwortet zuverlässig in etwa einer Sekunde, die anderen Dienste waren oft
+überlastet (Fehler 429, 522) und bleiben nur als Ersatz. corsproxy.io
+verlangt inzwischen einen API-Schlüssel und ist deshalb nicht dabei. Neue
+oder geänderte Dienste immer auch in `datenschutz.html#seo-geo-check` und im
+Hinweis auf der Werkzeugseite eintragen.
+
+**Test:** Workflow „SEO-GEO-Check Test“ (läuft bei Änderungen am Werkzeug oder
+von Hand unter Actions). Er ruft das Werkzeug unter der echten Domain auf
+(Dateien lokal ausgeliefert), prüft rund zehn echte Webseiten und legt
+Screenshots als Artifact ab (1 Tag Aufbewahrung).
