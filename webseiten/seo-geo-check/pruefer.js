@@ -263,7 +263,7 @@
       var n = r.scores[a];
       var box = $('score-' + a);
       box.className = 'score-box ' + stufe(n);
-      box.querySelector('.score-num').textContent = n === null ? '–' : n;
+      box.querySelector('.score-num').textContent = n === null ? '?' : n;
       box.querySelector('.score-verdict').textContent = urteil(n);
       box.querySelector('.score-bar i').style.width = (n || 0) + '%';
     });
