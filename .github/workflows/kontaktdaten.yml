@@ -1,0 +1,17 @@
+name: Kontaktdaten prüfen
+# Prüft bei jeder Änderung, dass Telefonnummer und E-Mail auf allen Seiten
+# mit tests/kontaktdaten.json übereinstimmen. Schlägt fehl, wenn eine Nummer abweicht.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tests/kontaktdaten-check.js
