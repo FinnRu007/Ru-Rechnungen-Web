@@ -2,6 +2,15 @@
 (function () {
   "use strict";
 
+  // --- Besucherzahlen: Cloudflare Web Analytics (ohne Cookies) ---
+  if (location.hostname === "ru-services.de") {
+    var cf = document.createElement("script");
+    cf.defer = true;
+    cf.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    cf.setAttribute("data-cf-beacon", '{"token": "94b4629432984e998c604faf1cd2ede6"}');
+    document.head.appendChild(cf);
+  }
+
   // --- Alte Ankerlinks der früheren Startseite (Produktseite) weiterleiten ---
   // z. B. ru-services.de/#download -> ru-services.de/rechnungen/#download
   if (document.body.getAttribute("data-page") === "home") {
