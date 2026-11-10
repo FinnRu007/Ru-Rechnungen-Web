@@ -2,13 +2,14 @@
 (function () {
   "use strict";
 
-  // --- Besucherzahlen: Cloudflare Web Analytics (ohne Cookies) ---
+  // --- Besucherzahlen: Umami Cloud, EU Region (ohne Cookies) ---
   if (location.hostname === "ru-services.de") {
-    var cf = document.createElement("script");
-    cf.defer = true;
-    cf.src = "https://static.cloudflareinsights.com/beacon.min.js";
-    cf.setAttribute("data-cf-beacon", '{"token": "94b4629432984e998c604faf1cd2ede6"}');
-    document.head.appendChild(cf);
+    var um = document.createElement("script");
+    um.defer = true;
+    um.src = "https://cloud.umami.is/script.js";
+    um.setAttribute("data-website-id", "ee0bf771-7ab9-479c-a60a-9571496a5964");
+    um.setAttribute("data-do-not-track", "true");
+    document.head.appendChild(um);
   }
 
   // --- Alte Ankerlinks der früheren Startseite (Produktseite) weiterleiten ---
