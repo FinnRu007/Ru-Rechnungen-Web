@@ -21,7 +21,7 @@
 
 ## Eigenständiges Projekt auf dieser Domain
 
-- [KI-Wissensportal für Vereine](https://ru-services.de/vereine/): kostenloses, nicht kommerzielles Informationsangebot für Vereine und Ehrenamtliche, gefördert durch das Land Nordrhein-Westfalen (Landesprogramm „2.000 x 1.000 Euro für das Engagement“). Erste Umsetzung: Excel-Export aus der Vereinssoftware mit KI fürs Finanzamt aufbereiten, ohne echte Mitgliederdaten an die KI zu geben. Außerdem Möglichkeiten von KI im Verein, Datenschutzregeln sowie E-Rechnungen lesen und erstellen. Keine Steuer- oder Rechtsberatung.
+- [KI-Wissensportal für Vereine](https://ru-services.de/vereine/): kostenloses, nicht kommerzielles Informationsangebot für Vereine und Ehrenamtliche, gefördert durch das Land Nordrhein-Westfalen (Landesprogramm „2.000 x 1.000 Euro für das Engagement“). Erste Umsetzung: Excel-Export aus der Vereinssoftware mit KI fürs Finanzamt aufbereiten, ohne echte Mitgliederdaten an die KI zu geben. Interaktive Werkzeuge im Browser: KI-Check, Prompt-Baukasten, Zeitspar-Rechner und Datenschutz-Ampel. Praxistest: dieselbe Vereinsaufgabe an mehrere KI-Modelle, Antworten im direkten Vergleich. Außerdem Möglichkeiten von KI im Verein, Datenschutzregeln sowie E-Rechnungen lesen und erstellen. Keine Steuer- oder Rechtsberatung.
 
 ## Unternehmen
 
