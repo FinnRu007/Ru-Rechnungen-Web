@@ -29,6 +29,11 @@ webseiten/seo-geo-check/           Werkzeug: SEO- und GEO-Check einer Webseite. 
 tests/seo-geo-check.e2e.js         Test des Checks mit echten Webseiten (GitHub Actions)
 vereine/index.html                 KI-Wissensportal für Vereine: eigenständiges,
                                    gefördertes Projekt (grün, eigene Navigation)
+vereine/werkzeuge.js               Interaktive Werkzeuge der Vereinsseite: KI-Check,
+                                   Prompt-Baukasten, Zeitspar-Rechner, Datenschutz-Ampel,
+                                   Vorher-Nachher-Regler, Praxistest. Läuft nur im Browser
+vereine/arena-daten.js             Praxistest: Aufgaben und unveränderte Antworten der
+                                   KI-Modelle. Neue Modelle und Aufgaben hier eintragen
 impressum.html                     Impressum (§ 5 DDG)
 datenschutz.html                   Datenschutzerklärung (DSGVO)
 404.html                           Fehlerseite

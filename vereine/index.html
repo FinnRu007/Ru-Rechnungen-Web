@@ -38,8 +38,9 @@
     <a href="/vereine/" class="wordmark"><span class="dot"></span>KI-Wissensportal <small>für Vereine</small></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰</button>
     <nav class="nav" id="mainNav" aria-label="KI-Wissensportal">
-      <a href="#erste-umsetzung">Erste Umsetzung</a>
-      <a href="#moeglichkeiten">Möglichkeiten</a>
+      <a href="#werkzeuge">Werkzeuge</a>
+      <a href="#praxistest">Praxistest</a>
+      <a href="#erste-umsetzung">Anleitung</a>
       <a href="#e-rechnung">E-Rechnung</a>
       <a href="#datenschutz">Datenschutz</a>
       <a href="#foerderung">Förderung</a>
@@ -74,8 +75,8 @@
           Nachmachen und für alle kostenlos.
         </p>
         <div class="hero-actions">
-          <a href="#erste-umsetzung" class="btn btn-primary btn-xl">Zur ersten Umsetzung</a>
-          <a href="#e-rechnung" class="btn btn-secondary btn-xl">E-Rechnungen kostenlos lesen</a>
+          <a href="#werkzeuge" class="btn btn-primary btn-xl">Werkzeuge ausprobieren</a>
+          <a href="#praxistest" class="btn btn-secondary btn-xl">KI-Modelle im Vergleich</a>
         </div>
         <div class="notice blue foerder-notice" style="max-width:760px;">
           <a class="foerder-logo small" href="#foerderung"><img src="/img/foerderung/logo-2000x1000-engagement-nrw.png" alt="Logo des Landesprogramms 2.000 x 1.000 Euro für das Engagement in NRW" width="681" height="293"></a>
@@ -115,21 +116,169 @@
           <dt>Förderzeitraum</dt><dd>bis 31. Dezember 2026</dd>
           <dt>Für wen</dt><dd>Vereine, Schul- und Fördervereine, Ehrenamtliche</dd>
           <dt>Kosten für Vereine</dt><dd>keine</dd>
+          <dt>Stand</dt><dd>November 2026</dd>
         </dl>
       </div>
     </div>
   </section>
 
+  <!-- ============ WERKZEUGE ============ -->
+  <section id="werkzeuge">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Zum Ausprobieren</p>
+        <h2 class="section-title">Werkzeuge für den Vereinsalltag</h2>
+        <p class="lede">
+          Drei kleine Helfer, die sofort funktionieren. Alles läuft direkt in
+          Ihrem Browser: Es wird nichts gespeichert und nichts übertragen.
+        </p>
+      </div>
+
+      <!-- KI-Check -->
+      <div class="vw-box" id="ki-check">
+        <div class="vw-kopf">
+          <p class="case-label">Werkzeug 1</p>
+          <h3>KI-Check: Wo fängt Ihr Verein am besten an?</h3>
+          <p>Fünf kurze Fragen, danach drei passende Empfehlungen.</p>
+        </div>
+        <form id="kiCheckForm" class="vw-fragen">
+          <fieldset>
+            <legend>1. Wie groß ist Ihr Verein?</legend>
+            <label><input type="radio" name="groesse" value="klein"> unter 50 Mitglieder</label>
+            <label><input type="radio" name="groesse" value="mittel"> 50 bis 200 Mitglieder</label>
+            <label><input type="radio" name="groesse" value="gross"> über 200 Mitglieder</label>
+          </fieldset>
+          <fieldset>
+            <legend>2. Was kostet im Vorstand am meisten Zeit?</legend>
+            <label><input type="radio" name="zeitfresser" value="texte"> Einladungen, Briefe, Texte</label>
+            <label><input type="radio" name="zeitfresser" value="social"> Social Media und Website</label>
+            <label><input type="radio" name="zeitfresser" value="kasse"> Kasse und Tabellen</label>
+            <label><input type="radio" name="zeitfresser" value="training"> Training und Übungsstunden</label>
+            <label><input type="radio" name="zeitfresser" value="orga"> Organisation und Protokolle</label>
+          </fieldset>
+          <fieldset>
+            <legend>3. Wie viel Erfahrung mit KI gibt es im Verein?</legend>
+            <label><input type="radio" name="erfahrung" value="keine"> noch keine</label>
+            <label><input type="radio" name="erfahrung" value="etwas"> schon ausprobiert</label>
+            <label><input type="radio" name="erfahrung" value="viel"> wird regelmäßig genutzt</label>
+          </fieldset>
+          <fieldset>
+            <legend>4. Bekommt oder schreibt der Verein Rechnungen an Unternehmen?</legend>
+            <label><input type="radio" name="rechnungen" value="ja"> ja</label>
+            <label><input type="radio" name="rechnungen" value="nein"> nein</label>
+            <label><input type="radio" name="rechnungen" value="unsicher"> weiß ich nicht</label>
+          </fieldset>
+          <fieldset>
+            <legend>5. Wurden schon einmal Mitgliederdaten in eine KI eingegeben?</legend>
+            <label><input type="radio" name="daten" value="ja"> ja</label>
+            <label><input type="radio" name="daten" value="nein"> nein</label>
+            <label><input type="radio" name="daten" value="unsicher"> bin nicht sicher</label>
+          </fieldset>
+          <div class="vw-aktion"><button type="submit" class="btn btn-primary">Auswerten</button></div>
+        </form>
+        <div id="kiCheckErgebnis" class="vw-ergebnis" aria-live="polite"></div>
+      </div>
+
+      <!-- Prompt-Baukasten -->
+      <div class="vw-box" id="baukasten">
+        <div class="vw-kopf">
+          <p class="case-label">Werkzeug 2</p>
+          <h3>Prompt-Baukasten: die fertige Anweisung für Ihre KI</h3>
+          <p>Auswählen, kopieren, in einen KI-Assistenten einfügen und die Platzhalter in eckigen Klammern ersetzen.</p>
+        </div>
+        <div class="vw-felder">
+          <label>Art des Vereins
+            <select id="bkArt">
+              <option>Sportverein</option>
+              <option>Musikverein</option>
+              <option>Förderverein oder Schulverein</option>
+              <option>Kulturverein</option>
+              <option>Heimat- oder Schützenverein</option>
+              <option>anderer Verein</option>
+            </select>
+          </label>
+          <label>Aufgabe
+            <select id="bkAufgabe">
+              <option value="einladung">Einladung zur Mitgliederversammlung</option>
+              <option value="social">Beitrag für Social Media</option>
+              <option value="dank">Dankesbrief an Sponsor oder Spender</option>
+              <option value="training">Trainings- oder Übungsplan</option>
+              <option value="presse">Pressemitteilung</option>
+              <option value="foerder">Förderantrag: Projektbeschreibung</option>
+              <option value="protokoll">Protokoll aus Stichpunkten</option>
+              <option value="excel">Hilfe bei einer Excel-Tabelle</option>
+            </select>
+          </label>
+          <label>Ton
+            <select id="bkTon">
+              <option>freundlich und verbindlich, per Sie</option>
+              <option>freundlich und locker, per Du</option>
+              <option>sachlich und knapp</option>
+              <option>feierlich</option>
+            </select>
+          </label>
+          <label>Länge
+            <select id="bkLaenge">
+              <option>kurz, höchstens 100 Wörter</option>
+              <option selected>mittel, etwa 200 Wörter</option>
+              <option>ausführlich</option>
+            </select>
+          </label>
+          <label class="vw-breit">Name des Vereins (freiwillig, bleibt in Ihrem Browser)
+            <input type="text" id="bkName" autocomplete="off" placeholder="z. B. TV Musterstadt 1912 e.V.">
+          </label>
+        </div>
+        <div class="prompt-box vw-prompt">
+          <div class="prompt-head">
+            <h3>Ihre Anweisung</h3>
+            <button type="button" class="btn btn-secondary copy-btn" data-copy="baukastenText">Text kopieren</button>
+          </div>
+          <pre id="baukastenText" aria-live="polite"></pre>
+        </div>
+        <p class="caution">Tragen Sie keine Namen, Adressen oder Bankdaten von Mitgliedern ein. Was hinein darf, zeigt die <a href="#ampel">Datenschutz-Ampel</a>.</p>
+      </div>
+
+      <!-- Zeitspar-Rechner -->
+      <div class="vw-box" id="zeitrechner">
+        <div class="vw-kopf">
+          <p class="case-label">Werkzeug 3</p>
+          <h3>Zeitspar-Rechner: Was könnte KI Ihrem Vorstand abnehmen?</h3>
+          <p>Schätzen Sie, wie viele Stunden im Monat für diese Aufgaben anfallen.</p>
+        </div>
+        <div class="vw-rechner">
+          <div class="vw-regler">
+            <label for="zrTexte">Einladungen, Briefe, Texte <output id="zrTexteWert"></output></label>
+            <input type="range" id="zrTexte" data-stunden min="0" max="20" step="1" value="4">
+            <label for="zrSocial">Social Media und Website <output id="zrSocialWert"></output></label>
+            <input type="range" id="zrSocial" data-stunden min="0" max="20" step="1" value="3">
+            <label for="zrProtokoll">Protokolle und Organisation <output id="zrProtokollWert"></output></label>
+            <input type="range" id="zrProtokoll" data-stunden min="0" max="20" step="1" value="2">
+            <label for="zrTabellen">Tabellen und Auswertungen <output id="zrTabellenWert"></output></label>
+            <input type="range" id="zrTabellen" data-stunden min="0" max="20" step="1" value="2">
+            <label for="zrAnteil" class="vw-annahme">Angenommene Ersparnis durch KI <output id="zrAnteilWert"></output></label>
+            <input type="range" id="zrAnteil" min="10" max="60" step="5" value="30">
+          </div>
+          <div class="vw-summe" aria-live="polite">
+            <p class="vw-summe-klein"><span id="zrMonat">0</span> Stunden Aufwand im Monat</p>
+            <p class="vw-summe-gross"><span id="zrJahr">0</span><small>Stunden im Jahr gewonnen</small></p>
+            <p class="vw-summe-klein">Das entspricht etwa <span id="zrTage">0</span> Arbeitstagen zu je acht Stunden.</p>
+          </div>
+        </div>
+        <p class="caution">Das ist eine Schätzung, kein Messwert. Die Ersparnis legen Sie selbst fest. Wie viel es wirklich ist, hängt von den Aufgaben ab, und jedes Ergebnis muss gegengelesen werden.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ ERSTE UMSETZUNG ============ -->
-  <!-- Der Verein wird bewusst nicht namentlich genannt. Namen erst mit schriftlichem Einverständnis des Vereins eintragen. -->
-  <section id="erste-umsetzung">
+  <!-- Der anfragende Verein wird auf dieser Seite bewusst nicht genannt, auch nicht nach Art oder Sportart. -->
+  <section id="erste-umsetzung" class="on-soft">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Erste Umsetzung</p>
         <h2 class="section-title">Excel-Export aus der Vereinssoftware fürs Finanzamt aufbereiten</h2>
         <p class="lede">
           Durch das Projekt ist bereits die erste Umsetzung entstanden. Ein
-          Skiclub aus Nordrhein-Westfalen hat sich mit einer Frage gemeldet,
+          Verein aus Nordrhein-Westfalen hat sich mit einer Frage gemeldet,
           die viele Kassenwarte kennen.
         </p>
       </div>
@@ -149,6 +298,49 @@
           <h3>Eine Anleitung für alle Vereine</h3>
           <p>Daraus ist die Schritt-für-Schritt-Anleitung unten entstanden. Jeder Verein kann sie selbst nachmachen, mit jedem Export und ohne Zusatzsoftware.</p>
         </div>
+      </div>
+
+      <!-- Vorher und Nachher: frei erfundene Beispieldaten -->
+      <div class="vw-box vw-vn" id="vorher-nachher">
+        <div class="vw-kopf">
+          <p class="case-label">Vorher und nachher</p>
+          <h3>So verändert sich die Tabelle</h3>
+          <p>Ziehen Sie den Regler: links der rohe Export, rechts die aufbereitete Fassung. Alle Daten sind frei erfunden.</p>
+        </div>
+        <div class="vn-buehne" id="vnBuehne">
+          <div class="vn-ebene vn-vorher" aria-label="Vorher: roher Export">
+            <span class="vn-etikett">Vorher</span>
+            <table>
+              <thead><tr><th>Datum</th><th>Buchungstext</th><th>Betrag</th></tr></thead>
+              <tbody>
+                <tr><td>03.01.26</td><td>BEITRAG 2026 SAMMEL</td><td>1840</td></tr>
+                <tr><td>09.01.26</td><td>hallenmiete jan</td><td>-320,00</td></tr>
+                <tr><td>14.01.26</td><td>Getränke Turnier</td><td>412,5</td></tr>
+                <tr><td>14.01.26</td><td>Getränke Einkauf</td><td>-198,40</td></tr>
+                <tr><td>22.01.26</td><td>SPENDE</td><td>250</td></tr>
+                <tr><td>30.01.26</td><td>Zinsen</td><td>3,12</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="vn-ebene vn-nachher" aria-label="Nachher: aufbereitete Tabelle">
+            <span class="vn-etikett">Nachher</span>
+            <table>
+              <thead><tr><th>Beleg</th><th>Datum</th><th>Buchungstext</th><th>Bereich</th><th>Einnahme</th><th>Ausgabe</th></tr></thead>
+              <tbody>
+                <tr><td>001</td><td>03.01.2026</td><td>Mitgliedsbeiträge 2026</td><td>ideeller Bereich</td><td>1.840,00</td><td></td></tr>
+                <tr><td>002</td><td>09.01.2026</td><td>Hallenmiete Januar</td><td>ideeller Bereich</td><td></td><td>320,00</td></tr>
+                <tr><td>003</td><td>14.01.2026</td><td>Getränkeverkauf Turnier</td><td>wirtsch. Geschäftsbetrieb</td><td>412,50</td><td></td></tr>
+                <tr><td>004</td><td>14.01.2026</td><td>Getränkeeinkauf</td><td>wirtsch. Geschäftsbetrieb</td><td></td><td>198,40</td></tr>
+                <tr><td>005</td><td>22.01.2026</td><td>Spende</td><td>ideeller Bereich</td><td>250,00</td><td></td></tr>
+                <tr><td>006</td><td>30.01.2026</td><td>Zinsen Sparkonto</td><td>Vermögensverwaltung</td><td>3,12</td><td></td></tr>
+              </tbody>
+              <tfoot><tr><td></td><td></td><td></td><td>Summe Januar</td><td>2.505,62</td><td>518,40</td></tr></tfoot>
+            </table>
+          </div>
+        </div>
+        <label class="vn-regler-label" for="vnRegler">Regler: Anteil der aufbereiteten Tabelle</label>
+        <input type="range" id="vnRegler" class="vn-regler" min="0" max="100" value="50">
+        <p class="caution">Die Zuordnung zu den Bereichen ist hier nur ein Beispiel. Wie eine Buchung einzuordnen ist, entscheidet der Verein, im Zweifel mit der Steuerberatung.</p>
       </div>
 
       <div class="two-col" style="margin-top:48px;align-items:start;">
@@ -185,7 +377,7 @@
   </section>
 
   <!-- ============ KI SCHRITT FÜR SCHRITT ============ -->
-  <section id="ki-einfach" class="on-soft">
+  <section id="ki-einfach">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Die einfache Lösung mit KI</p>
@@ -281,7 +473,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
   </section>
 
   <!-- ============ MÖGLICHKEITEN ============ -->
-  <section id="moeglichkeiten">
+  <section id="moeglichkeiten" class="on-soft">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Möglichkeiten</p>
@@ -301,7 +493,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
             <li>Beitragsideen zu Saisonstart, Turnier oder Jubiläum</li>
             <li>Einen Text in kurzen Fassungen für mehrere Kanäle</li>
           </ul>
-          <p class="try"><span>Beispiel:</span> „Erstelle einen Redaktionsplan für die Instagram-Seite unseres Skiclubs von November bis Januar, zwei Beiträge pro Woche.“</p>
+          <p class="try"><span>Beispiel:</span> „Erstelle einen Redaktionsplan für die Instagram-Seite unseres Sportvereins für die nächsten drei Monate, zwei Beiträge pro Woche.“</p>
           <p class="caution">Fotos von Personen nur mit deren Einwilligung veröffentlichen.</p>
         </article>
         <article class="topic">
@@ -333,7 +525,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
             <li>Angebote für Familien, Ältere oder Einsteiger</li>
             <li>Projektplan mit Aufgaben, Zeitplan und Kosten</li>
           </ul>
-          <p class="try"><span>Beispiel:</span> „Welche Angebote könnte ein Skiclub im Sommer machen, damit die Mitglieder aktiv bleiben?“</p>
+          <p class="try"><span>Beispiel:</span> „Welche Angebote könnte ein Sportverein in der Sommerpause machen, damit die Mitglieder aktiv bleiben?“</p>
         </article>
         <article class="topic">
           <h3>Digitalisierung, auch ohne KI</h3>
@@ -372,7 +564,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
             <li>Trainingsplan für eine ganze Saison</li>
             <li>Ideen für Gruppen mit gemischtem Niveau</li>
           </ul>
-          <p class="try"><span>Beispiel:</span> „Erstelle ein 20-minütiges Aufwärmprogramm für Kinder von 8 bis 10 Jahren vor dem Skitraining.“</p>
+          <p class="try"><span>Beispiel:</span> „Erstelle ein 20-minütiges Aufwärmprogramm für Kinder von 8 bis 10 Jahren vor dem Training.“</p>
           <p class="caution">KI ersetzt keine Trainerausbildung. Sicherheit geht vor.</p>
         </article>
         <article class="topic">
@@ -392,6 +584,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
             <li>Was gut klappt und wo Fehler passieren</li>
             <li>Kostenlos oder Bezahlversion: was lohnt sich</li>
           </ul>
+          <p class="try"><a href="#praxistest">Zum ersten Praxistest</a></p>
         </article>
         <article class="topic">
           <h3>Lokale KI</h3>
@@ -409,6 +602,36 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
           <p class="try"><a href="/rechnungen/e-rechnung-lesen/">Zum E-Rechnung-Leser</a> · <a href="/rechnungen/e-rechnung-erstellen/">E-Rechnung erstellen</a></p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ PRAXISTEST ============ -->
+  <section id="praxistest">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Praxistest</p>
+        <h2 class="section-title">Gleiche Aufgabe, drei KI-Modelle</h2>
+        <p class="lede">
+          Wie unterschiedlich lösen KI-Modelle dieselbe Vereinsaufgabe? Hier
+          stehen die Antworten nebeneinander, ungekürzt und unverändert. Der
+          Verein in den Aufgaben ist erfunden.
+        </p>
+      </div>
+      <div class="vw-tabs" id="arenaTabs" role="tablist" aria-label="Aufgabe wählen"></div>
+      <div class="vw-aufgabe">
+        <p class="case-label">Die Aufgabe, wörtlich so gestellt</p>
+        <p id="arenaPrompt"></p>
+      </div>
+      <div class="vw-arena" id="arenaGitter" aria-live="polite"></div>
+      <div class="notice blue"><p><strong>Was auffällt:</strong> <span id="arenaFazit"></span></p></div>
+      <p class="lede vw-methode">
+        So wurde getestet: Stand 16. November 2026, jedes Modell bekam
+        dieselbe Aufgabe, ein Durchlauf ohne Nachbessern. Die Häkchen werden
+        automatisch gezählt, die Beobachtungen stammen vom Projekt. Ein
+        einzelner Durchlauf ist eine Momentaufnahme, keine Rangliste.
+        Weitere Modelle und Aufgaben folgen bis Dezember 2026.
+      </p>
+      <noscript><p class="caution">Für den Vergleich wird JavaScript benötigt.</p></noscript>
     </div>
   </section>
 
@@ -505,6 +728,17 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
         <a href="/datenschutz.html#hosting">Datenschutzerklärung</a>.
       </p>
 
+      <div class="vw-box" id="ampel" style="margin-top:56px;">
+        <div class="vw-kopf">
+          <p class="case-label">Datenschutz-Ampel</p>
+          <h3>Darf das in eine KI?</h3>
+          <p>Tippen Sie an, was Sie eingeben möchten. Die Ampel gilt für frei verfügbare KI-Dienste ohne Vertrag zur Auftragsverarbeitung.</p>
+        </div>
+        <div class="vw-chips" id="ampelListe"></div>
+        <div class="vw-ampel-ergebnis" id="ampelErgebnis" aria-live="polite"><p>Wählen Sie oben einen Eintrag.</p></div>
+        <p class="caution">Die Ampel ist eine Orientierung und keine Rechtsberatung. Im Zweifel hilft der Datenschutzbeauftragte des Dachverbands oder die Landesdatenschutzbehörde.</p>
+      </div>
+
       <h3 class="sub-title" style="margin-top:56px;">KI und Mitgliederdaten: die wichtigsten Regeln</h3>
       <p class="lede">
         Für die Daten seiner Mitglieder ist der Verein verantwortlich. Diese
@@ -547,17 +781,21 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
         <h2 class="section-title">Wie es weitergeht</h2>
       </div>
       <div class="timeline">
-        <div class="tl-item is-now">
+        <div class="tl-item">
           <p class="year">Oktober 2026</p>
-          <p>Förderung bewilligt, Portal gestartet. Die erste Umsetzung steht: der Weg vom Excel-Export zur Tabelle fürs Finanzamt.</p>
+          <p>Portal gestartet. Die erste Umsetzung steht: der Weg vom Excel-Export zur Tabelle fürs Finanzamt.</p>
+        </div>
+        <div class="tl-item is-now">
+          <p class="year">November 2026</p>
+          <p>Interaktive Werkzeuge online: KI-Check, Prompt-Baukasten, Zeitspar-Rechner und Datenschutz-Ampel. Dazu der erste Praxistest mit drei KI-Modellen.</p>
         </div>
         <div class="tl-item">
           <p class="year">bis Dezember 2026</p>
-          <p>Anleitungen zu allen Themen und Praxistests verschiedener KI-Modelle mit typischen Vereinsaufgaben.</p>
+          <p>Weitere Anleitungen und Praxistests mit zusätzlichen KI-Modellen und Vereinsaufgaben.</p>
         </div>
         <div class="tl-item">
           <p class="year">laufend</p>
-          <p>Fragen aus Vereinen aufnehmen. Gute Fragen werden zu neuen Anleitungen, so wie die des Skiclubs.</p>
+          <p>Fragen aus Vereinen aufnehmen. Gute Fragen werden zu neuen Anleitungen, so wie die erste zur Kassentabelle.</p>
         </div>
       </div>
     </div>
@@ -623,7 +861,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
     <div class="wrap">
       <div class="cta-band">
         <h3>Ihr Verein hat eine Frage?</h3>
-        <p>Wie der Skiclub: Schreibt, wo es im Vereinsalltag hakt. Aus guten Fragen werden neue Anleitungen für alle.</p>
+        <p>Schreibt, wo es im Vereinsalltag hakt. Aus guten Fragen werden neue Anleitungen für alle.</p>
         <div class="hero-actions" style="justify-content:center;margin:0;">
           <a href="mailto:finn.rummel@gmail.com?subject=KI-Wissensportal%20f%C3%BCr%20Vereine" class="btn btn-primary btn-xl btn-on-band">E-Mail schreiben</a>
         </div>
@@ -647,5 +885,7 @@ sein kann, weise darauf hin, dass der Verein das mit seiner Steuerberatung klär
 </footer>
 
 <script src="/script.js"></script>
+<script src="/vereine/arena-daten.js"></script>
+<script src="/vereine/werkzeuge.js"></script>
 </body>
 </html>
